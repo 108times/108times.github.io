@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/js/script.js" line="132" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b29903a2-7964-40a7-bfc2-64e3b0d5b29e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="b29903a2-7964-40a7-bfc2-64e3b0d5b29e" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,15 +253,15 @@
       <workItem from="1572357745668" duration="16181000" />
       <workItem from="1573126540300" duration="4014000" />
       <workItem from="1573130575443" duration="19214000" />
-      <workItem from="1573204368582" duration="39314000" />
+      <workItem from="1573204368582" duration="39913000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78723000" />
+    <option name="totallyTimeSpent" value="79322000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.3550885" />
