@@ -1,98 +1,128 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
 
-    <link rel="stylesheet" href="css/bootstrap.min.css"  >
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
 
     <title>Hello, world!</title>
-</head>
-<body>
-
-<!-- header / nav  -->
-<header id="header"
-        class="d-flex justify-content-center align-items-center">
-        <nav id="nav" class="container-fluid p-5">
-        <ul id="nav-list"
-            class="d-flex flex-column justify-content-center align-items-center">
-            <li class="listItem"><a href="#about">about</a></li>
-            <li class="listItem"><a href="#skills">skills</a></li>
-            <li class="listItem"><a href="#portfolio">portfolio</a></li>
-            <li class="listItem"><a href="#contact">contact</a></li>
+  </head>
+  <body>
+    <!-- header / nav  -->
+    <header
+      id="header"
+      class="d-flex justify-content-center align-items-center"
+    >
+      <nav id="nav" class="container-fluid p-5">
+        <ul
+          id="nav-list"
+          class="d-flex flex-column justify-content-center align-items-center"
+        >
+          <li class="listItem"><a href="#about">about</a></li>
+          <li class="listItem"><a href="#skills">skills</a></li>
+          <li class="listItem"><a href="#portfolio">portfolio</a></li>
+          <li class="listItem"><a href="#contact">contact</a></li>
         </ul>
-    </nav>
+      </nav>
+    </header>
 
-</header>
-
-
-<a id="navbar-toggle" >
-    <div id="navbar-icon" class="d-flex flex-column justify-content-between align-items-center">
+    <a id="navbar-toggle">
+      <div
+        id="navbar-icon"
+        class="d-flex flex-column justify-content-between align-items-center"
+      >
         <i class="inner-element"></i>
         <i class="inner-element"></i>
         <i class="inner-element"></i>
         <i class="inner-element extra"></i>
-    </div>
-</a>
+      </div>
+    </a>
+    <a id="previous-toggle" class="navbar-toggler" href="#portfolio">
+      <i></i>
+      <i></i>
+    </a>
+    <a id="next-toggle" class="navbar-toggler" href="#portfolio">
+      <i></i>
+      <i></i>
+    </a>
 
-<a id="next-toggle" class="navbar-toggler" href="#portfolio">
-    <i></i>
-    <i></i>
-</a>
-
-
-<main>
-
-    <div class="scene">
+    <main>
+      <div class="scene">
         <div class="box">
-            <section id="about" class="box__face box__face--front">
-
-                <div class="row">
-                    <div id="about-content" class="container-fluid col-md-8 col-sm-12">
-                        <h1 class="m-auto pb-5">Hello, I'm Amir!</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                            adipisci aliquam delectus dolore eaque earum eius eum hic illo illum
-                            libero minima nam nesciunt possimus praesentium quaerat quasi quis
-                            reprehenderit, saepe sit vel vitae voluptas voluptates? Cupiditate
-                            fugiat iste magnam nihil porro repellat temporibus? Excepturi
-                            exercitationem perferendis sit temporibus unde.</p>
-                    </div>
-                </div>
-
-            </section>
-            <section id="contact" class="box__face box__face--back">contact</section>
-            <section id="skills" class="box__face box__face--right">skills</section>
-            <section id="portfolio" class="box__face box__face--left">portfolio</section>
-            <section class="box__face box__face--top">top</section>
-            <section class="box__face box__face--bottom">bottom</section>
+          <div class="box__face box__face--front"></div>
+          <div class="box__face box__face--back">
+            contact
+          </div>
+          <div class="box__face box__face--right">
+            skills
+          </div>
+          <div class="box__face box__face--left">
+            portfolio
+          </div>
+          <div class="box__face box__face--top">top</div>
+          <div class="box__face box__face--bottom">bottom</div>
         </div>
-    </div>
 
-</main>
+        <div class="page-slider">
+          <section class="page" id="about-page">
+            <div class="row">
+              <div
+                id="about-content"
+                class="card card-body container-fluid col-md-8 col-sm-12"
+              >
+                <h1 class="m-auto pb-5">Hello, I'm Amir!</h1>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Accusantium adipisci aliquam delectus dolore eaque earum eius
+                  eum hic illo illum libero minima nam nesciunt possimus
+                  praesentium quaerat quasi quis reprehenderit, saepe sit vel
+                  vitae voluptas voluptates? Cupiditate fugiat iste magnam nihil
+                  porro repellat temporibus? Excepturi exercitationem
+                  perferendis sit temporibus unde.
+                </p>
+              </div>
+            </div>
+          </section>
 
-<!--<footer>-->
-<!--</footer>-->
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+          <!-- <section class="page" id="skills-page"><h2>Section</h2></section>
+          <section class="page" id="portfolio-page"><h2>Section</h2></section>
+          <section class="page" id="contact-page"><h2>Section</h2></section> -->
+        </div>
+      </div>
+    </main>
 
-<script src="js/script.js"></script>
-</body>
+    <!--<footer>-->
+    <!--</footer>-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="js/script.js"></script>
+  </body>
 </html>
