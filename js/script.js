@@ -35,6 +35,37 @@ ready = $(document).ready(function() {
     });
   }
 
+  function burger_middle() {
+    let borger_icon_1 = $("#navbar-icon i:nth-child(1)");
+    let borger_icon_2 = $("#navbar-icon i:nth-child(2)");
+    let borger_icon_3 = $("#navbar-icon i:nth-child(3)");
+    let borger_icon_4 = $("#navbar-icon i:nth-child(4)");
+
+    borger_icon_1.css({
+      top: "50%",
+      transform: "rotate(0)"
+    });
+
+    borger_icon_2.css({
+      top: "50%",
+      transform: "rotate(0)"
+    });
+
+    borger_icon_3.css({
+      top: "50%",
+      transform: "rotate(0)"
+    });
+
+    borger_icon_4.css({
+      top: "50%",
+      transform: "rotate(0)"
+    });
+
+    $("#navbar-icon  :nth-child(n)").css({
+      // "background":"black"
+    });
+  }
+
   function burger_become_menu() {
     let borger_icon_1 = $("#navbar-icon i:nth-child(1)");
     let borger_icon_2 = $("#navbar-icon i:nth-child(2)");
@@ -80,11 +111,13 @@ ready = $(document).ready(function() {
     if (headertop < -700) {
       header.css({ top: "0" });
       menu_toggle.css({ transform: str2 });
-      burger_become_x();
+      burger_middle();
+      setTimeout(burger_become_x(), 4700);
     } else if (headertop == 0) {
       header.css({ top: "-100vh" });
       menu_toggle.css({ transform: str2 });
-      burger_become_menu();
+      burger_middle();
+      setTimeout(burger_become_menu(), 4700);
     }
   });
 
@@ -203,6 +236,52 @@ function slide_left() {
 
   console.log("left offset =" + leftOffset);
 }
+function pageAppend(string) {
+  let box_side = $("#box-front");
+
+  switch (string) {
+    case "about":
+      box_side.append(
+        "<div class='row'>" +
+          "<div id='about-content'" +
+          "class='card card-body container-fluid col-md-8 col-sm-12' >" +
+          "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1> <p>" +
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit." +
+          "Accusantium adipisci aliquam delectus dolore eaque earum eius" +
+          "eum hic illo illum libero minima nam nesciunt possimus" +
+          "praesentium quaerat quasi quis reprehenderit, saepe sit vel" +
+          "vitae voluptas voluptates? Cupiditate fugiat iste magnam nihil" +
+          "porro repellat temporibus? Excepturi exercitationem" +
+          "perferendis sit temporibus unde." +
+          "</p> </div></div>"
+      );
+      break;
+
+    case "skills":
+      box_side.append(
+        "<section class='page' id='" +
+          string +
+          "-page'><h2>Section</h2></section>"
+      );
+      break;
+
+    case "portfolio":
+      box_side.append(
+        "<section class='page' id='" +
+          string +
+          "-page'><h2>Section</h2></section>"
+      );
+      break;
+
+    case "contact":
+      box_side.append(
+        "<section class='page' id='" +
+          string +
+          "-page'><h2>Section</h2></section>"
+      );
+      break;
+  }
+}
 
 function appendSlider(string) {
   switch (string) {
@@ -269,6 +348,7 @@ navItem.on("click", function() {
     case "#skills":
       removeOffset();
       pageDestroy("about");
+      pageAppend("about");
       appendSlider("skills");
       slide_right();
       box.addClass("show-right");
@@ -287,6 +367,15 @@ navItem.on("click", function() {
   }
 });
 
+$("#next-toggle").on("click", function() {
+  removeOffset();
+  pageDestroy("about");
+  pageAppend("about");
+  appendSlider("skills");
+  slide_right();
+  box.addClass("show-right");
+  setTimeout(removeOffset, 4000);
+});
 // navItem.on("click", function() {
 //   let href = $(this)
 //     .find("a")

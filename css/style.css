@@ -1,8 +1,8 @@
 :root {
   /*--document-color:#253155;*/
   --document-color: rgb(43, 45, 63);
-  --dark-blue: rgb(38, 40, 56);
-  --document-color-darker: var(--dark-blue);
+  --dark-blue: rgb(48, 51, 78);
+  --document-color-darker: var(--document-color);
   --light-blue: rgb(108, 130, 189);
   --text-color: white;
 
@@ -11,9 +11,9 @@
     red 0.15s ease-out 0.1s;
   --elements-transition-slow: 1.25s cubic-bezier(0, 0.35, 0.6, 1),
     red 1.15s ease-out 1.1s;
-  --default-duration: 0.9s;
+  --default-duration: 0.87s;
   --duration-longer: 2.9s;
-  --default-timing: cubic-bezier(0, 0.35, 0.7, 1);
+  --default-timing: cubic-bezier(0, 0.35, 0.72, 1);
   --default-delay: 0.5s;
   --about-color: #371cb6;
   --portfolio-color: orange;
@@ -28,12 +28,13 @@ body {
   font-family: "Montserrat", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif !important;
   background: var(--light-blue);
-  font-size: 1rem !important;
   color: var(--text-color);
   width: 100vw !important;
   height: 100vh !important;
   overflow: hidden;
-  font-weight: 200;
+  font-size: 1.2em;
+  line-height: 1.7em;
+  font-weight: 300;
 }
 
 canvas {
@@ -306,7 +307,7 @@ main {
 .page {
   width: 100vw;
   height: 100vh;
-
+  border-right: 1px solid white;
   background-color: var(--document-color);
 }
 
@@ -333,6 +334,11 @@ main {
 .hidden {
   visibility: hidden;
 }
+.row {
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+}
 /*  about   */
 /*  begin   */
 #about-page {
@@ -348,8 +354,12 @@ main {
   left: 100vw;
 }
 #about-content {
-  background: var(--document-color);
+  background: inherit;
   padding: 10%;
+}
+#box-front {
+  display: flex;
+  justify-content: center;
 }
 .row {
   margin: 0 !important;
