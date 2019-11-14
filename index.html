@@ -45,10 +45,16 @@
           id="nav-list"
           class="d-flex flex-column justify-content-center align-items-center"
         >
-          <li class="listItem"><a href="#about">about</a></li>
-          <li class="listItem"><a href="#skills">skills</a></li>
-          <li class="listItem"><a href="#portfolio">portfolio</a></li>
-          <li class="listItem"><a href="#contact">contact</a></li>
+          <li class="listItem"><a id="about-link" href="#about">about</a></li>
+          <li class="listItem">
+            <a id="skills-link" href="#skills">skills</a>
+          </li>
+          <li class="listItem">
+            <a id="portfolio-link" href="#portfolio">portfolio</a>
+          </li>
+          <li class="listItem">
+            <a id="contact-link" href="#contact">contact</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -68,7 +74,7 @@
       <i></i>
       <i></i>
     </a>
-    <a id="next-toggle" class="navbar-toggler" href="#portfolio">
+    <a id="next-toggle" class="navbar-toggler" href="#skills">
       <i></i>
       <i></i>
     </a>
@@ -92,28 +98,29 @@
 
         <div class="page-slider">
           <section
-            class="page d-flex justify-content-center align-items-center text-center"
             id="about-page"
+            class="page d-flex justify-content-center align-items-center text-center"
+            style="left:0px"
           >
-            <div class="row ">
+            <div class="page-bg"></div>
+            <div class="row page-row">
               <div
                 id="about-content"
                 class="card card-body container-fluid col-md-8 col-sm-12 "
               >
                 <h1 class="m-auto pb-5">Hello, I'm Amir!</h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Accusantium adipisci aliquam delectus dolore eaque earum eius
-                  eum hic illo illum libero minima nam nesciunt possimus
-                  praesentium quaerat quasi quis reprehenderit, saepe sit vel
-                  vitae voluptas voluptates? Cupiditate fugiat iste magnam nihil
-                  porro repellat temporibus? Excepturi exercitationem
-                  perferendis sit temporibus unde.
-                </p>
+                <p>There is some information about me</p>
               </div>
             </div>
           </section>
-
+          <!-- <section
+            class="page"
+            id="skills-page"
+            class="page d-flex justify-content-center align-items-center text-center"
+          >
+            <div class="page-bg"></div>
+            <h2>Section</h2>
+          </section> -->
           <!-- <section class="page" id="skills-page"><h2>Section</h2></section>
           <section class="page" id="portfolio-page"><h2>Section</h2></section>
           <section class="page" id="contact-page"><h2>Section</h2></section> -->

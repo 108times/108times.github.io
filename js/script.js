@@ -2,9 +2,14 @@ let ready;
 let transform_rotate = 0;
 let this_url = window.location.href;
 
-console.log(this_url);
-// console.log(getType(this_url));
 ready = $(document).ready(function() {
+  $("#header")
+    .find("nav")
+    .find("ul")
+    .find("li")
+    .find("a")
+    .find("#about-link")
+    .click();
   function burger_become_x() {
     let borger_icon_1 = $("#navbar-icon i:nth-child(1)");
     let borger_icon_2 = $("#navbar-icon i:nth-child(2)");
@@ -62,7 +67,7 @@ ready = $(document).ready(function() {
     });
 
     $("#navbar-icon  :nth-child(n)").css({
-      // "background":"black"
+      "transition-durration": "1s"
     });
   }
 
@@ -99,7 +104,7 @@ ready = $(document).ready(function() {
 
   let menu_toggle = $("#navbar-toggle");
 
-  menu_toggle.on("click touchstart", function() {
+  menu_toggle.on("click tap", function() {
     transform_rotate += 90;
     let str = "rotate(";
 
@@ -107,17 +112,21 @@ ready = $(document).ready(function() {
 
     let header = $("#header");
     let headertop = parseInt(header.css("top"));
-
+    burger_middle();
     if (headertop < -700) {
       header.css({ top: "0" });
-      menu_toggle.css({ transform: str2 });
-      burger_middle();
-      setTimeout(burger_become_x(), 4700);
+      setTimeout(function() {
+        menu_toggle.css({ transform: str2 });
+      }, 2000);
+
+      setTimeout(burger_become_x(), 700);
     } else if (headertop == 0) {
       header.css({ top: "-100vh" });
-      menu_toggle.css({ transform: str2 });
-      burger_middle();
-      setTimeout(burger_become_menu(), 4700);
+      setTimeout(function() {
+        menu_toggle.css({ transform: str2 });
+      }, 2000);
+
+      setTimeout(burger_become_menu(), 700);
     }
   });
 
@@ -137,7 +146,7 @@ ready = $(document).ready(function() {
       let txt = this.text;
       let swidth = $(this).css("width");
       let string = "var(--" + txt + "-color)";
-      console.log(string);
+
       $(this).css({
         "background-color": "#253155"
       });
@@ -161,17 +170,8 @@ ready = $(document).ready(function() {
     });
 
   let next = $("#next-toggle");
-  // let main = $('#main');
-  // let offset =main.css("left");
-  // console.log("offset = "+offset);
-  //  //offset =offset.replace(
-  //  offset = parseInt(main.css("left"));
-  //
-  // console.log("offset = "+offset);
-  next.on("click", function() {
-    console.log(this_url);
-    let initialOffset = box.css("");
-  });
+
+  next.on("click", function() {});
 });
 
 let box = $(".box");
@@ -185,15 +185,6 @@ function removeOffset(delay = 0) {
     .removeClass("show-front");
 }
 
-// let rotateRight = $(".rotate-right");
-// console.log(rotateRight);
-// let rotateDeg = parseInt(rotateRight.css("transform").split(",")[1]);
-// console.log(rotateDeg);
-// function boxRotate() {
-//   let rotateDeg = parseInt(rotateRight.css("transform").split(",")[5]);
-//   box.addClass("rotate-right");
-// }
-
 let navItem = $(".listItem");
 
 let about_page = $("#about-page");
@@ -202,28 +193,9 @@ let portfolio_page = $("#portfolio-page");
 let contact_page = $("#contact-page");
 let slider = $(".page-slider");
 
-function slide_right(page) {
-  let leftOffset = slider.css("left");
-  leftOffset = parseFloat(leftOffset.split("px"));
-  console.log("left offset =" + leftOffset);
-  // leftOffset = leftOffset;
-  if (leftOffset == "0") {
-    slider.css({
-      left: "-100vw"
-    });
-  } else {
-    slider.css({
-      left: leftOffset + leftOffset
-    });
-  }
-
-  console.log("left offset =" + leftOffset);
-}
-
 function slide_left() {
   let leftOffset = slider.css("left");
   leftOffset = parseFloat(leftOffset.split("px"));
-  console.log("left offset =" + leftOffset);
   if (leftOffset == "0") {
     slider.css({
       left: "+100vw"
@@ -233,35 +205,33 @@ function slide_left() {
       left: leftOffset - leftOffset
     });
   }
-
-  console.log("left offset =" + leftOffset);
 }
-function pageAppend(string) {
+function boxPageAppend(string) {
   let box_side = $("#box-front");
-
+  console.log("page appnd " + string);
   switch (string) {
     case "about":
       box_side.append(
-        "<div class='row'>" +
-          "<div id='about-content'" +
-          "class='card card-body container-fluid col-md-8 col-sm-12' >" +
-          "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1> <p>" +
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit." +
-          "Accusantium adipisci aliquam delectus dolore eaque earum eius" +
-          "eum hic illo illum libero minima nam nesciunt possimus" +
-          "praesentium quaerat quasi quis reprehenderit, saepe sit vel" +
-          "vitae voluptas voluptates? Cupiditate fugiat iste magnam nihil" +
-          "porro repellat temporibus? Excepturi exercitationem" +
-          "perferendis sit temporibus unde." +
-          "</p> </div></div>"
+        "<section class='page' id='" +
+          string +
+          "-page' class='page d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+          "<h2>Skills</h2></section>"
       );
+      //   "<section id='about-page' class='page d-flex justify-content-center align-items-center text-center'>" +
+      //     "<div class='page-bg'></div>" +
+      //     "<div class='row page-row'>" +
+      //     "<div id='about-content'  class='card card-body container-fluid col-md-8 col-sm-12'>" +
+      //     "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
+      //     "<p>There is some information about me</p></div> </div> </section>"
+      // );
       break;
 
     case "skills":
       box_side.append(
         "<section class='page' id='" +
           string +
-          "-page'><h2>Section</h2></section>"
+          "-page' class='page d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+          "<h2>Skills</h2></section>"
       );
       break;
 
@@ -269,7 +239,8 @@ function pageAppend(string) {
       box_side.append(
         "<section class='page' id='" +
           string +
-          "-page'><h2>Section</h2></section>"
+          "-page' class='page d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+          "<h2>Portfolio</h2></section>"
       );
       break;
 
@@ -277,35 +248,45 @@ function pageAppend(string) {
       box_side.append(
         "<section class='page' id='" +
           string +
-          "-page'><h2>Section</h2></section>"
+          "-page' class='page d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+          "<h2>Contact</h2></section>"
       );
-      break;
   }
 }
 
-function appendSlider(string) {
+function sliderPageAppend(string) {
+  // let slider = $(".page-slider");
   switch (string) {
     case "about":
       slider.append(
         "<section class='page' id='" +
           string +
-          "-page'><h2>Section Skills</h2></section>"
+          "-page' class='page d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+          "<h2>Skills</h2></section>"
       );
+      //   "<section id='about-page' class='page d-flex justify-content-center align-items-center text-center'>" +
+      //     "<div class='page-bg'></div>" +
+      //     "<div class='row page-row'>" +
+      //     "<div id='about-content'  class='card card-body container-fluid col-md-8 col-sm-12'>" +
+      //     "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
+      //     "<p>There is some information about me</p></div> </div> </section>"
+      // );
       break;
 
     case "skills":
       slider.append(
         "<section class='page' id='" +
           string +
-          "-page'><h2>Section</h2></section>"
+          "-page' class='page d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+          "<h2>Skills</h2></section>"
       );
       break;
-
     case "portfolio":
       slider.append(
         "<section class='page' id='" +
           string +
-          "-page'><h2>Section</h2></section>"
+          "-page' class='page d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+          "<h2>Portfolio</h2></section>"
       );
       break;
 
@@ -313,69 +294,165 @@ function appendSlider(string) {
       slider.append(
         "<section class='page' id='" +
           string +
-          "-page'><h2>Section</h2></section>"
+          "-page' class='page d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+          "<h2>Contact</h2></section>"
       );
       break;
   }
 }
 
-function pageDestroy(string) {
+function sliderPageHide(string) {
   let selector = "#" + string + "-page";
-  console.log(selector);
-  $(selector).css({
+  console.log("yes i am" + selector);
+  let target = $(".page-slider").find(selector);
+
+  $(target).css({
     "transition-duration": "0s",
     "transition-delay": "0s",
     visibility: "hidden"
   });
 }
 
-function pageSetRight(string) {
+function boxPageDestroy(string) {
   let selector = "#" + string + "-page";
-  // $(selector).
+  console.log("AAAAAAAAAAAA" + string);
+  let parent = $("#box-front");
+  setTimeout(function() {
+    parent.find(selector).remove();
+  }, 1000);
+}
+
+function sliderPageDestroy(string) {
+  let selector = "#" + string + "-page";
+  let parent = $(".page-slider");
+  let section = parent.find("section");
+  setTimeout(function() {
+    parent.find(selector).remove();
+  }, 430);
+}
+
+// function slide_right(page) {
+//   let leftOffset = slider.css("left");
+//   leftOffset = parseFloat(leftOffset.split("px"));
+
+//   if (leftOffset == "0") {
+//     slider.css({
+//       left: "-100vw"
+//     });
+//   } else {
+//     let slider_child = $(".page-slider").find("section");
+//     slider.css({
+//       left: "-100vw"
+//     });
+//     slider_child.css({
+//       left: "100vw"
+//     });
+//   }
+// }
+
+function slide_right(page) {
+  let leftOffset = slider.css("left");
+  leftOffset = parseFloat(leftOffset.split("px"));
+
+  let slider_child = $(".page-slider").find("section");
+  slider_child.css({
+    left: "0"
+  });
+}
+
+function checkForSections(current_page) {
+  let about_page = $("#about-page");
+  let skills_page = $("#skills-page");
+  let portfolio_page = $("#portfolio-page");
+  let contact_page = $("#contact-page");
+  let slider = $(".page-slider");
+  let mas = ["about", "skills", "portfolio", "contact"];
+  for (let i = 0; i < mas.length - 1; i++) {
+    if (current_page == mas[i]) {
+      selector = "#" + mas[i] + "-page";
+      console.log("masi " + mas[i]);
+      $(selector).remove();
+    } else {
+      if (slider.children().length > 1) {
+        selector = "#" + current_page + "-page";
+        $(selector).remove();
+      }
+    }
+  }
+}
+
+function aboutFix() {
+  $("#about-page").css({
+    left: "100vw"
+  });
+}
+
+function mainRight(current_page, target_page) {
+  // console.log(
+  //   "current_page = " + current_page + "  target_page = " + target_page
+  // );
+
+  if (target_page == current_page) {
+    return;
+  } else {
+    aboutFix();
+    removeOffset();
+    sliderPageHide(current_page);
+    boxPageAppend(current_page);
+    sliderPageDestroy(current_page);
+
+    sliderPageAppend(target_page);
+    slide_right();
+    checkForSections(current_page);
+    boxPageDestroy(current_page);
+
+    box.addClass("show-right");
+    setTimeout(function() {
+      removeOffset();
+    }, 1000);
+  }
 }
 
 navItem.on("click", function() {
+  let current_url = window.location.href;
+  let current_page = "about";
+  if (current_url.includes("#about")) {
+    current_page = "about";
+  }
+  if (current_url.includes("#skills")) {
+    current_page = "skills";
+  }
+  if (current_url.includes("#portfolio")) {
+    current_page = "portfolio";
+  }
+  if (current_url.includes("#contact")) {
+    current_page = "contact";
+  }
+
   let href = $(this)
     .find("a")
     .attr("href");
+  console.log(href);
   switch (href) {
     case "#about":
-      removeOffset();
-      box.addClass("show-front");
-
+      mainRight(current_page, "about");
       break;
 
     case "#skills":
-      removeOffset();
-      pageDestroy("about");
-      pageAppend("about");
-      appendSlider("skills");
-      slide_right();
-      box.addClass("show-right");
-      setTimeout(removeOffset, 4000);
+      mainRight(current_page, "skills");
       break;
 
     case "#portfolio":
-      removeOffset();
-      box.addClass("show-left");
+      mainRight(current_page, "portfolio");
       break;
 
     case "#contact":
-      removeOffset();
-      box.addClass("show-back");
+      mainRight(current_page, "contact");
       break;
   }
 });
 
-$("#next-toggle").on("click", function() {
-  removeOffset();
-  pageDestroy("about");
-  pageAppend("about");
-  appendSlider("skills");
-  slide_right();
-  box.addClass("show-right");
-  setTimeout(removeOffset, 4000);
-});
+$("#next-toggle").on("click", function() {});
 // navItem.on("click", function() {
 //   let href = $(this)
 //     .find("a")
