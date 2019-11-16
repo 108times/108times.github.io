@@ -245,24 +245,6 @@ ready = $(document).ready(function() {
     flag++;
   }
 
-  // function pageOnLoad() {
-  //   let current_url = window.location.href;
-  //   if (!current_url.includes("#")) {
-  //     return;
-  //   } else {
-  //     let $position = current_url.indexOf("#");
-  //     let $string = current_url.slice($position + 1);
-  //     let array = ["about", "skills", "portfolio", "contact"];
-  //     let array_rm = array.splice(array.indexOf($string), 1);
-
-  //     array_rm.forEach(element => {
-  //       makeJQSelector(element);
-  //     });
-  //     let wge = slider.children(array_rm).remove();
-
-  //   }
-  // }
-
   function boxPageAppend(string) {
     let box = $(".box");
     box.css({
@@ -273,10 +255,10 @@ ready = $(document).ready(function() {
       box.css({
         "transition-duration": "var(--default-duration)",
         "transition-delay": "var(--default-delay)",
-        "transition-timing-function": " var(--default-timing)"
+        "transition-timing-function": "var(--default-timing)"
       });
     }
-    setTimeout(local(), 0);
+    setTimeout(local(), 20);
 
     let box_side = box.children("div");
     box_side = box.find("#front");
@@ -291,10 +273,11 @@ ready = $(document).ready(function() {
           // );
           "<section id='about-page' class='page d-flex justify-content-center align-items-center text-center'>" +
             "<div class='page-bg'></div>" +
+            "<div class='page-content'>" +
             "<div class='row page-row'>" +
-            "<div id='about-content'  class='card card-body container-fluid col-md-8 col-sm-12'>" +
+            "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
             "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
-            "<p>There is some information about me</p></div> </div> </section>"
+            "<p>There is some information about me</p></div> </div> </div></section>"
         );
         break;
 
@@ -302,8 +285,12 @@ ready = $(document).ready(function() {
         box_side.append(
           "<section class='page' id='" +
             string +
-            "-page' class='page d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
-            "<h2>Skills</h2></section>"
+            "-page' class='page-container d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+            "<div class='page-content'>" +
+            "<div class='row page-row'>" +
+            "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
+            "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
+            "<p>There is some information about me</p></div> </div> </div></section>"
         );
         break;
 
@@ -311,8 +298,12 @@ ready = $(document).ready(function() {
         box_side.append(
           "<section class='page' id='" +
             string +
-            "-page' class='page d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
-            "<h2>Portfolio</h2></section>"
+            "-page' class='page-container d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+            "<div class='page-content'>" +
+            "<div class='row page-row'>" +
+            "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
+            "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
+            "<p>There is some information about me</p></div> </div> </div></section>"
         );
         break;
 
@@ -320,8 +311,12 @@ ready = $(document).ready(function() {
         box_side.append(
           "<section class='page' id='" +
             string +
-            "-page' class='page d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
-            "<h2>Contact</h2></section>"
+            "-page' class='page-container d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+            "<div class='page-content'>" +
+            "<div class='row page-row'>" +
+            "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
+            "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
+            "<p>There is some information about me</p></div> </div> </div></section>"
         );
         break;
     }
@@ -340,10 +335,11 @@ ready = $(document).ready(function() {
           // );
           "<section id='about-page' class='page d-flex justify-content-center align-items-center text-center'>" +
             "<div class='page-bg'></div>" +
+            "<div class='page-content'>" +
             "<div class='row page-row'>" +
-            "<div id='about-content'  class='card card-body container-fluid col-md-8 col-sm-12'>" +
+            "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
             "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
-            "<p>There is some information about me</p></div> </div> </section>"
+            "<p>There is some information about me</p></div> </div> </div></section>"
         );
         break;
 
@@ -351,16 +347,24 @@ ready = $(document).ready(function() {
         slider.append(
           "<section class='page' id='" +
             string +
-            "-page' class='page d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
-            "<h2>Skills</h2></section>"
+            "-page' class='page-container d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+            "<div class='page-content'>" +
+            "<div class='row page-row'>" +
+            "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
+            "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
+            "<p>There is some information about me</p></div> </div> </div></section>"
         );
         break;
       case "portfolio":
         slider.append(
           "<section class='page' id='" +
             string +
-            "-page' class='page d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
-            "<h2>Portfolio</h2></section>"
+            "-page' class='page-container d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+            "<div class='page-content'>" +
+            "<div class='row page-row'>" +
+            "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
+            "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
+            "<p>There is some information about me</p></div> </div> </div></section>"
         );
         break;
 
@@ -368,8 +372,12 @@ ready = $(document).ready(function() {
         slider.append(
           "<section class='page' id='" +
             string +
-            "-page' class='page d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
-            "<h2>Contact</h2></section>"
+            "-page' class='page-container d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+            "<div class='page-content'>" +
+            "<div class='row page-row'>" +
+            "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
+            "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
+            "<p>There is some information about me</p></div> </div> </div></section>"
         );
         break;
     }
@@ -378,12 +386,13 @@ ready = $(document).ready(function() {
   function sliderPageHide(string) {
     let selector = "#" + string + "-page";
 
-    let target = $(".page-slider").find(selector);
+    let target = $(".page-slider").children(selector);
 
     $(target).css({
       "transition-duration": "0s",
       "transition-delay": "0s",
-      visibility: "hidden"
+      visibility: "hidden",
+      display: "none"
     });
   }
 
@@ -492,7 +501,7 @@ ready = $(document).ready(function() {
     sliderPagesDestroy();
     setTimeout(function() {
       boxPageDestroy(current_page);
-    }, 1800);
+    }, 1100);
   }
 
   function mainRight(current_page, target_page) {
@@ -517,7 +526,7 @@ ready = $(document).ready(function() {
       box.addClass("show-right");
       setTimeout(function() {
         removeOffset();
-      }, 1500);
+      }, 1100);
     }
   }
 

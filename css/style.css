@@ -4,20 +4,23 @@
   /* --document-color: linear-gradient(rgb(255, 123, 0), rgb(243, 255, 81)); */
 
   --dark-blue: rgb(48, 51, 78);
-  --document-color-darker: var(--document-color);
+  --custom-color: rgb(141, 139, 139);
   --light-blue: rgb(108, 130, 189);
   --text-color: white;
   --page-background: rgb(31, 28, 54);
   --page-background-transparent: rgba(31, 28, 54, 0.9);
   --document-color: var(--dark-blue);
+  /* --document-color: var(--custom-color); */
 
   --document-container: var(--dark-blue);
-  --default-duration: 1.2s;
+  --default-duration: 0.5s;
   --duration-longer: 0.9s;
-  --default-timing: cubic-bezier(0, 0.3, 0.75, 1);
-  /* --default-timing: ease-out; */
-  --slider-timing: cubic-bezier(0, 0.28, 0.77, 1);
-  --default-delay: 0.3s;
+  /* --default-timing: cubic-bezier(0, 0, 0.25, 0.25, 0.5, 5, 0.8, 0.8, 1, 1); */
+  --default-timing: cubic-bezier(0.43, 0.77, 0.89, 1);
+  /* --slider-timing: cubic-bezier(0, 0.28, 0.6, 0.7, 0.8, 1); */
+  --slider-timing: cubic-bezier(0.43, 0.77, 0.89, 1);
+
+  --default-delay: 0.53s;
   --about-color: #371cb6;
   --portfolio-color: orange;
   --contact-color: green;
@@ -181,6 +184,14 @@ canvas {
   height: 100%;
 }
 
+@keyframes navbar-click {
+  0% {
+  }
+  50% {
+  }
+  100% {
+  }
+}
 /*              /HEADER          */
 
 /*MAIN            */
@@ -189,7 +200,7 @@ main {
 .scene {
   width: 100vw;
   height: 100vh;
-  perspective: 900px;
+  perspective: 640px;
   overflow: hidden;
 }
 
@@ -306,6 +317,7 @@ main {
   position: absolute;
   top: 0;
   left: 0;
+  /* transition-duration: var(--default-duration); */
   transition-duration: var(--default-duration);
   transition-delay: var(--default-delay);
   transition-timing-function: var(--slider-timing);
@@ -321,10 +333,12 @@ main {
   background-color: var(--document-color);
   position: relative;
 }
-
+.page-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--document-color);
+}
 .page-bg {
-  position: absolute;
-  top: 0;
   width: 100vw;
   height: 100vh;
   background: var(--page-background);
@@ -336,13 +350,20 @@ main {
   transition-duration: 0s;
 }
 #about-page .page-bg {
-  clip-path: polygon(54% 0, 100% 0, 100% 54%, 50% 100%, 28% 100%, 0 100%, 0 0);
+  clip-path: polygon(50% 0, 100% 0, 100% 50%, 50% 100%, 0 100%, 0 0);
 }
-#skills-page {
-  background: var(--dark-blue);
-}
-#portfolio-page {
-  background: var(--dark-blue);
+
+#portfolio-page .page-bg {
+  clip-path: polygon(
+    60% 0,
+    60% 50%,
+    100% 20%,
+    100% 60%,
+    60% 100%,
+    20% 100%,
+    0 100%,
+    0 60%
+  );
 }
 #contact-page .page-bg {
   clip-path: polygon(
@@ -357,16 +378,7 @@ main {
   );
 }
 #skills-page .page-bg {
-  clip-path: polygon(
-    0 18%,
-    0 0,
-    79% 0,
-    100% 0,
-    100% 100%,
-    33% 100%,
-    100% 0,
-    0 57%
-  );
+  clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%, 20% 53%, 0 60%, 0 0);
 }
 .page-row {
   position: relative;
@@ -398,9 +410,19 @@ main {
 #contact-page {
   left: 100vw;
 }
-#about-content {
+.page-inner {
   background: inherit;
   padding: 1rem;
+}
+.page-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  padding: 1rem;
+  width: 100vw;
+  height: 100vh;
+  bottom: auto;
 }
 #box-front {
 }
@@ -408,13 +430,13 @@ main {
 .row {
   margin: 0 !important;
 }
-/*// Extra small devices (portrait phones, less than 576px)*/
+/* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
   #about-content {
   }
 }
 
-/*// Small devices (landscape phones, less than 768px)*/
+/* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
   #about-content {
   }
@@ -424,11 +446,11 @@ main {
   }
 }
 
-/*// Medium devices (tablets, less than 992px)*/
+/* Medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
 }
 
-/*// Large devices (desktops, less than 1200px)*/
+/* Large devices (desktops, less than 1200px) */
 @media (max-width: 1199.98px) {
 }
 /*!*  about   *!*/
