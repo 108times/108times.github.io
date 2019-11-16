@@ -213,7 +213,7 @@ ready = $(document).ready(function() {
   }
 
   function makeJQSelector(string, type = "id") {
-    let char;
+    let char = "#";
     if (type == "id") char = "#";
     if (type == "class") char = ".";
 
@@ -224,7 +224,7 @@ ready = $(document).ready(function() {
   function pagePreLoad() {
     let $position = current_url.indexOf("#");
     let $string = current_url.slice($position + 1);
-    console.log(flag);
+
     if (flag !== 1) {
       return;
     } else {
@@ -233,34 +233,35 @@ ready = $(document).ready(function() {
       } else {
         $position = current_url.indexOf("#");
         $string = current_url.slice($position + 1);
-        console.log($position + " AAAAAAAAAAAAAAAAAAAAAAAAA " + $string);
+
         current_page = $string;
+        console.log("CURRENT PAGE   __  _ _ _ " + current_page);
       }
       let wge = slider.children("section").remove();
-      if (!wge) console.log("FAILUREEEEEEEEEEEEEEEEEEEEEEEEE");
+
       sliderPageAppend($string);
       left0($string);
     }
     flag++;
   }
 
-  function pageOnLoad() {
-    let current_url = window.location.href;
-    if (!current_url.includes("#")) {
-      return;
-    } else {
-      let $position = current_url.indexOf("#");
-      let $string = current_url.slice($position + 1);
-      let array = ["about", "skills", "portfolio", "contact"];
-      let array_rm = array.splice(array.indexOf($string), 1);
+  // function pageOnLoad() {
+  //   let current_url = window.location.href;
+  //   if (!current_url.includes("#")) {
+  //     return;
+  //   } else {
+  //     let $position = current_url.indexOf("#");
+  //     let $string = current_url.slice($position + 1);
+  //     let array = ["about", "skills", "portfolio", "contact"];
+  //     let array_rm = array.splice(array.indexOf($string), 1);
 
-      array_rm.forEach(element => {
-        makeJQSelector(element);
-      });
-      let wge = slider.children(array_rm).remove();
-      if (!wge) console.log("FAILUREEEEEEEEEEEEEEEEEEEEEEEEE");
-    }
-  }
+  //     array_rm.forEach(element => {
+  //       makeJQSelector(element);
+  //     });
+  //     let wge = slider.children(array_rm).remove();
+
+  //   }
+  // }
 
   function boxPageAppend(string) {
     let box = $(".box");
@@ -275,12 +276,11 @@ ready = $(document).ready(function() {
         "transition-timing-function": " var(--default-timing)"
       });
     }
-    setTimeout(local(), 20);
+    setTimeout(local(), 0);
 
-    let box_side = box.find("section").find("#front");
-
-    console.log("page appnded is " + string);
-
+    let box_side = box.children("div");
+    box_side = box.find("#front");
+    console.log(string + "box_page_append");
     switch (string) {
       case "about":
         box_side.append(
@@ -323,7 +323,9 @@ ready = $(document).ready(function() {
             "-page' class='page d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
             "<h2>Contact</h2></section>"
         );
+        break;
     }
+    left0box(string);
   }
 
   function sliderPageAppend(string) {
@@ -375,7 +377,7 @@ ready = $(document).ready(function() {
 
   function sliderPageHide(string) {
     let selector = "#" + string + "-page";
-    console.log("yes i am" + selector);
+
     let target = $(".page-slider").find(selector);
 
     $(target).css({
@@ -387,10 +389,10 @@ ready = $(document).ready(function() {
 
   function boxPageDestroy(string) {
     box = $(".box");
-    let parent = box.find("section").find("#front");
-    setTimeout(function() {
-      parent.children("section").remove();
-    }, 1000);
+    let box_side = box.children("div");
+    box_side = box.find("#front");
+    let target = box_side.children("section");
+    target.remove();
   }
 
   function sliderPageDestroy(string) {
@@ -405,7 +407,7 @@ ready = $(document).ready(function() {
     let parent = $(".page-slider");
     let section = parent.children("section");
     // setTimeout(function() {
-    console.log(section);
+
     section.remove();
     // }, 430);
   }
@@ -462,7 +464,6 @@ ready = $(document).ready(function() {
 
   function left100(string) {
     let selector = makeJQSelector(string);
-    console.log("11111111111111 " + selector);
 
     $(selector).css({
       left: "100vw"
@@ -471,58 +472,67 @@ ready = $(document).ready(function() {
 
   function left0(string) {
     let selector = "#" + string + "-page";
-    console.log("11111111111111 " + selector);
     selector = slider.find(selector);
     $(selector).css({
       left: "0"
     });
   }
 
+  function left0box(string) {
+    let selector = "#" + string + "-page";
+    selector = box.find(selector);
+    $(selector).css({
+      left: "0"
+    });
+  }
   function box_slider_transition(current_page) {
+    console.log(current_page + "!!!!!!!!!!!!!!!!!!!!!!!");
     sliderPageHide(current_page);
-
     boxPageAppend(current_page);
-
     sliderPagesDestroy();
-    setTimeout(boxPageDestroy(current_page), 800);
+    setTimeout(function() {
+      boxPageDestroy(current_page);
+    }, 1800);
   }
 
   function mainRight(current_page, target_page) {
-    // if (current_page == target_page) {
-    //   return;
-    // } else {
-    console.log(
-      "current_page = " + current_page + "  target_page = " + target_page
-    );
-    left100("about");
+    if (current_page == target_page) {
+      return;
+    } else {
+      console.log(
+        "current_page = " + current_page + "  target_page = " + target_page
+      );
+      left100("about");
 
-    checkForSections(current_page);
+      checkForSections(current_page);
 
-    removeOffset();
-
-    box_slider_transition(current_page);
-
-    sliderPageAppend(target_page);
-
-    slide_right();
-
-    box.addClass("show-right");
-    setTimeout(function() {
       removeOffset();
-    }, 900);
+
+      box_slider_transition(current_page);
+
+      sliderPageAppend(target_page);
+
+      slide_right();
+
+      box.addClass("show-right");
+      setTimeout(function() {
+        removeOffset();
+      }, 1500);
+    }
   }
-  // }
 
   navItem.on("click", function() {
+    current_url = window.location.href;
     if (current_url.includes("#")) {
       let $position = current_url.indexOf("#");
       let $string = current_url.slice($position + 1);
-      console.log($string);
+
       current_page = $string;
+      console.log("CURRENT PAGE   __  _ _ _ " + current_page);
     } else {
       current_page = "about";
     }
-
+    console.log("CURRENT PAGE   __  _ _ _ " + current_page);
     let href = $(this)
       .find("a")
       .attr("href");
