@@ -11,9 +11,9 @@
   --document-color: var(--dark-blue);
 
   --document-container: var(--dark-blue);
-  --default-duration: 0.67s;
+  --default-duration: 0.84s;
   --duration-longer: 0.9s;
-  --default-timing: cubic-bezier(0, 0.45, 0.75, 1);
+  --default-timing: cubic-bezier(0, 0.25, 0.78, 1);
   --default-delay: 0.5s;
   --about-color: #371cb6;
   --portfolio-color: orange;
@@ -307,7 +307,6 @@ main {
   transition-duration: var(--default-duration);
   transition-delay: var(--default-delay);
   transition-timing-function: ease-out;
-  background: rgba(0, 0, 0, 0);
 }
 .page-slider section {
   transition-duration: var(--default-duration);
@@ -328,10 +327,14 @@ main {
   height: 100%;
   background: var(--page-background);
   z-index: 0;
-  clip-path: polygon(54% 0, 100% 0, 100% 54%, 50% 100%, 28% 100%, 0 100%, 0 0);
 }
 
 #box-front {
+  transition-delay: 0s;
+  transition-duration: 0s;
+}
+#about-page .page-bg {
+  clip-path: polygon(54% 0, 100% 0, 100% 54%, 50% 100%, 28% 100%, 0 100%, 0 0);
 }
 #skills-page {
   background: var(--dark-blue);
@@ -339,8 +342,17 @@ main {
 #portfolio-page {
   background: var(--dark-blue);
 }
-#contact-page {
-  background: var(--dark-blue);
+#contact-page .page-bg {
+  clip-path: polygon(
+    0 0,
+    39% 0,
+    92% 5%,
+    100% 39%,
+    100% 100%,
+    30% 100%,
+    41% 50%,
+    0 60%
+  );
 }
 #skills-page .page-bg {
   clip-path: polygon(
