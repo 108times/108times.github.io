@@ -5,20 +5,22 @@
 
   --dark-blue: rgb(48, 51, 78);
   --custom-color: rgb(141, 139, 139);
-  --light-blue: rgb(108, 130, 189);
+  --light-blue: rgb(168, 227, 255);
+  --color-6: rgb(10, 20, 32);
   --text-color: white;
-  --page-background: rgb(31, 28, 54);
-  --page-background-transparent: rgba(31, 28, 54, 0.9);
-  --document-color: var(--dark-blue);
+  --page-background: rgb(48, 51, 78);
+  --page-background-transparent: rgba(25, 23, 46, 0.9);
+  --document-color: var(--color-6);
   /* --document-color: var(--custom-color); */
-
+  --header-color: rgb(44, 47, 71);
+  --nav-color: rgb(48, 51, 78);
   --document-container: var(--dark-blue);
   --default-duration: 0.5s;
   --duration-longer: 0.9s;
   /* --default-timing: cubic-bezier(0, 0, 0.25, 0.25, 0.5, 5, 0.8, 0.8, 1, 1); */
   --default-timing: cubic-bezier(0.43, 0.77, 0.89, 1);
   /* --slider-timing: cubic-bezier(0, 0.28, 0.6, 0.7, 0.8, 1); */
-  --slider-timing: cubic-bezier(0.43, 0.77, 0.89, 1);
+  --slider-timing: cubic-bezier(0.43, 0.77, 0.84, 1);
 
   --default-delay: 0.53s;
   --about-color: #371cb6;
@@ -42,7 +44,10 @@ body {
   line-height: 1.7em;
   font-weight: 300;
 }
-
+h1,
+p {
+  color: var(--text-color) !important;
+}
 canvas {
   vertical-align: top;
 }
@@ -51,31 +56,36 @@ canvas {
 #header {
   position: fixed;
   top: -100vh;
-  background: var(--page-background-transparent);
+  background: var(--header-color);
   width: 100vw;
   height: 100vh;
   z-index: 40;
   font-size: 2rem !important;
   /* transition: var(--elements-transition); */
-  transition: 0.2s;
+  transition-duration: 0.3s;
 }
 #nav {
-  max-width: 55%;
-  max-height: 70%;
-  background: var(--document-color);
+  max-width: 70%;
+  max-height: 85%;
+  min-height: 60%;
+  background: var(--nav-color);
   overflow: hidden;
   transition-duration: var(--elements-transition);
+  font-size: 2.4rem;
 }
 #nav-list {
   list-style-type: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .listItem {
-  padding-top: 20px !important;
-  padding-bottom: 20px !important;
-  width: 80%;
+  padding-top: 1em !important;
+
+  padding-bottom: 1em !important;
+  width: 100%;
   text-align: center;
   text-decoration: none;
-
   transition: var(--elements-transition-slow);
 }
 .listItem a {
@@ -101,9 +111,9 @@ canvas {
   transform: rotate(0);
 }
 #next-toggle:hover {
-  width: 170px;
-  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-  background-color: ivory;
+  /* width: 170px; */
+  /* clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+  background-color: blue; */
 }
 #previous-toggle {
   position: fixed;
@@ -146,7 +156,7 @@ canvas {
   width: 60px;
   transition: var(--elements-transition);
   transform: rotate(0);
-  background: var(--blue);
+
   border-radius: 50%;
 }
 .inner-element {
@@ -350,20 +360,11 @@ main {
   transition-duration: 0s;
 }
 #about-page .page-bg {
-  clip-path: polygon(50% 0, 100% 0, 100% 50%, 50% 100%, 0 100%, 0 0);
+  clip-path: polygon(53% 0, 100% 0, 100% 70%, 0 100%, 0 100%, 0% 60%, 0 0);
 }
 
 #portfolio-page .page-bg {
-  clip-path: polygon(
-    60% 0,
-    60% 50%,
-    100% 20%,
-    100% 60%,
-    60% 100%,
-    20% 100%,
-    0 100%,
-    0 60%
-  );
+  clip-path: polygon(53% 0, 100% 0, 100% 60%, 0 100%, 100% 100%, 0% 60%, 0 0);
 }
 #contact-page .page-bg {
   clip-path: polygon(
@@ -378,9 +379,25 @@ main {
   );
 }
 #skills-page .page-bg {
-  clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%, 20% 53%, 0 60%, 0 0);
+  clip-path: polygon(
+    57% 0,
+    79% 0,
+    100% 0,
+    100% 21%,
+    100% 26%,
+    100% 100%,
+    100% 100%,
+    0 70%,
+    0% 35%,
+    0 0
+  );
 }
 .page-row {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   z-index: 5;
 }
@@ -410,8 +427,15 @@ main {
 #contact-page {
   left: 100vw;
 }
+.card {
+  border: none;
+  background: rgba(25, 23, 46, 0.6);
+}
 .page-inner {
   background: inherit;
+  margin-top: 10%;
+  margin-bottom: 10%;
+
   padding: 1rem;
 }
 .page-content {
@@ -434,6 +458,13 @@ main {
 @media (max-width: 575.98px) {
   #about-content {
   }
+  #next-toggle {
+    display: none;
+  }
+  .page-inner {
+    padding-left: 3em !important;
+    padding-right: 3em !important;
+  }
 }
 
 /* Small devices (landscape phones, less than 768px) */
@@ -442,7 +473,15 @@ main {
   }
   #navbar-toggle {
     top: auto;
-    bottom: 90px;
+    bottom: 30px;
+    right: 30px;
+  }
+  #next-toggle {
+    display: none;
+  }
+  .page-inner {
+    padding-left: 3em !important;
+    padding-right: 3em !important;
   }
 }
 

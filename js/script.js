@@ -16,6 +16,11 @@ ready = $(document).ready(function() {
   let contact_page = $("#contact-page");
   let slider = $(".page-slider");
 
+  let borger_icon_1 = $("#navbar-icon i:nth-child(1)");
+  let borger_icon_2 = $("#navbar-icon i:nth-child(2)");
+  let borger_icon_3 = $("#navbar-icon i:nth-child(3)");
+  let borger_icon_4 = $("#navbar-icon i:nth-child(4)");
+
   pagePreLoad();
   $("#header")
     .find("nav")
@@ -25,11 +30,6 @@ ready = $(document).ready(function() {
     .find("#about-link")
     .click();
   function burger_become_x() {
-    let borger_icon_1 = $("#navbar-icon i:nth-child(1)");
-    let borger_icon_2 = $("#navbar-icon i:nth-child(2)");
-    let borger_icon_3 = $("#navbar-icon i:nth-child(3)");
-    let borger_icon_4 = $("#navbar-icon i:nth-child(4)");
-
     borger_icon_1.css({
       top: "45%",
       transform: "rotate(45deg)"
@@ -55,42 +55,32 @@ ready = $(document).ready(function() {
   }
 
   function burger_middle() {
-    let borger_icon_1 = $("#navbar-icon i:nth-child(1)");
-    let borger_icon_2 = $("#navbar-icon i:nth-child(2)");
-    let borger_icon_3 = $("#navbar-icon i:nth-child(3)");
-    let borger_icon_4 = $("#navbar-icon i:nth-child(4)");
-
     borger_icon_1.css({
       top: "50%",
-      transform: "rotate(0)"
+      transform: "rotate(45deg)"
     });
 
     borger_icon_2.css({
-      top: "50%",
-      transform: "rotate(0)"
+      top: "350%",
+      transform: "rotate(45deg)"
     });
 
     borger_icon_3.css({
-      top: "50%",
-      transform: "rotate(0)"
+      top: "250%",
+      transform: "rotate(45deg)"
     });
 
     borger_icon_4.css({
-      top: "50%",
-      transform: "rotate(0)"
+      top: "150%",
+      transform: "rotate(45deg)"
     });
 
     $("#navbar-icon  :nth-child(n)").css({
-      "transition-durration": "1s"
+      // "transition-durration": ".4s"
     });
   }
 
   function burger_become_menu() {
-    let borger_icon_1 = $("#navbar-icon i:nth-child(1)");
-    let borger_icon_2 = $("#navbar-icon i:nth-child(2)");
-    let borger_icon_3 = $("#navbar-icon i:nth-child(3)");
-    let borger_icon_4 = $("#navbar-icon i:nth-child(4)");
-
     borger_icon_1.css({
       top: "30%",
       transform: "rotate(0)"
@@ -111,9 +101,7 @@ ready = $(document).ready(function() {
       transform: "rotate(0)"
     });
 
-    $("#navbar-icon  :nth-child(n)").css({
-      // "background":"black"
-    });
+    $("#navbar-icon  :nth-child(n)").css({});
   }
 
   let menu_toggle = $("#navbar-toggle");
@@ -123,10 +111,10 @@ ready = $(document).ready(function() {
     let str = "rotate(";
 
     let str2 = str.concat(transform_rotate, "deg)");
-
+    burger_middle();
     let header = $("#header");
     let headertop = parseInt(header.css("top"));
-    burger_middle();
+
     if (headertop < -700) {
       header.css({ top: "0" });
       setTimeout(function() {
@@ -258,7 +246,7 @@ ready = $(document).ready(function() {
         "transition-timing-function": "var(--default-timing)"
       });
     }
-    setTimeout(local(), 20);
+    setTimeout(local(), 10);
 
     let box_side = box.children("div");
     box_side = box.find("#front");
