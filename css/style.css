@@ -6,14 +6,15 @@
   --dark-blue: rgb(48, 51, 78);
   --custom-color: rgb(141, 139, 139);
   --light-blue: rgb(168, 227, 255);
-  --color-6: rgb(10, 20, 32);
+  --color-6: #303038;
   --text-color: white;
-  --page-background: rgb(48, 51, 78);
+  --page-background: #1d1d27;
   --page-background-transparent: rgba(25, 23, 46, 0.9);
   --document-color: var(--color-6);
   /* --document-color: var(--custom-color); */
-  --header-color: rgb(44, 47, 71);
-  --nav-color: rgb(48, 51, 78);
+  --header-color: #1d1d27;
+  --nav-color: #23232a;
+
   --document-container: var(--dark-blue);
   --default-duration: 0.5s;
   --duration-longer: 0.9s;
@@ -22,7 +23,8 @@
   /* --slider-timing: cubic-bezier(0, 0.28, 0.6, 0.7, 0.8, 1); */
   --slider-timing: cubic-bezier(0.43, 0.77, 0.84, 1);
 
-  --default-delay: 0.53s;
+  --default-delay: 0.23s;
+
   --about-color: #371cb6;
   --portfolio-color: orange;
   --contact-color: green;
@@ -40,9 +42,13 @@ body {
   width: 100vw !important;
   height: 100vh !important;
   overflow: hidden;
-  font-size: 1.2em;
+  font-size: 18px;
   line-height: 1.7em;
   font-weight: 300;
+}
+h1 {
+  font-size: 2.5em;
+  font-weight: 700;
 }
 h1,
 p {
@@ -55,6 +61,8 @@ canvas {
 /*              HEADER          */
 #header {
   position: fixed;
+  justify-self: flex-end;
+  align-self: flex-end;
   top: -100vh;
   background: var(--header-color);
   width: 100vw;
@@ -62,31 +70,56 @@ canvas {
   z-index: 40;
   font-size: 2rem !important;
   /* transition: var(--elements-transition); */
-  transition-duration: 0.3s;
+  transition-duration: var(--default-duration);
+  transition-delay: var(--default-delay);
+  transition-timing-function: var(--slider-timing);
+}
+#header-box {
+  justify-self: flex-end;
+  align-self: flex-end;
+  top: -100vh;
+  background: var(--header-color);
+  width: 100vw;
+  height: 100vh;
+  z-index: 40;
+  font-size: 2rem !important;
+  /* transition: var(--elements-transition); */
+  transition-duration: var(--default-duration);
+  transition-delay: var(--default-delay);
+  transition-timing-function: var(--slider-timing);
 }
 #nav {
-  max-width: 70%;
-  max-height: 85%;
-  min-height: 60%;
+  max-width: 70vw;
+  max-height: 85vh;
+  min-height: 70vh;
   background: var(--nav-color);
   overflow: hidden;
   transition-duration: var(--elements-transition);
   font-size: 2.4rem;
+  font-weight: 600;
 }
 #nav-list {
   list-style-type: none !important;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 50vh;
+  margin: 0 !important;
+  height: 70vh;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .listItem {
-  padding-top: 1em !important;
-
-  padding-bottom: 1em !important;
+  cursor: pointer;
   width: 100%;
   text-align: center;
   text-decoration: none;
+  height: 15%;
   transition: var(--elements-transition-slow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .listItem a {
   display: block;
@@ -96,6 +129,9 @@ canvas {
   color: inherit;
   transition-duration: var(--default-duration);
   transition-timing-function: cubic-bezier(0.43, 0.77, 0.89, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #next-toggle {
@@ -133,7 +169,7 @@ canvas {
   position: absolute;
   height: 2px;
   left: 25%;
-  width: 60%;
+  width: 67%;
   background-color: white;
   transition: transform 0.45s cubic-bezier(0.43, 0.77, 0.15, 1.5),
     background 0.3s ease;
@@ -148,12 +184,12 @@ canvas {
 }
 #navbar-toggle {
   position: fixed;
-  top: 52px;
+  top: 37px;
   right: 63px;
   cursor: pointer;
   z-index: 41;
   height: 60px;
-  width: 60px;
+  width: 90px;
   transition: var(--elements-transition);
   transform: rotate(0);
 
@@ -166,13 +202,13 @@ canvas {
 }
 #navbar-icon :nth-child(n) {
   position: absolute;
-  width: 45%;
-  transition: transform 0.45s cubic-bezier(0.43, 0.77, 0.15, 1.5),
-    background 0.3s ease;
+  width: 50%;
+  transition-timing-function: var(--default-duration);
+  transition-duration: 0.55s;
 }
 #navbar-icon :nth-child(1) {
   position: absolute;
-  top: 30%;
+  top: 38%;
 }
 #navbar-icon :nth-child(2) {
   position: absolute;
@@ -185,7 +221,7 @@ canvas {
 }
 #navbar-icon :nth-child(4) {
   position: absolute;
-  top: 70%;
+  top: 62%;
 }
 #navbar-toggle:hover {
 }
@@ -220,7 +256,9 @@ main {
   position: relative;
   transform-style: preserve-3d;
   transition-duration: var(--default-duration);
+  /* transition-delay: var(--default-delay); */
   transition-delay: var(--default-delay);
+
   transition-timing-function: var(--default-timing);
   /* transition-duration: 3s;
   transition-delay: 2s; */
@@ -228,13 +266,14 @@ main {
 
 .box__face {
   position: absolute;
-  /*border: 1px solid var(--light-blue);*/
+  /* border: 6px solid var(--light-blue); */
   text-align: center;
   padding: 0;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  --document-color-darker: rgba(75, 59, 33, 0.637);
 }
 
 .box__face--front,
@@ -252,8 +291,7 @@ main {
 .box__face--top,
 .box__face--bottom {
   width: 100vw;
-  height: 100vw;
-  visibility: hidden;
+  height: 200vw;
 }
 
 .box__face--front {
@@ -290,12 +328,12 @@ main {
 }
 
 .box__face--top {
-  transform: rotateX(90deg) translateZ(105vh) translateY(-105vh);
+  transform: rotateX(90deg) translateZ(100vw) translateY(-100vw);
 }
 .box__face--bottom {
-  transform: rotateX(-90deg) translateZ(-5vh) translateY(105vh);
+  transform: rotateX(-90deg) translateZ(75vh) translateY(50vw);
+  visibility: hidden;
 }
-
 .box.show-front {
   transform: translateZ(0px) rotateY(0deg);
 }
@@ -334,7 +372,8 @@ main {
 }
 .page-slider section {
   transition-duration: var(--default-duration);
-  transition-delay: var(--default-delay);
+  /* transition-delay: var(--default-delay); */
+  transition-delay: 1340ms;
   transition-timing-function: var(--slider-timing);
 }
 .page {
@@ -436,14 +475,13 @@ main {
   margin-top: 10%;
   margin-bottom: 10%;
 
-  padding: 1rem;
+  padding: 0.5em;
 }
 .page-content {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 2;
-  padding: 1rem;
   width: 100vw;
   height: 100vh;
   bottom: auto;
@@ -469,6 +507,12 @@ main {
 
 /* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
+  h1 {
+    font-size: 1.36em;
+  }
+  #nav {
+    font-size: 2rem;
+  }
   #about-content {
   }
   #navbar-toggle {
@@ -505,3 +549,14 @@ main {
 /*}*/
 
 /*              /MAIN           */
+
+.test-button {
+  position: fixed;
+  z-index: 50000;
+  background: black;
+  width: 150px;
+  height: 50px;
+  top: 50px;
+  left: 50px;
+  color: white;
+}

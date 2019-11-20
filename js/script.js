@@ -21,7 +21,26 @@ ready = $(document).ready(function() {
   let borger_icon_3 = $("#navbar-icon i:nth-child(3)");
   let borger_icon_4 = $("#navbar-icon i:nth-child(4)");
 
+  let box = $(".box");
   pagePreLoad();
+  $(".box #top").append(
+    "<header id='header-box' class='d-flex justify-content-center align-items-center'>" +
+      "<nav id='nav' class='container-fluid'>" +
+      " <ul id='nav-list'class='d-flex flex-column justify-content-center align-items-center'>" +
+      "<li class='listItem'><a id='about-link' href='#about'>about</a></li>" +
+      " <li class='listItem'>" +
+      " <a id='skills-link' href='#skills'>skills</a>" +
+      "</li>" +
+      " <li class='listItem'>" +
+      "<a id='portfolio-link' href='#portfolio'>portfolio</a>" +
+      " </li>" +
+      "<li class='listItem'>" +
+      "<a id='contact-link' href='#contact'>contact</a>" +
+      "</li>" +
+      " </ul>" +
+      " </nav>" +
+      "</header>"
+  );
   $("#header")
     .find("nav")
     .find("ul")
@@ -29,6 +48,7 @@ ready = $(document).ready(function() {
     .find("a")
     .find("#about-link")
     .click();
+
   function burger_become_x() {
     borger_icon_1.css({
       top: "45%",
@@ -50,39 +70,39 @@ ready = $(document).ready(function() {
       transform: "rotate(225deg)"
     });
     $("#navbar-icon  :nth-child(n)").css({
-      // "background":"white"
+      // width: "50%"
     });
   }
 
   function burger_middle() {
     borger_icon_1.css({
       top: "50%",
-      transform: "rotate(45deg)"
+      transform: "rotate(0deg)"
     });
 
     borger_icon_2.css({
-      top: "350%",
-      transform: "rotate(45deg)"
+      top: "50%",
+      transform: "rotate(0deg)"
     });
 
     borger_icon_3.css({
-      top: "250%",
-      transform: "rotate(45deg)"
+      top: "50%",
+      transform: "rotate(0deg)"
     });
 
     borger_icon_4.css({
-      top: "150%",
-      transform: "rotate(45deg)"
+      top: "50%",
+      transform: "rotate(0deg)"
     });
 
-    $("#navbar-icon  :nth-child(n)").css({
-      // "transition-durration": ".4s"
+    $("#navbar-icon:nth-child(n)").css({
+      // "transition-durration": ".8s"
     });
   }
 
   function burger_become_menu() {
     borger_icon_1.css({
-      top: "30%",
+      top: "38%",
       transform: "rotate(0)"
     });
 
@@ -97,38 +117,92 @@ ready = $(document).ready(function() {
     });
 
     borger_icon_4.css({
-      top: "70%",
+      top: "62%",
       transform: "rotate(0)"
     });
 
-    $("#navbar-icon  :nth-child(n)").css({});
+    $("#navbar-icon:nth-child(n)").css({
+      // width: "50%"
+    });
   }
 
   let menu_toggle = $("#navbar-toggle");
 
+  function checkBox() {
+    current_url = window.location.href;
+    let current_page = "about";
+    if (current_url.includes("#")) {
+      let $position = current_url.indexOf("#");
+      let $string = current_url.slice($position + 1);
+
+      current_page = $string;
+    } else {
+      current_page = "about";
+    }
+    let selector = makeJQSelector(current_page);
+    console.log($("#front").find(selector).length);
+    if ($("#front").find(selector).length < 1) {
+      boxPageAppend(current_page);
+    }
+  }
+  checkBox();
+
+  // ! MENU TOGGLE ON CLICK
   menu_toggle.on("click tap", function() {
     transform_rotate += 90;
     let str = "rotate(";
-
     let str2 = str.concat(transform_rotate, "deg)");
+
     burger_middle();
     let header = $("#header");
     let headertop = parseInt(header.css("top"));
 
+    current_url = window.location.href;
+    let current_page = "about";
+    if (current_url.includes("#")) {
+      let $position = current_url.indexOf("#");
+      let $string = current_url.slice($position + 1);
+
+      current_page = $string;
+    } else {
+      current_page = "about";
+    }
+
     if (headertop < -700) {
+      checkBox();
+      sliderPageHide(current_page);
+      sliderPagesDestroy();
+
+      // if (!$("#front").find(selector).length) {
+      //   boxPageAppend(current_page);
+      // }
+
+      box.addClass("show-top");
       header.css({ top: "0" });
-      setTimeout(function() {
-        menu_toggle.css({ transform: str2 });
-      }, 2000);
+      // setTimeout(function() {
+      //   boxPageDestroy("about");
+      // }, 700);
 
-      setTimeout(burger_become_x(), 700);
+      // setTimeout(function() {
+      //   menu_toggle.css({ transform: str2 });
+      // }, 120);
+
+      setTimeout(burger_become_x, 470);
     } else if (headertop == 0) {
+      boxPageDestroy();
+      boxPageAppend(current_page);
+      sliderPageShow(current_page);
+      removeOffset();
+      box.removeClass("show-top");
+      box.addClass("show-front");
+
       header.css({ top: "-100vh" });
+
       setTimeout(function() {
         menu_toggle.css({ transform: str2 });
-      }, 2000);
+      }, 10);
 
-      setTimeout(burger_become_menu(), 700);
+      setTimeout(burger_become_menu, 470);
     }
   });
 
@@ -175,8 +249,20 @@ ready = $(document).ready(function() {
 
   next.on("click", function() {});
 
-  let box = $(".box");
   function removeOffset(delay = 0) {
+    let box = $(".box");
+    box.css({
+      "transition-delay": "0s",
+      "transition-duration": "0s"
+    });
+    function local() {
+      box.css({
+        "transition-duration": "var(--default-duration)",
+        "transition-delay": "var(--default-delay)",
+        "transition-timing-function": "var(--default-timing)"
+      });
+    }
+    setTimeout(local(), 10);
     box
       .removeClass("show-bottom")
       .removeClass("show-top")
@@ -205,7 +291,7 @@ ready = $(document).ready(function() {
     if (type == "id") char = "#";
     if (type == "class") char = ".";
 
-    let selector = char + "string" + "-page";
+    let selector = char + string + "-page";
     return selector;
   }
 
@@ -383,6 +469,18 @@ ready = $(document).ready(function() {
       display: "none"
     });
   }
+  function sliderPageShow(string) {
+    let selector = "#" + string + "-page";
+
+    let target = $(".page-slider").children(selector);
+
+    $(target).css({
+      "transition-duration": "0s",
+      "transition-delay": "0s",
+      visibility: "visible",
+      display: "block"
+    });
+  }
 
   function boxPageDestroy(string) {
     box = $(".box");
@@ -408,25 +506,6 @@ ready = $(document).ready(function() {
     section.remove();
     // }, 430);
   }
-
-  // function slide_right(page) {
-  //   let leftOffset = slider.css("left");
-  //   leftOffset = parseFloat(leftOffset.split("px"));
-
-  //   if (leftOffset == "0") {
-  //     slider.css({
-  //       left: "-100vw"
-  //     });
-  //   } else {
-  //     let slider_child = $(".page-slider").find("section");
-  //     slider.css({
-  //       left: "-100vw"
-  //     });
-  //     slider_child.css({
-  //       left: "100vw"
-  //     });
-  //   }
-  // }
 
   function slide_right(page) {
     let leftOffset = slider.css("left");
@@ -483,16 +562,21 @@ ready = $(document).ready(function() {
     });
   }
   function box_slider_transition(current_page) {
-    console.log(current_page + "!!!!!!!!!!!!!!!!!!!!!!!");
     sliderPageHide(current_page);
     boxPageAppend(current_page);
     sliderPagesDestroy();
     setTimeout(function() {
       boxPageDestroy(current_page);
-    }, 1100);
+    }, 2600);
   }
 
   function mainRight(current_page, target_page) {
+    box.css({
+      "transition-duration": "var(--default-duration)",
+      "transition-delay": "var(--default-delay)",
+      "transition-timing-function": "var(--default-timing)"
+    });
+
     if (current_page == target_page) {
       return;
     } else {
@@ -511,11 +595,48 @@ ready = $(document).ready(function() {
 
       slide_right();
 
-      box.addClass("show-right");
+      function addClassShowRight() {
+        box.addClass("show-right");
+      }
+
+      setTimeout(addClassShowRight, 1100);
+
       setTimeout(function() {
         removeOffset();
-      }, 1100);
+      }, 1700);
     }
+  }
+
+  function controlNextAppear() {
+    $("#next-toggle").animate(
+      {
+        right: "63px"
+      },
+      500
+    );
+  }
+  function controlPrevAppear() {
+    $("#previous-toggle").animate(
+      {
+        left: "63px"
+      },
+      500
+    );
+  }
+
+  function navbarAppear() {
+    $("#navbar-toggle").animate(
+      {
+        top: "37px"
+      },
+      500
+    );
+  }
+  function hideNext() {
+    $("#next-toggle").css({ display: "none" });
+  }
+  function showNext() {
+    $("#next-toggle").css({ display: "block" });
   }
 
   navItem.on("click", function() {
@@ -525,35 +646,143 @@ ready = $(document).ready(function() {
       let $string = current_url.slice($position + 1);
 
       current_page = $string;
-      console.log("CURRENT PAGE   __  _ _ _ " + current_page);
     } else {
       current_page = "about";
     }
-    console.log("CURRENT PAGE   __  _ _ _ " + current_page);
     let href = $(this)
       .find("a")
       .attr("href");
-    console.log(href);
+    let target_page = href.replace("#", "");
+
+    if (current_page == target_page) {
+      setTimeout(navbarAppear, 1100);
+      setTimeout(controlNextAppear, 700);
+      setTimeout(controlPrevAppear, 700);
+    } else {
+      setTimeout(function() {
+        $("#next-toggle").animate(
+          {
+            right: "-63px"
+          },
+          700
+        );
+      }, 500);
+
+      setTimeout(function() {
+        $("#navbar-toggle").animate(
+          {
+            top: "-65px"
+          },
+          700
+        );
+        $("#previous-toggle").animate(
+          {
+            left: "-63px"
+          },
+          700
+        );
+      }, 500);
+      setTimeout(navbarAppear, 2000);
+      setTimeout(controlNextAppear, 2000);
+      setTimeout(controlPrevAppear, 2000);
+    }
+
     switch (href) {
       case "#about":
         mainRight(current_page, "about");
+        setTimeout(showNext, 1100);
         break;
 
       case "#skills":
         mainRight(current_page, "skills");
+        setTimeout(showNext, 1100);
         break;
 
       case "#portfolio":
         mainRight(current_page, "portfolio");
+        setTimeout(showNext, 1100);
         break;
 
       case "#contact":
         mainRight(current_page, "contact");
+        setTimeout(hideNext, 800);
         break;
     }
   });
 
-  $("#next-toggle").on("click", function() {});
+  $("#next-toggle").on("click", function() {
+    current_url = window.location.href;
+    let current_page = "about";
+    if (current_url.includes("#")) {
+      let $position = current_url.indexOf("#");
+      let $string = current_url.slice($position + 1);
+
+      current_page = $string;
+    } else {
+      current_page = "about";
+    }
+    console.log("CUrrEnTT pagEeE " + current_page);
+
+    let href = $(this).attr("href");
+    console.log(href + "===============================");
+
+    switch (current_page) {
+      case "about":
+        mainRight(current_page, "skills");
+
+        break;
+
+      case "skills":
+        mainRight(current_page, "portfolio");
+        $(this).attr("href", "#portfolio");
+        break;
+
+      case "portfolio":
+        mainRight(current_page, "contact");
+        $(this).attr("href", "#contact");
+        setTimeout(hideNext, 1000);
+        break;
+
+      case "contact":
+        mainRight(current_page, "contact");
+        break;
+    }
+
+    let target_page = href.replace("#", "");
+
+    if (current_page == target_page) {
+      setTimeout(navbarAppear, 1100);
+      setTimeout(controlNextAppear, 700);
+      setTimeout(controlPrevAppear, 700);
+    } else {
+      setTimeout(function() {
+        $("#next-toggle").animate(
+          {
+            right: "-63px"
+          },
+          700
+        );
+      }, 500);
+
+      setTimeout(function() {
+        $("#navbar-toggle").animate(
+          {
+            top: "-65px"
+          },
+          700
+        );
+        $("#previous-toggle").animate(
+          {
+            left: "-63px"
+          },
+          700
+        );
+      }, 500);
+      setTimeout(navbarAppear, 2000);
+      setTimeout(controlNextAppear, 2000);
+      setTimeout(controlPrevAppear, 2000);
+    }
+  });
   // navItem.on("click", function() {
   //   let href = $(this)
   //     .find("a")

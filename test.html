@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"
+  ></script>
+</head>
+<body>
+    <button class="scene">
+        <div class="box">
+          <div class="box__face box__face--front" id="front"></div>
+          <div class="box__face box__face--back"></div>
+          <div class="box__face box__face--right" id="right"></div>
+          <div class="box__face box__face--left"></div>
+          <div class="box__face box__face--top"></div>
+          <div class="box__face box__face--bottom"></div>
+        </div>
+<button class="test-button" type="button" value="Click">
+    Click
+</button>
+<script>
+    $('.test-button').on('click',function(){
+        $('.box').addClass('show-top');
+        if ($.contains($('.box'),$('.box__face'))) {
+                alert("TRUE");
+        }
+    })
+</script>
+</body>
+</html>
