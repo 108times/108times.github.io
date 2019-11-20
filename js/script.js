@@ -140,7 +140,7 @@ ready = $(document).ready(function() {
       current_page = "about";
     }
     let selector = makeJQSelector(current_page);
-    console.log($("#front").find(selector).length);
+    // console.log($("#front").find(selector).length);
     if ($("#front").find(selector).length < 1) {
       boxPageAppend(current_page);
     }
@@ -309,7 +309,7 @@ ready = $(document).ready(function() {
         $string = current_url.slice($position + 1);
 
         current_page = $string;
-        console.log("CURRENT PAGE   __  _ _ _ " + current_page);
+        // console.log("CURRENT PAGE   __  _ _ _ " + current_page);
       }
       let wge = slider.children("section").remove();
 
@@ -336,7 +336,7 @@ ready = $(document).ready(function() {
 
     let box_side = box.children("div");
     box_side = box.find("#front");
-    console.log(string + "box_page_append");
+    // console.log(string + "box_page_append");
     switch (string) {
       case "about":
         box_side.append(
@@ -527,7 +527,7 @@ ready = $(document).ready(function() {
     for (let i = 0; i < mas.length - 1; i++) {
       if (current_page == mas[i]) {
         selector = makeJQSelector(mas[i]);
-        console.log("masi " + mas[i]);
+        // console.log("masi " + mas[i]);
         $(selector).remove();
       } else {
         if (slider.children().length > 1) {
@@ -721,15 +721,50 @@ ready = $(document).ready(function() {
     } else {
       current_page = "about";
     }
-    console.log("CUrrEnTT pagEeE " + current_page);
+    // console.log("CUrrEnTT pagEeE " + current_page);
 
     let href = $(this).attr("href");
-    console.log(href + "===============================");
+    // console.log(href + "===============================");
 
+    let target_page = href.replace("#", "");
+    console.log("TARGETTTTT PAGEEEE  E E E E + " + target_page);
+    console.log("CURREBT PAGEEEE  E E E E + " + current_page);
+    // if (current_page == target_page) {
+    //   setTimeout(navbarAppear, 1100);
+    //   setTimeout(controlNextAppear, 700);
+    //   setTimeout(controlPrevAppear, 700);
+    // } else {
+    setTimeout(function() {
+      $("#next-toggle").animate(
+        {
+          right: "-63px"
+        },
+        700
+      );
+    }, 500);
+
+    setTimeout(function() {
+      $("#navbar-toggle").animate(
+        {
+          top: "-65px"
+        },
+        700
+      );
+      $("#previous-toggle").animate(
+        {
+          left: "-63px"
+        },
+        700
+      );
+    }, 500);
+    setTimeout(navbarAppear, 2000);
+    setTimeout(controlNextAppear, 2000);
+    setTimeout(controlPrevAppear, 2000);
+    // }
     switch (current_page) {
       case "about":
         mainRight(current_page, "skills");
-
+        $(this).attr("href", "#skills");
         break;
 
       case "skills":
@@ -746,41 +781,6 @@ ready = $(document).ready(function() {
       case "contact":
         mainRight(current_page, "contact");
         break;
-    }
-
-    let target_page = href.replace("#", "");
-
-    if (current_page == target_page) {
-      setTimeout(navbarAppear, 1100);
-      setTimeout(controlNextAppear, 700);
-      setTimeout(controlPrevAppear, 700);
-    } else {
-      setTimeout(function() {
-        $("#next-toggle").animate(
-          {
-            right: "-63px"
-          },
-          700
-        );
-      }, 500);
-
-      setTimeout(function() {
-        $("#navbar-toggle").animate(
-          {
-            top: "-65px"
-          },
-          700
-        );
-        $("#previous-toggle").animate(
-          {
-            left: "-63px"
-          },
-          700
-        );
-      }, 500);
-      setTimeout(navbarAppear, 2000);
-      setTimeout(controlNextAppear, 2000);
-      setTimeout(controlPrevAppear, 2000);
     }
   });
   // navItem.on("click", function() {
