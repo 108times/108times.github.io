@@ -1,5 +1,27 @@
 let ready;
 let current_page = "about";
+
+function decideDelay() {
+  let width = parseInt($(window).width());
+  let initial = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      "--slider-delay"
+    )
+  );
+  let value;
+  console.log(value);
+  if (width < 1201) {
+    // value = initial - 100 + "ms";
+    value = "1070ms";
+  } else {
+    value = "1170ms";
+  }
+  console.log(value);
+  document.documentElement.style.setProperty("--slider-delay", value);
+}
+
+$(window).on("resize", function() {});
+
 ready = $(document).ready(function() {
   let transform_rotate = 0;
   let this_url = window.location.href;
@@ -49,6 +71,7 @@ ready = $(document).ready(function() {
     .find("#about-link")
     .click();
 
+  decideDelay();
   function burger_become_x() {
     borger_icon_1.css({
       top: "45%",
@@ -57,7 +80,7 @@ ready = $(document).ready(function() {
 
     borger_icon_2.css({
       top: "45%",
-      transform: "rotate(-45deg)"
+      transform: "rotate(45deg)"
     });
 
     borger_icon_3.css({
@@ -67,10 +90,10 @@ ready = $(document).ready(function() {
 
     borger_icon_4.css({
       top: "45%",
-      transform: "rotate(225deg)"
+      transform: "rotate(135deg)"
     });
-    $("#navbar-icon  :nth-child(n)").css({
-      // width: "50%"
+    $(".inner-element").css({
+      width: "74%"
     });
   }
 
@@ -87,38 +110,64 @@ ready = $(document).ready(function() {
 
     borger_icon_3.css({
       top: "50%",
-      transform: "rotate(0deg)"
+      transform: "rotate(-180deg)"
     });
 
     borger_icon_4.css({
       top: "50%",
-      transform: "rotate(0deg)"
+      transform: "rotate(-180deg)"
     });
 
-    $("#navbar-icon:nth-child(n)").css({
-      // "transition-durration": ".8s"
+    $(".inner-element").css({
+      width: "50%"
     });
   }
 
   function burger_become_menu() {
     borger_icon_1.css({
       top: "38%",
-      transform: "rotate(0)"
+      transform: "rotate(0deg)"
     });
 
     borger_icon_2.css({
       top: "50%",
-      transform: "rotate(0)"
+      transform: "rotate(0deg)"
     });
 
     borger_icon_3.css({
       top: "50%",
-      transform: "rotate(0)"
+      transform: "rotate(-180deg)"
     });
 
     borger_icon_4.css({
       top: "62%",
-      transform: "rotate(0)"
+      transform: "rotate(-180deg)"
+    });
+
+    $("#navbar-icon:nth-child(n)").css({
+      // width: "50%"
+    });
+  }
+
+  function burger_hover() {
+    borger_icon_1.css({
+      top: "18%",
+      transform: "rotate(0deg)"
+    });
+
+    borger_icon_2.css({
+      top: "40%",
+      transform: "rotate(0deg)"
+    });
+
+    borger_icon_3.css({
+      top: "60%",
+      transform: "rotate(-180deg)"
+    });
+
+    borger_icon_4.css({
+      top: "82%",
+      transform: "rotate(-180deg)"
     });
 
     $("#navbar-icon:nth-child(n)").css({
@@ -147,8 +196,31 @@ ready = $(document).ready(function() {
   }
   checkBox();
 
+  function highlight(string) {
+    let href1 = "#" + string;
+    let item = $("a[href|='" + href1 + "']");
+    console.log("item+" + item.attr("href"));
+    item.css({
+      color: "white"
+    });
+  }
+
+  function highlightDefault(string) {
+    let href1 = "#" + string;
+    let item = $("a[href|='" + href1 + "']");
+    console.log("item+" + item.attr("href"));
+    item.css({
+      color: "var(--header-text)"
+    });
+  }
+
+  menu_toggle.on("hover", function() {
+    burger_hover();
+  });
+
   // ! MENU TOGGLE ON CLICK
-  menu_toggle.on("click tap", function() {
+  menu_toggle.on("vclick click", function() {
+    decideDelay();
     transform_rotate += 90;
     let str = "rotate(";
     let str2 = str.concat(transform_rotate, "deg)");
@@ -169,6 +241,7 @@ ready = $(document).ready(function() {
     }
 
     if (headertop < -700) {
+      highlight(current_page);
       checkBox();
       sliderPageHide(current_page);
       sliderPagesDestroy();
@@ -189,6 +262,9 @@ ready = $(document).ready(function() {
 
       setTimeout(burger_become_x, 470);
     } else if (headertop == 0) {
+      setTimeout(function() {
+        highlightDefault(current_page);
+      }, 500);
       boxPageDestroy();
       boxPageAppend(current_page);
       sliderPageShow(current_page);
@@ -198,9 +274,9 @@ ready = $(document).ready(function() {
 
       header.css({ top: "-100vh" });
 
-      setTimeout(function() {
-        menu_toggle.css({ transform: str2 });
-      }, 10);
+      // setTimeout(function() {
+      //   menu_toggle.css({ transform: str2 });
+      // }, 10);
 
       setTimeout(burger_become_menu, 470);
     }
@@ -228,9 +304,7 @@ ready = $(document).ready(function() {
       });
       $(this)
         .parent()
-        .css({
-          width: "30%"
-        });
+        .css({});
       // nav.css({"color":string});
     })
     .mouseleave(function() {
@@ -240,14 +314,71 @@ ready = $(document).ready(function() {
       });
       $(this)
         .parent()
-        .css({
-          width: "80%"
-        });
+        .css({});
     });
 
   let next = $("#next-toggle");
 
+  next
+    .on("mouseover", function() {
+      let text = $(this).attr("href");
+      text = text.replace("#", "");
+      $(".next-toggle-before").text(text);
+      let item = $(".next-toggle-before");
+
+      let i1 = $("#next-toggle:nth-child(1)");
+      i1.animate(
+        {
+          transform: "rotate(-185deg)"
+        },
+        200
+      );
+
+      let i2 = $("#next-toggle:nth-child(2)");
+      i2.animate(
+        {
+          transform: "rotate(185deg)"
+        },
+        200
+      );
+
+      item.animate(
+        {
+          opacity: "1",
+          right: "80px"
+        },
+        100
+      );
+    })
+    .on("mouseleave", function() {
+      let text = $(this).attr("href");
+      text = text.replace("#", "");
+      let item = $(".next-toggle-before");
+      let i1 = $("#next-toggle:nth-child(1)").animate(
+        {
+          transform: "rotate(-135deg)"
+        },
+        200
+      );
+
+      let i2 = $("#next-toggle:nth-child(2)").animate(
+        {
+          transform: "rotate(155deg)"
+        },
+        200
+      );
+      item.animate(
+        {
+          opacity: "0",
+          right: "-50px"
+        },
+        25
+      );
+    });
+
   next.on("click", function() {});
+
+  decideDelay();
 
   function removeOffset(delay = 0) {
     let box = $(".box");
@@ -262,7 +393,7 @@ ready = $(document).ready(function() {
         "transition-timing-function": "var(--default-timing)"
       });
     }
-    setTimeout(local(), 10);
+
     box
       .removeClass("show-bottom")
       .removeClass("show-top")
@@ -270,6 +401,7 @@ ready = $(document).ready(function() {
       .removeClass("show-right")
       .removeClass("show-left")
       .removeClass("show-front");
+    setTimeout(local(), 50);
   }
 
   function slide_left() {
@@ -315,6 +447,9 @@ ready = $(document).ready(function() {
 
       sliderPageAppend($string);
       left0($string);
+      if (current_page == "contact") {
+        hideNext();
+      }
     }
     flag++;
   }
@@ -346,7 +481,7 @@ ready = $(document).ready(function() {
           //     "<h2>Skills</h2></section>"
           // );
           "<section id='about-page' class='page d-flex justify-content-center align-items-center text-center'>" +
-            "<div class='page-bg'></div>" +
+            "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
@@ -359,7 +494,8 @@ ready = $(document).ready(function() {
         box_side.append(
           "<section class='page' id='" +
             string +
-            "-page' class='page-container d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+            "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+            "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
@@ -372,7 +508,8 @@ ready = $(document).ready(function() {
         box_side.append(
           "<section class='page' id='" +
             string +
-            "-page' class='page-container d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+            "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+            "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
@@ -385,7 +522,8 @@ ready = $(document).ready(function() {
         box_side.append(
           "<section class='page' id='" +
             string +
-            "-page' class='page-container d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+            "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+            "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
@@ -408,7 +546,7 @@ ready = $(document).ready(function() {
           //     "<h2>Skills</h2></section>"
           // );
           "<section id='about-page' class='page d-flex justify-content-center align-items-center text-center'>" +
-            "<div class='page-bg'></div>" +
+            "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
@@ -421,7 +559,8 @@ ready = $(document).ready(function() {
         slider.append(
           "<section class='page' id='" +
             string +
-            "-page' class='page-container d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+            "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+            "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
@@ -433,7 +572,8 @@ ready = $(document).ready(function() {
         slider.append(
           "<section class='page' id='" +
             string +
-            "-page' class='page-container d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+            "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+            "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
@@ -446,7 +586,8 @@ ready = $(document).ready(function() {
         slider.append(
           "<section class='page' id='" +
             string +
-            "-page' class='page-container d-flex justify-content-center align-items-center text-center'><div class='page-bg'></div>" +
+            "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+            "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
@@ -567,7 +708,7 @@ ready = $(document).ready(function() {
     sliderPagesDestroy();
     setTimeout(function() {
       boxPageDestroy(current_page);
-    }, 2600);
+    }, 2000);
   }
 
   function mainRight(current_page, target_page) {
@@ -599,18 +740,18 @@ ready = $(document).ready(function() {
         box.addClass("show-right");
       }
 
-      setTimeout(addClassShowRight, 1100);
+      setTimeout(addClassShowRight, 950);
 
       setTimeout(function() {
         removeOffset();
-      }, 1700);
+      }, 1450);
     }
   }
 
   function controlNextAppear() {
     $("#next-toggle").animate(
       {
-        right: "63px"
+        right: "43px"
       },
       500
     );
@@ -618,7 +759,7 @@ ready = $(document).ready(function() {
   function controlPrevAppear() {
     $("#previous-toggle").animate(
       {
-        left: "63px"
+        left: "43px"
       },
       500
     );
@@ -639,7 +780,85 @@ ready = $(document).ready(function() {
     $("#next-toggle").css({ display: "block" });
   }
 
-  navItem.on("click", function() {
+  function nextDecide() {
+    let width = parseInt($(window).width());
+    console.log(width);
+    if (width < 769) {
+      hideNext();
+    } else showNext();
+  }
+
+  // navItem.on("click touchstart", function() {
+  //   current_url = window.location.href;
+  //   if (current_url.includes("#")) {
+  //     let $position = current_url.indexOf("#");
+  //     let $string = current_url.slice($position + 1);
+
+  //     current_page = $string;
+  //   } else {
+  //     current_page = "about";
+  //   }
+  //   let href = $(this)
+  //     .find("a")
+  //     .attr("href");
+  //   let target_page = href.replace("#", "");
+
+  //   switch (href) {
+  //     case "#about":
+  //       mainRight(current_page, "about");
+  //       setTimeout(nextDecide, 1000);
+  //       break;
+
+  //     case "#skills":
+  //       mainRight(current_page, "skills");
+  //       setTimeout(nextDecide, 1000);
+  //       break;
+
+  //     case "#portfolio":
+  //       mainRight(current_page, "portfolio");
+  //       setTimeout(nextDecide, 1000);
+  //       break;
+
+  //     case "#contact":
+  //       mainRight(current_page, "contact");
+  //       setTimeout(nextDecide, 1000);
+  //       setTimeout(hideNext, 1000);
+  //       break;
+  //   }
+  //   if (current_page == target_page) {
+  //     setTimeout(navbarAppear, 1000);
+  //     setTimeout(controlNextAppear, 700);
+  //     setTimeout(controlPrevAppear, 700);
+  //   } else {
+  //     setTimeout(function() {
+  //       $("#next-toggle").animate(
+  //         {
+  //           right: "-63px"
+  //         },
+  //         700
+  //       );
+  //     }, 500);
+
+  //     setTimeout(function() {
+  //       $("#navbar-toggle").animate(
+  //         {
+  //           top: "-85px"
+  //         },
+  //         700
+  //       );
+  //       $("#previous-toggle").animate(
+  //         {
+  //           left: "-63px"
+  //         },
+  //         700
+  //       );
+  //     }, 500);
+  //     setTimeout(navbarAppear, 1800);
+  //     setTimeout(controlNextAppear, 1800);
+  //     setTimeout(controlPrevAppear, 1800);
+  //   }
+  // });
+  navItem.on("touchstart click ", function() {
     current_url = window.location.href;
     if (current_url.includes("#")) {
       let $position = current_url.indexOf("#");
@@ -653,7 +872,6 @@ ready = $(document).ready(function() {
       .find("a")
       .attr("href");
     let target_page = href.replace("#", "");
-
     if (current_page == target_page) {
       setTimeout(navbarAppear, 1100);
       setTimeout(controlNextAppear, 700);
@@ -671,7 +889,7 @@ ready = $(document).ready(function() {
       setTimeout(function() {
         $("#navbar-toggle").animate(
           {
-            top: "-65px"
+            top: "-115px"
           },
           700
         );
@@ -682,35 +900,40 @@ ready = $(document).ready(function() {
           700
         );
       }, 500);
-      setTimeout(navbarAppear, 2000);
-      setTimeout(controlNextAppear, 2000);
-      setTimeout(controlPrevAppear, 2000);
+      setTimeout(navbarAppear, 1800);
+      setTimeout(controlNextAppear, 1800);
+      setTimeout(controlPrevAppear, 1800);
     }
 
     switch (href) {
       case "#about":
         mainRight(current_page, "about");
-        setTimeout(showNext, 1100);
+        setTimeout(nextDecide, 1000);
+        $("#next-toggle").attr("href", "#skills");
         break;
 
       case "#skills":
         mainRight(current_page, "skills");
-        setTimeout(showNext, 1100);
+        setTimeout(nextDecide, 1000);
+        $("#next-toggle").attr("href", "#portfolio");
         break;
 
       case "#portfolio":
         mainRight(current_page, "portfolio");
-        setTimeout(showNext, 1100);
+        setTimeout(nextDecide, 1000);
+        $("#next-toggle").attr("href", "#contact");
         break;
 
       case "#contact":
         mainRight(current_page, "contact");
-        setTimeout(hideNext, 800);
+        setTimeout(nextDecide, 1000);
+        $("#next-toggle").attr("href", "#about");
+        setTimeout(hideNext, 1000);
         break;
     }
   });
 
-  $("#next-toggle").on("click", function() {
+  $("#next-toggle").on("touchstart click ", function() {
     current_url = window.location.href;
     let current_page = "about";
     if (current_url.includes("#")) {
@@ -727,8 +950,8 @@ ready = $(document).ready(function() {
     // console.log(href + "===============================");
 
     let target_page = href.replace("#", "");
-    console.log("TARGETTTTT PAGEEEE  E E E E + " + target_page);
-    console.log("CURREBT PAGEEEE  E E E E + " + current_page);
+    // console.log("TARGETTTTT PAGEEEE  E E E E + " + target_page);
+    // console.log("CURREBT PAGEEEE  E E E E + " + current_page);
     // if (current_page == target_page) {
     //   setTimeout(navbarAppear, 1100);
     //   setTimeout(controlNextAppear, 700);
@@ -746,20 +969,20 @@ ready = $(document).ready(function() {
     setTimeout(function() {
       $("#navbar-toggle").animate(
         {
-          top: "-65px"
+          top: "-115px"
         },
         700
       );
       $("#previous-toggle").animate(
         {
-          left: "-63px"
+          left: "-43px"
         },
         700
       );
     }, 500);
-    setTimeout(navbarAppear, 2000);
-    setTimeout(controlNextAppear, 2000);
-    setTimeout(controlPrevAppear, 2000);
+    setTimeout(navbarAppear, 1800);
+    setTimeout(controlNextAppear, 1800);
+    setTimeout(controlPrevAppear, 1800);
     // }
     switch (current_page) {
       case "about":
@@ -783,37 +1006,4 @@ ready = $(document).ready(function() {
         break;
     }
   });
-  // navItem.on("click", function() {
-  //   let href = $(this)
-  //     .find("a")
-  //     .attr("href");
-
-  //   switch (href) {
-  //     case "#about":
-  //       removeOffset();
-  //       box.addClass("show-front");
-  //       break;
-  //     case "#skills":
-  //       removeOffset();
-  //       box.addClass("show-right");
-  //       break;
-  //     case "#portfolio":
-  //       removeOffset();
-  //       box.addClass("show-left");
-  //       break;
-  //     case "#contact":
-  //       removeOffset();
-  //       box.addClass("show-back");
-  //       break;
-  //   }
-  // });
-
-  // if (parseInt(main.css("left")) >= -200){
-  //     offset = offset - 100;
-  //     $('#main').css({
-  //         "left":offset+"%"
-  //     })
-  //     console.log(offset);
-  // }
-  // console.log("offset = "+offset);
 });
