@@ -340,7 +340,19 @@ ready = $(document).ready(function() {
       }
     );
   }
-
+  function previousDisableTemporary() {
+    previous.animate(
+      {
+        display: "none"
+      },
+      400,
+      function() {
+        next.css({
+          display: "flex"
+        });
+      }
+    );
+  }
   next
     .on("mouseover", function() {
       current_url = window.location.href;
@@ -436,14 +448,13 @@ ready = $(document).ready(function() {
       }
       switch (current_page) {
         case "about":
-          $(this).attr("href", "#skills");
+          $(this).attr("href", "#about");
           break;
         case "skills":
-          $(this).attr("href", "#portfolio");
+          $(this).attr("href", "#about");
           break;
-
         case "portfolio":
-          $(this).attr("href", "#contact");
+          $(this).attr("href", "#skills");
           break;
         case "contact":
           $(this).attr("href", "#portfolio");
@@ -589,6 +600,9 @@ ready = $(document).ready(function() {
       left0($string);
       if (current_page == "contact") {
         hideNext();
+      }
+      if (current_page == "about") {
+        hidePrev();
       }
     }
     flag++;
@@ -882,7 +896,7 @@ ready = $(document).ready(function() {
       sliderPageAppend(target_page);
       sliderPageAdjust();
 
-      slide_left();
+      slide_right();
 
       function addClassShowLeft() {
         box.addClass("show-left");
@@ -964,13 +978,23 @@ ready = $(document).ready(function() {
   function showNext() {
     $("#next-toggle").css({ display: "flex" });
   }
+  function hidePrev() {
+    $("#previous-toggle").css({ display: "none" });
+  }
+  function showPrev() {
+    $("#previous-toggle").css({ display: "flex" });
+  }
 
   function nextDecide() {
     let width = parseInt($(window).width());
     console.log(width);
     if (width < 769) {
       hideNext();
-    } else showNext();
+      hidePrev();
+    } else {
+      showNext();
+      showPrev();
+    }
   }
 
   navItem.on("click tap", function() {
@@ -1022,25 +1046,50 @@ ready = $(document).ready(function() {
 
     switch (href) {
       case "#about":
-        mainRight(current_page, "about");
+        if (
+          current_page == "skills" ||
+          current_page == "portfolio" ||
+          current_page == "contact"
+        ) {
+          mainLeft(current_page, "about");
+        } else {
+          mainRight(current_page, "about");
+        }
         setTimeout(nextDecide, 1000);
+        setTimeout(hidePrev, 1000);
         $("#next-toggle").attr("href", "#skills");
         break;
 
       case "#skills":
-        mainRight(current_page, "skills");
+        if (current_page == "about") {
+          mainRight(current_page, "skills");
+        } else if (current_page == "portfolio" || current_page == "contact") {
+          mainLeft(current_page, "skills");
+        }
         setTimeout(nextDecide, 1000);
         $("#next-toggle").attr("href", "#portfolio");
         break;
 
       case "#portfolio":
-        mainRight(current_page, "portfolio");
+        if (current_page == "about" || current_page == "skills") {
+          mainRight(current_page, "portfolio");
+        } else if (current_page == "contact") {
+          mainLeft(current_page, "portfolio");
+        }
         setTimeout(nextDecide, 1000);
         $("#next-toggle").attr("href", "#contact");
         break;
 
       case "#contact":
-        mainRight(current_page, "contact");
+        if (
+          current_page == "skills" ||
+          current_page == "portfolio" ||
+          current_page == "about"
+        ) {
+          mainRight(current_page, "contact");
+        } else {
+          mainRight(current_page, "contact");
+        }
         setTimeout(nextDecide, 1000);
         $("#next-toggle").attr("href", "#about");
         setTimeout(hideNext, 1000);
@@ -1097,6 +1146,7 @@ ready = $(document).ready(function() {
         mainRight(current_page, "skills");
         next.mouseleave();
         nextDisableTemporary();
+        setTimeout(nextDecide, 1000);
         // function e1() {
         //   $(this).attr("href", "#portfolio");
         // }
@@ -1107,6 +1157,7 @@ ready = $(document).ready(function() {
         mainRight(current_page, "portfolio");
         next.mouseleave();
         nextDisableTemporary();
+        setTimeout(nextDecide, 1000);
         // function e2() {
         //   $(this).attr("href", "#contact");
         // }
@@ -1117,6 +1168,7 @@ ready = $(document).ready(function() {
         mainRight(current_page, "contact");
         next.mouseleave();
         nextDisableTemporary();
+        setTimeout(nextDecide, 1000);
         // function e3() {
         //   $(this).attr("href", "#about");
         // }
@@ -1126,6 +1178,83 @@ ready = $(document).ready(function() {
 
       case "contact":
         mainRight(current_page, "contact");
+        break;
+    }
+  });
+  $("#previous-toggle").on("click", function() {
+    decideDelay();
+    current_url = window.location.href;
+    let current_page = "about";
+    if (current_url.includes("#")) {
+      let $position = current_url.indexOf("#");
+      let $string = current_url.slice($position + 1);
+
+      current_page = $string;
+    } else {
+      current_page = "about";
+    }
+
+    let href = $(this).attr("href");
+
+    let target_page = href.replace("#", "");
+
+    setTimeout(function() {
+      $("#next-toggle").animate(
+        {
+          right: "-163px"
+        },
+        700
+      );
+    }, 500);
+
+    setTimeout(function() {
+      $("#navbar-toggle").animate(
+        {
+          top: "-115px"
+        },
+        700
+      );
+      $("#previous-toggle").animate(
+        {
+          left: "-143px"
+        },
+        700
+      );
+    }, 500);
+    setTimeout(navbarAppear, 1800);
+    setTimeout(controlNextAppear, 1800);
+    setTimeout(controlPrevAppear, 1800);
+    switch (current_page) {
+      case "about":
+        mainLeft(current_page, "about");
+        previous.mouseleave();
+        // function e1() {
+        //   $(this).attr("href", "#portfolio");
+        // }
+        // setTimeout(e1, 0);
+        setTimeout(hidePrev, 1000);
+        break;
+
+      case "skills":
+        mainLeft(current_page, "about");
+        previous.mouseleave();
+        previousDisableTemporary();
+        setTimeout(nextDecide, 1000);
+        setTimeout(hidePrev, 1000);
+        break;
+
+      case "portfolio":
+        mainLeft(current_page, "skills");
+        previous.mouseleave();
+        previousDisableTemporary();
+        setTimeout(nextDecide, 1000);
+        break;
+
+      case "contact":
+        mainLeft(current_page, "portfolio");
+        previous.mouseleave();
+        previousDisableTemporary();
+        setTimeout(nextDecide, 1000);
         break;
     }
   });

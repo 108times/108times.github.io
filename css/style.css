@@ -27,10 +27,10 @@
   --duration-longer: 0.9s;
   /* --default-timing: cubic-bezier(0, 0, 0.25, 0.25, 0.5, 5, 0.8, 0.8, 1, 1); */
   /* --default-timing: cubic-bezier(0.23, 0.67, 0.94, 0.95) ; */
-  --default-timing: cubic-bezier(0.1, 0.4, 0.5, 0.9, 0.85, 1.4);
+  --default-timing: cubic-bezier(0.1, 0.2, 0.5, 0.9, 0.85, 1.4);
   /* --slider-timing: cubic-bezier(0, 0.28, 0.6, 0.7, 0.8, 1); */
   /* --slider-timing: cubic-bezier(0.23, 0.67, 0.94, 0.95); */
-  --slider-timing: cubic-bezier(0.1, 0.4, 0.5, 0.9, 0.85, 1.4);
+  --slider-timing: cubic-bezier(0.1, 0.2, 0.5, 0.9, 0.85, 1.4);
 
   --default-delay: 0.3s;
   --slider-delay: 1310ms;
@@ -282,7 +282,7 @@ canvas {
   margin-right: -80px;
 }
 .next-span:nth-child(n) {
-  margin-left: 160px;
+  margin-left: 180px;
 }
 #next-toggle .i1 {
   margin-top: 10px;
