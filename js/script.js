@@ -9,16 +9,17 @@ function decideDelay() {
     )
   );
   let value;
-  console.log(value);
   if (width < 1201) {
     // value = initial - 100 + "ms";
-    value = "1070ms";
+    value = "1310ms";
   } else {
-    value = "1170ms";
+    value = "1310ms";
   }
   console.log(value);
   document.documentElement.style.setProperty("--slider-delay", value);
 }
+
+let header_var = "hidden";
 
 $(window).on("resize", function() {});
 
@@ -151,22 +152,22 @@ ready = $(document).ready(function() {
 
   function burger_hover() {
     borger_icon_1.css({
-      top: "18%",
+      top: "30%",
       transform: "rotate(0deg)"
     });
 
     borger_icon_2.css({
-      top: "40%",
+      top: "50%",
       transform: "rotate(0deg)"
     });
 
     borger_icon_3.css({
-      top: "60%",
+      top: "50%",
       transform: "rotate(-180deg)"
     });
 
     borger_icon_4.css({
-      top: "82%",
+      top: "70%",
       transform: "rotate(-180deg)"
     });
 
@@ -214,19 +215,29 @@ ready = $(document).ready(function() {
     });
   }
 
-  menu_toggle.on("hover", function() {
-    burger_hover();
-  });
+  menu_toggle
+    .on("mouseover", function() {
+      if (header_var == "hidden") {
+        burger_hover();
+      } else if (header_var == "shown") {
+      }
+    })
+    .on("mouseleave", function() {
+      if (header_var == "hidden") {
+        burger_become_menu();
+      } else if (header_var == "shown") {
+      }
+    });
 
   // ! MENU TOGGLE ON CLICK
-  menu_toggle.on("vclick click", function() {
+  menu_toggle.on("touchstart click", function() {
     decideDelay();
     transform_rotate += 90;
     let str = "rotate(";
     let str2 = str.concat(transform_rotate, "deg)");
 
     burger_middle();
-    let header = $("#header");
+    let header = $("header");
     let headertop = parseInt(header.css("top"));
 
     current_url = window.location.href;
@@ -241,27 +252,24 @@ ready = $(document).ready(function() {
     }
 
     if (headertop < -700) {
+      header_var = "shown";
       highlight(current_page);
       checkBox();
       sliderPageHide(current_page);
       sliderPagesDestroy();
-
-      // if (!$("#front").find(selector).length) {
-      //   boxPageAppend(current_page);
-      // }
-
       box.addClass("show-top");
       header.css({ top: "0" });
-      // setTimeout(function() {
-      //   boxPageDestroy("about");
-      // }, 700);
-
-      // setTimeout(function() {
-      //   menu_toggle.css({ transform: str2 });
-      // }, 120);
-
       setTimeout(burger_become_x, 470);
     } else if (headertop == 0) {
+      header.css({
+        opacity: "0"
+      });
+      setTimeout(function() {
+        header.css({
+          opacity: "1"
+        });
+      }, 500);
+      header_var = "hidden";
       setTimeout(function() {
         highlightDefault(current_page);
       }, 500);
@@ -271,17 +279,17 @@ ready = $(document).ready(function() {
       removeOffset();
       box.removeClass("show-top");
       box.addClass("show-front");
-
       header.css({ top: "-100vh" });
 
       // setTimeout(function() {
       //   menu_toggle.css({ transform: str2 });
       // }, 10);
-
       setTimeout(burger_become_menu, 470);
     }
   });
-
+  menu_toggle.on("tap", function() {
+    menu_toggle.click();
+  });
   let menu_list = $("#nav-list");
 
   menu_list.on("click", function() {
@@ -319,64 +327,196 @@ ready = $(document).ready(function() {
 
   let next = $("#next-toggle");
 
+  function nextDisableTemporary() {
+    next.animate(
+      {
+        display: "none"
+      },
+      400,
+      function() {
+        next.css({
+          display: "flex"
+        });
+      }
+    );
+  }
+
   next
     .on("mouseover", function() {
+      current_url = window.location.href;
+      if (current_url.includes("#")) {
+        let $position = current_url.indexOf("#");
+        let $string = current_url.slice($position + 1);
+
+        current_page = $string;
+      } else {
+        current_page = "about";
+      }
+      switch (current_page) {
+        case "about":
+          $(this).attr("href", "#skills");
+          break;
+        case "skills":
+          $(this).attr("href", "#portfolio");
+          break;
+
+        case "portfolio":
+          $(this).attr("href", "#contact");
+          break;
+        case "contact":
+          $(this).attr("href", "#contact");
+          break;
+      }
+
       let text = $(this).attr("href");
       text = text.replace("#", "");
       $(".next-toggle-before").text(text);
       let item = $(".next-toggle-before");
 
-      let i1 = $("#next-toggle:nth-child(1)");
-      i1.animate(
-        {
-          transform: "rotate(-185deg)"
-        },
-        200
-      );
+      let i1 = $("#next-toggle .i1");
+      i1.css({
+        transform: "rotate(65deg)",
+        "margin-top": "6px"
+      });
+      // $("#next-toggle").toggleClass("changed");
 
-      let i2 = $("#next-toggle:nth-child(2)");
-      i2.animate(
-        {
-          transform: "rotate(185deg)"
-        },
-        200
-      );
+      let i2 = $("#next-toggle .i2");
+      i2.css({
+        transform: "rotate(-65deg)",
+        "margin-top": "21px"
+      });
 
       item.animate(
         {
           opacity: "1",
-          right: "80px"
+          right: "72px"
         },
-        100
+        130
       );
     })
     .on("mouseleave", function() {
       let text = $(this).attr("href");
       text = text.replace("#", "");
       let item = $(".next-toggle-before");
-      let i1 = $("#next-toggle:nth-child(1)").animate(
-        {
-          transform: "rotate(-135deg)"
-        },
-        200
-      );
 
-      let i2 = $("#next-toggle:nth-child(2)").animate(
-        {
-          transform: "rotate(155deg)"
-        },
-        200
-      );
+      // $("#next-toggle").toggleClass("changed");
+
+      let i1 = $("#next-toggle .i1");
+      i1.css({
+        transform: "rotate(45deg)",
+        "margin-top": "10px"
+      });
+      // $("#next-toggle").toggleClass("changed");
+
+      let i2 = $("#next-toggle .i2");
+      i2.css({
+        transform: "rotate(-45deg)",
+        "margin-top": "17px"
+      });
+
       item.animate(
         {
           opacity: "0",
-          right: "-50px"
+          right: "-10px"
         },
-        25
+        75
       );
     });
+  let previous = $("#previous-toggle");
+  previous
+    .on("mouseover", function() {
+      current_url = window.location.href;
+      if (current_url.includes("#")) {
+        let $position = current_url.indexOf("#");
+        let $string = current_url.slice($position + 1);
 
-  next.on("click", function() {});
+        current_page = $string;
+      } else {
+        current_page = "about";
+      }
+      switch (current_page) {
+        case "about":
+          $(this).attr("href", "#skills");
+          break;
+        case "skills":
+          $(this).attr("href", "#portfolio");
+          break;
+
+        case "portfolio":
+          $(this).attr("href", "#contact");
+          break;
+        case "contact":
+          $(this).attr("href", "#portfolio");
+          break;
+      }
+
+      let text = $(this).attr("href");
+      text = text.replace("#", "");
+      $(".previous-toggle-before").text(text);
+      let item = $(".previous-toggle-before");
+
+      // let ii1 = $("#previous-toggle .i1");
+      // ii1.css({
+      //   transform: "rotate(-135deg) !important",
+      //   "margin-top": "6px"
+      // });
+      // // $("#next-toggle").toggleClass("changed");
+
+      // let ii2 = $("#previous-toggle .i2");
+      // ii2.css({
+      //   transform: "rotate(135deg) !important",
+      //   "margin-top": "21px"
+      // });
+
+      let i1 = $("#previous-toggle .i1");
+      i1.css({
+        transform: "rotate(-65deg)",
+        "margin-top": "6px"
+      });
+      // $("#next-toggle").toggleClass("changed");
+
+      let i2 = $("#previous-toggle .i2");
+      i2.css({
+        transform: "rotate(65deg)",
+        "margin-top": "21px"
+      });
+
+      item.animate(
+        {
+          opacity: "1",
+          left: "72px"
+        },
+        130
+      );
+    })
+    .on("mouseleave", function() {
+      let text = $(this).attr("href");
+      text = text.replace("#", "");
+      let item = $(".previous-toggle-before");
+
+      // $("#next-toggle").toggleClass("changed");
+
+      let i1 = $("#previous-toggle .i1");
+      i1.css({
+        transform: "rotate(-45deg)",
+        "margin-top": "10px"
+      });
+      // $("#next-toggle").toggleClass("changed");
+
+      let i2 = $("#previous-toggle .i2");
+      i2.css({
+        transform: "rotate(45deg)",
+        "margin-top": "17px"
+      });
+
+      item.animate(
+        {
+          opacity: "0",
+          left: "-10px"
+        },
+        75
+      );
+    });
 
   decideDelay();
 
@@ -485,7 +625,7 @@ ready = $(document).ready(function() {
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
-            "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
+            "<h1 class='m-auto pb-5'>Hello, my name is Amir!</h1>" +
             "<p>There is some information about me</p></div> </div> </div></section>"
         );
         break;
@@ -550,7 +690,7 @@ ready = $(document).ready(function() {
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
-            "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
+            "<h1 class='m-auto pb-5'>Hello, my name is Amir!</h1>" +
             "<p>There is some information about me</p></div> </div> </div></section>"
         );
         break;
@@ -619,7 +759,7 @@ ready = $(document).ready(function() {
       "transition-duration": "0s",
       "transition-delay": "0s",
       visibility: "visible",
-      display: "block"
+      display: "flex"
     });
   }
 
@@ -711,6 +851,51 @@ ready = $(document).ready(function() {
     }, 2000);
   }
 
+  function sliderPageAdjust() {
+    let slider = $(".page-slider");
+    slider.children("section").css({
+      left: "-100vw"
+    });
+  }
+
+  function mainLeft(current_page, target_page) {
+    box.css({
+      "transition-duration": "var(--default-duration)",
+      "transition-delay": "var(--default-delay)",
+      "transition-timing-function": "var(--default-timing)"
+    });
+
+    if (current_page == target_page) {
+      return;
+    } else {
+      console.log(
+        "current_page = " + current_page + "  target_page = " + target_page
+      );
+      left100("about");
+
+      checkForSections(current_page);
+
+      removeOffset();
+
+      box_slider_transition(current_page);
+
+      sliderPageAppend(target_page);
+      sliderPageAdjust();
+
+      slide_left();
+
+      function addClassShowLeft() {
+        box.addClass("show-left");
+      }
+
+      setTimeout(addClassShowLeft, 1000);
+
+      setTimeout(function() {
+        removeOffset();
+      }, 1650);
+    }
+  }
+
   function mainRight(current_page, target_page) {
     box.css({
       "transition-duration": "var(--default-duration)",
@@ -740,18 +925,18 @@ ready = $(document).ready(function() {
         box.addClass("show-right");
       }
 
-      setTimeout(addClassShowRight, 950);
+      setTimeout(addClassShowRight, 1000);
 
       setTimeout(function() {
         removeOffset();
-      }, 1450);
+      }, 1650);
     }
   }
 
   function controlNextAppear() {
     $("#next-toggle").animate(
       {
-        right: "43px"
+        right: "0px"
       },
       500
     );
@@ -759,7 +944,7 @@ ready = $(document).ready(function() {
   function controlPrevAppear() {
     $("#previous-toggle").animate(
       {
-        left: "43px"
+        left: "0px"
       },
       500
     );
@@ -777,7 +962,7 @@ ready = $(document).ready(function() {
     $("#next-toggle").css({ display: "none" });
   }
   function showNext() {
-    $("#next-toggle").css({ display: "block" });
+    $("#next-toggle").css({ display: "flex" });
   }
 
   function nextDecide() {
@@ -788,77 +973,7 @@ ready = $(document).ready(function() {
     } else showNext();
   }
 
-  // navItem.on("click touchstart", function() {
-  //   current_url = window.location.href;
-  //   if (current_url.includes("#")) {
-  //     let $position = current_url.indexOf("#");
-  //     let $string = current_url.slice($position + 1);
-
-  //     current_page = $string;
-  //   } else {
-  //     current_page = "about";
-  //   }
-  //   let href = $(this)
-  //     .find("a")
-  //     .attr("href");
-  //   let target_page = href.replace("#", "");
-
-  //   switch (href) {
-  //     case "#about":
-  //       mainRight(current_page, "about");
-  //       setTimeout(nextDecide, 1000);
-  //       break;
-
-  //     case "#skills":
-  //       mainRight(current_page, "skills");
-  //       setTimeout(nextDecide, 1000);
-  //       break;
-
-  //     case "#portfolio":
-  //       mainRight(current_page, "portfolio");
-  //       setTimeout(nextDecide, 1000);
-  //       break;
-
-  //     case "#contact":
-  //       mainRight(current_page, "contact");
-  //       setTimeout(nextDecide, 1000);
-  //       setTimeout(hideNext, 1000);
-  //       break;
-  //   }
-  //   if (current_page == target_page) {
-  //     setTimeout(navbarAppear, 1000);
-  //     setTimeout(controlNextAppear, 700);
-  //     setTimeout(controlPrevAppear, 700);
-  //   } else {
-  //     setTimeout(function() {
-  //       $("#next-toggle").animate(
-  //         {
-  //           right: "-63px"
-  //         },
-  //         700
-  //       );
-  //     }, 500);
-
-  //     setTimeout(function() {
-  //       $("#navbar-toggle").animate(
-  //         {
-  //           top: "-85px"
-  //         },
-  //         700
-  //       );
-  //       $("#previous-toggle").animate(
-  //         {
-  //           left: "-63px"
-  //         },
-  //         700
-  //       );
-  //     }, 500);
-  //     setTimeout(navbarAppear, 1800);
-  //     setTimeout(controlNextAppear, 1800);
-  //     setTimeout(controlPrevAppear, 1800);
-  //   }
-  // });
-  navItem.on("touchstart click ", function() {
+  navItem.on("click tap", function() {
     current_url = window.location.href;
     if (current_url.includes("#")) {
       let $position = current_url.indexOf("#");
@@ -880,7 +995,7 @@ ready = $(document).ready(function() {
       setTimeout(function() {
         $("#next-toggle").animate(
           {
-            right: "-63px"
+            right: "-163px"
           },
           700
         );
@@ -895,7 +1010,7 @@ ready = $(document).ready(function() {
         );
         $("#previous-toggle").animate(
           {
-            left: "-63px"
+            left: "-163px"
           },
           700
         );
@@ -933,7 +1048,8 @@ ready = $(document).ready(function() {
     }
   });
 
-  $("#next-toggle").on("touchstart click ", function() {
+  $("#next-toggle").on("click", function() {
+    decideDelay();
     current_url = window.location.href;
     let current_page = "about";
     if (current_url.includes("#")) {
@@ -944,23 +1060,15 @@ ready = $(document).ready(function() {
     } else {
       current_page = "about";
     }
-    // console.log("CUrrEnTT pagEeE " + current_page);
 
     let href = $(this).attr("href");
-    // console.log(href + "===============================");
 
     let target_page = href.replace("#", "");
-    // console.log("TARGETTTTT PAGEEEE  E E E E + " + target_page);
-    // console.log("CURREBT PAGEEEE  E E E E + " + current_page);
-    // if (current_page == target_page) {
-    //   setTimeout(navbarAppear, 1100);
-    //   setTimeout(controlNextAppear, 700);
-    //   setTimeout(controlPrevAppear, 700);
-    // } else {
+
     setTimeout(function() {
       $("#next-toggle").animate(
         {
-          right: "-63px"
+          right: "-163px"
         },
         700
       );
@@ -975,7 +1083,7 @@ ready = $(document).ready(function() {
       );
       $("#previous-toggle").animate(
         {
-          left: "-43px"
+          left: "-143px"
         },
         700
       );
@@ -987,17 +1095,32 @@ ready = $(document).ready(function() {
     switch (current_page) {
       case "about":
         mainRight(current_page, "skills");
-        $(this).attr("href", "#skills");
+        next.mouseleave();
+        nextDisableTemporary();
+        // function e1() {
+        //   $(this).attr("href", "#portfolio");
+        // }
+        // setTimeout(e1, 0);
         break;
 
       case "skills":
         mainRight(current_page, "portfolio");
-        $(this).attr("href", "#portfolio");
+        next.mouseleave();
+        nextDisableTemporary();
+        // function e2() {
+        //   $(this).attr("href", "#contact");
+        // }
+        // setTimeout(e2, 0);
         break;
 
       case "portfolio":
         mainRight(current_page, "contact");
-        $(this).attr("href", "#contact");
+        next.mouseleave();
+        nextDisableTemporary();
+        // function e3() {
+        //   $(this).attr("href", "#about");
+        // }
+        // setTimeout(e3, 0);
         setTimeout(hideNext, 1000);
         break;
 
