@@ -20,7 +20,7 @@ function decideDelay() {
 }
 
 let header_var = "hidden";
-
+var option = 1;
 $(window).on("resize", function() {});
 
 ready = $(document).ready(function() {
@@ -230,14 +230,14 @@ ready = $(document).ready(function() {
     });
 
   // ! MENU TOGGLE ON CLICK
-  menu_toggle.on("touchstart click", function() {
+  menu_toggle.on("tap click touchstart", function() {
     decideDelay();
     transform_rotate += 90;
     let str = "rotate(";
     let str2 = str.concat(transform_rotate, "deg)");
 
     burger_middle();
-    let header = $("header");
+    let header = $("#header");
     let headertop = parseInt(header.css("top"));
 
     current_url = window.location.href;
@@ -262,11 +262,13 @@ ready = $(document).ready(function() {
       setTimeout(burger_become_x, 470);
     } else if (headertop == 0) {
       header.css({
+        "transition-duration": "0s",
         opacity: "0"
       });
       setTimeout(function() {
         header.css({
-          opacity: "1"
+          opacity: "1",
+          "transition-duration": "var(--default-duration)"
         });
       }, 500);
       header_var = "hidden";
@@ -308,7 +310,7 @@ ready = $(document).ready(function() {
       let string = "var(--" + txt + "-color)";
 
       $(this).css({
-        "background-color": "#253155"
+        // "background-color": "#253155"
       });
       $(this)
         .parent()
@@ -318,7 +320,7 @@ ready = $(document).ready(function() {
     .mouseleave(function() {
       // nav.css({"background":navColor});
       $(this).css({
-        "background-color": "inherit"
+        // "background-color": "inherit"
       });
       $(this)
         .parent()
@@ -328,30 +330,22 @@ ready = $(document).ready(function() {
   let next = $("#next-toggle");
 
   function nextDisableTemporary() {
-    next.animate(
-      {
-        display: "none"
-      },
-      400,
-      function() {
-        next.css({
-          display: "flex"
-        });
-      }
-    );
+    let nextt = $(".next-toggle-before");
+    setTimeout(function() {
+      nextt.addClass("transparent");
+    }, 140);
+    setTimeout(function() {
+      nextt.removeClass("transparent");
+    }, 900);
   }
   function previousDisableTemporary() {
-    previous.animate(
-      {
-        display: "none"
-      },
-      400,
-      function() {
-        next.css({
-          display: "flex"
-        });
-      }
-    );
+    let previouss = $(".previous-toggle-before");
+    setTimeout(function() {
+      previouss.addClass("transparent");
+    }, 140);
+    setTimeout(function() {
+      previouss.removeClass("transparent");
+    }, 900);
   }
   next
     .on("mouseover", function() {
@@ -465,19 +459,6 @@ ready = $(document).ready(function() {
       text = text.replace("#", "");
       $(".previous-toggle-before").text(text);
       let item = $(".previous-toggle-before");
-
-      // let ii1 = $("#previous-toggle .i1");
-      // ii1.css({
-      //   transform: "rotate(-135deg) !important",
-      //   "margin-top": "6px"
-      // });
-      // // $("#next-toggle").toggleClass("changed");
-
-      // let ii2 = $("#previous-toggle .i2");
-      // ii2.css({
-      //   transform: "rotate(135deg) !important",
-      //   "margin-top": "21px"
-      // });
 
       let i1 = $("#previous-toggle .i1");
       i1.css({
@@ -638,9 +619,9 @@ ready = $(document).ready(function() {
             "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
-            "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
-            "<h1 class='m-auto pb-5'>Hello, my name is Amir!</h1>" +
-            "<p>There is some information about me</p></div> </div> </div></section>"
+            "<div   class='page-inner text-justify card card-body container-fluid col-md-6 col-sm-12'>" +
+            "<h1 class='m-auto p-3'>Hello, I'm Amir.</h1>" +
+            "<p>I'm a web developer, living and studying in Almaty, Kazakhstan. My passion is creating and I find happiness in being a better me today than the me yesterday. Feel free to take a look at my latest projects on the <span class = 'link-highlighted' href='#portfolio' title = 'portfolio'>web portfolio page.</span></p></div> </div> </div></section>"
         );
         break;
 
@@ -653,8 +634,68 @@ ready = $(document).ready(function() {
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
-            "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
-            "<p>There is some information about me</p></div> </div> </div></section>"
+            "<h1>Skills</h1>" +
+            '<div class="skills-content">' +
+            ' <section id="front-end" class="skills-container">' +
+            "<h2>Front end  </h2>" +
+            '<div class="tools">' +
+            "<figure>" +
+            "<figcaption>HTML5</figcaption>" +
+            '<img src="icons/html5.png" alt="HTML5" width="auto" height="auto">' +
+            " </figure>" +
+            " <figure>" +
+            "<figcaption>CSS3</figcaption>" +
+            '<img src="icons/css3.png" alt="CSS3" width="auto" height="auto">' +
+            "</figure>" +
+            "<figure>" +
+            "<figcaption>JS</figcaption>" +
+            '<img src="icons/javascript.png" alt="JS" width="auto" height="auto">' +
+            "</figure>" +
+            " <figure>" +
+            " <figcaption>Bootstrap</figcaption>" +
+            ' <img src="icons/bootstrap.png" alt="Bootstrap" width="auto" height="auto">' +
+            "</figure>" +
+            " <figure>" +
+            "<figcaption>JQuery</figcaption>" +
+            '<img src="icons/jquery.png" alt="Jquery" width="auto" height="auto">' +
+            "</figure>" +
+            " </div>" +
+            " </section>" +
+            ' <section id="back-end" class="skills-container">' +
+            " <h2>Back end </h2>" +
+            ' <div class="tools">' +
+            "<figure>" +
+            "<figcaption>PHP7</figcaption>" +
+            '<img src="icons/new-php-logo.png" alt="PHP" width="auto" height="auto">' +
+            "</figure>" +
+            " </div>" +
+            "   </section>" +
+            ' <section id="other" class="skills-container">' +
+            " <h2>Other  </h2>" +
+            ' <div class="tools">' +
+            "<figure>" +
+            "<figcaption>Git</figcaption>" +
+            ' <img src="icons/git.png" alt="Git" width="auto" height="auto">' +
+            "</figure>" +
+            "<figure>" +
+            "<figcaption>Github</figcaption>" +
+            '<img src="icons/github.png" class="github-icon" alt="Github" width="auto" height="auto">' +
+            " </figure>" +
+            "<figure>" +
+            "<figcaption>Photoshop</figcaption>" +
+            '<img src="icons/photoshop.png" alt="Photoshop" width="auto" height="auto">' +
+            " </figure>" +
+            "  <figure>" +
+            " <figcaption>MySQL</figcaption>" +
+            ' <img src="icons/mysql.png" alt="MySQL" width="120px" height="auto">' +
+            "  </figure>" +
+            " <figure>" +
+            " <figcaption>C#</figcaption>" +
+            ' <img src="icons/C_Sharp_logo.png" alt="C#" width="auto" height="auto">' +
+            "</figure>" +
+            " </div>" +
+            " </section>" +
+            " </div></div></div></section>"
         );
         break;
 
@@ -691,6 +732,7 @@ ready = $(document).ready(function() {
 
   function sliderPageAppend(string) {
     // let slider = $(".page-slider");
+    console.log("yeayeateaeee ++ " + string);
     switch (string) {
       case "about":
         slider.append(
@@ -703,9 +745,9 @@ ready = $(document).ready(function() {
             "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
-            "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
-            "<h1 class='m-auto pb-5'>Hello, my name is Amir!</h1>" +
-            "<p>There is some information about me</p></div> </div> </div></section>"
+            "<div   class='page-inner text-justify card card-body container-fluid col-md-6 col-sm-12'>" +
+            "<h1 class='m-auto p-3'>Hello, I'm Amir.</h1>" +
+            "<p>I'm a web developer, living and studying in Almaty, Kazakhstan. My passion is creating and I find happiness in being a better me today than the me yesterday. Feel free to take a look at my latest projects on the <span class = 'link-highlighted' href='#portfolio' title = 'portfolio'>web portfolio page.</span></p></div> </div> </div></section>"
         );
         break;
 
@@ -718,8 +760,68 @@ ready = $(document).ready(function() {
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
-            "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
-            "<p>There is some information about me</p></div> </div> </div></section>"
+            "<h1>Skills</h1>" +
+            '<div class="skills-content">' +
+            ' <section id="front-end" class="skills-container">' +
+            "<h2>Front end  </h2>" +
+            '<div class="tools">' +
+            "<figure>" +
+            "<figcaption>HTML5</figcaption>" +
+            '<img src="icons/html5.png" alt="HTML5" width="auto" height="auto">' +
+            " </figure>" +
+            " <figure>" +
+            "<figcaption>CSS3</figcaption>" +
+            '<img src="icons/css3.png" alt="CSS3" width="auto" height="auto">' +
+            "</figure>" +
+            "<figure>" +
+            "<figcaption>JS</figcaption>" +
+            '<img src="icons/javascript.png" alt="JS" width="auto" height="auto">' +
+            "</figure>" +
+            " <figure>" +
+            " <figcaption>Bootstrap</figcaption>" +
+            ' <img src="icons/bootstrap.png" alt="Bootstrap" width="auto" height="auto">' +
+            "</figure>" +
+            " <figure>" +
+            "<figcaption>JQuery</figcaption>" +
+            '<img src="icons/jquery.png" alt="Jquery" width="auto" height="auto">' +
+            "</figure>" +
+            " </div>" +
+            " </section>" +
+            ' <section id="back-end" class="skills-container">' +
+            " <h2>Back end </h2>" +
+            ' <div class="tools">' +
+            "<figure>" +
+            "<figcaption>PHP7</figcaption>" +
+            '<img src="icons/new-php-logo.png" alt="PHP" width="auto" height="auto">' +
+            "</figure>" +
+            " </div>" +
+            "   </section>" +
+            ' <section id="other" class="skills-container">' +
+            " <h2>Other  </h2>" +
+            ' <div class="tools">' +
+            "<figure>" +
+            "<figcaption>Git</figcaption>" +
+            ' <img src="icons/git.png" alt="Git" width="auto" height="auto">' +
+            "</figure>" +
+            "<figure>" +
+            "<figcaption>Github</figcaption>" +
+            '<img src="icons/github.png" class="github-icon" alt="Github" width="auto" height="auto">' +
+            " </figure>" +
+            "<figure>" +
+            "<figcaption>Photoshop</figcaption>" +
+            '<img src="icons/photoshop.png" alt="Photoshop" width="auto" height="auto">' +
+            " </figure>" +
+            "  <figure>" +
+            " <figcaption>MySQL</figcaption>" +
+            ' <img src="icons/mysql.png" alt="MySQL" width="120px" height="auto">' +
+            "  </figure>" +
+            " <figure>" +
+            " <figcaption>C#</figcaption>" +
+            ' <img src="icons/C_Sharp_logo.png" alt="C#" width="auto" height="auto">' +
+            "</figure>" +
+            " </div>" +
+            " </section>" +
+            " </div></div></div></section>"
         );
         break;
       case "portfolio":
@@ -997,7 +1099,7 @@ ready = $(document).ready(function() {
     }
   }
 
-  navItem.on("click tap", function() {
+  navItem.on("click", function() {
     current_url = window.location.href;
     if (current_url.includes("#")) {
       let $position = current_url.indexOf("#");
@@ -1019,7 +1121,7 @@ ready = $(document).ready(function() {
       setTimeout(function() {
         $("#next-toggle").animate(
           {
-            right: "-163px"
+            right: "-293px"
           },
           700
         );
@@ -1034,7 +1136,7 @@ ready = $(document).ready(function() {
         );
         $("#previous-toggle").animate(
           {
-            left: "-163px"
+            left: "-293px"
           },
           700
         );
@@ -1097,6 +1199,50 @@ ready = $(document).ready(function() {
     }
   });
 
+  $("body").on("click", ".link-highlighted", function() {
+    // setTimeout(function() {
+    //   $("#next-toggle").animate(
+    //     {
+    //       right: "-293px"
+    //     },
+    //     700
+    //   );
+    // }, 500);
+
+    // setTimeout(function() {
+    //   $("#navbar-toggle").animate(
+    //     {
+    //       top: "-115px"
+    //     },
+    //     700
+    //   );
+    //   $("#previous-toggle").animate(
+    //     {
+    //       left: "-293px"
+    //     },
+    //     700
+    //   );
+    // }, 500);
+    // setTimeout(controlPrevAppear, 1800);
+    // setTimeout(navbarAppear, 1800);
+    // setTimeout(controlNextAppear, 1800);
+    // current_page = "about";
+    // let href = $(this)
+    //   .find("a")
+    //   .attr("href");
+    // let target_page = href.replace("#", "");
+    // mainRight(current_page, target_page);
+    // setTimeout(nextDecide, 1000);
+    option = 2;
+    setTimeout(function() {
+      option = 1;
+    }, 600);
+    console.log("option " + option);
+    document.getElementById("next-toggle").setAttribute("href", "#portfolio");
+    console.log("qwqweqweqweqwe" + next.attr("href"));
+    document.getElementById("next-toggle").click();
+  });
+
   $("#next-toggle").on("click", function() {
     decideDelay();
     current_url = window.location.href;
@@ -1109,15 +1255,18 @@ ready = $(document).ready(function() {
     } else {
       current_page = "about";
     }
-
-    let href = $(this).attr("href");
-
+    if (option == 2) {
+      href = "#portfolio";
+    } else {
+      href = $(this).attr("href");
+    }
+    console.log("option ++++++++" + option);
     let target_page = href.replace("#", "");
 
     setTimeout(function() {
       $("#next-toggle").animate(
         {
-          right: "-163px"
+          right: "-293px"
         },
         700
       );
@@ -1132,7 +1281,7 @@ ready = $(document).ready(function() {
       );
       $("#previous-toggle").animate(
         {
-          left: "-143px"
+          left: "-293px"
         },
         700
       );
@@ -1143,7 +1292,7 @@ ready = $(document).ready(function() {
     // }
     switch (current_page) {
       case "about":
-        mainRight(current_page, "skills");
+        mainRight(current_page, target_page);
         next.mouseleave();
         nextDisableTemporary();
         setTimeout(nextDecide, 1000);
