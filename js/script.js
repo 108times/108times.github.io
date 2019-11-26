@@ -11,9 +11,9 @@ function decideDelay() {
   let value;
   if (width < 1201) {
     // value = initial - 100 + "ms";
-    value = "1310ms";
+    value = "1340ms";
   } else {
-    value = "1310ms";
+    value = "1340ms";
   }
   console.log(value);
   document.documentElement.style.setProperty("--slider-delay", value);
@@ -230,7 +230,7 @@ ready = $(document).ready(function() {
     });
 
   // ! MENU TOGGLE ON CLICK
-  menu_toggle.on("tap click touchstart", function() {
+  $(menu_toggle).on("click", function() {
     decideDelay();
     transform_rotate += 90;
     let str = "rotate(";
@@ -260,6 +260,10 @@ ready = $(document).ready(function() {
       box.addClass("show-top");
       header.css({ top: "0" });
       setTimeout(burger_become_x, 470);
+
+      $(".page-slider").css({
+        visibility: "visible"
+      });
     } else if (headertop == 0) {
       header.css({
         "transition-duration": "0s",
@@ -287,15 +291,21 @@ ready = $(document).ready(function() {
       //   menu_toggle.css({ transform: str2 });
       // }, 10);
       setTimeout(burger_become_menu, 470);
+      $(".page-slider").css({
+        visibility: "hidden"
+      });
     }
   });
-  menu_toggle.on("tap", function() {
-    menu_toggle.click();
-  });
+  // menu_toggle.on("tap", function() {
+  //   menu_toggle.click();
+  // });
   let menu_list = $("#nav-list");
 
   menu_list.on("click", function() {
     menu_toggle.click();
+    $(".page-slider").css({
+      visibility: "visible"
+    });
   });
 
   let menu_ite = menu_list.find("li");
@@ -348,7 +358,7 @@ ready = $(document).ready(function() {
     }, 900);
   }
   next
-    .on("mouseover", function() {
+    .on("mouseenter", function() {
       current_url = window.location.href;
       if (current_url.includes("#")) {
         let $position = current_url.indexOf("#");
@@ -631,15 +641,15 @@ ready = $(document).ready(function() {
           "<section class='page' id='" +
             string +
             "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
-            '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
+            '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
-            " <section class='skills-description' style='margin-top:248px !important'>" +
+            " <section class='skills-description'>" +
             "<h1>Skills</h1>" +
-            "<p>For now the main area of my expertise is front end development.</p>" +
-            "<p>Currently I'm learning back-end development with PHP.</p> </section>" +
+            "<p>For now the main area of my expertise is front-end development." +
+            " Currently I'm learning back-end development with PHP.</p> </section>" +
             '<div class="skills-content">' +
             ' <section id="front-end" class="skills-container">' +
             "<h2>Front end  </h2>" +
@@ -709,7 +719,6 @@ ready = $(document).ready(function() {
           "<section class='page' id='" +
             string +
             "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
-            '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
@@ -724,7 +733,6 @@ ready = $(document).ready(function() {
           "<section class='page' id='" +
             string +
             "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
-            '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
@@ -764,15 +772,15 @@ ready = $(document).ready(function() {
           "<section class='page' id='" +
             string +
             "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
-            '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
+            '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
             " <section class='skills-description'>" +
             "<h1>Skills</h1>" +
-            "<p>For now the main area of my expertise is front end development.</p>" +
-            "<p>Currently I'm learning back-end development with PHP.</p> </section>" +
+            "<p>For now the main area of my expertise is front-end development." +
+            " Currently I'm learning back-end development with PHP.</p> </section>" +
             '<div class="skills-content">' +
             ' <section id="front-end" class="skills-container">' +
             "<h2>Front end  </h2>" +
@@ -841,7 +849,6 @@ ready = $(document).ready(function() {
           "<section class='page' id='" +
             string +
             "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
-            '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
@@ -856,7 +863,6 @@ ready = $(document).ready(function() {
           "<section class='page' id='" +
             string +
             "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
-            '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
@@ -1023,6 +1029,9 @@ ready = $(document).ready(function() {
       setTimeout(function() {
         removeOffset();
       }, 1650);
+      $(".page-slider").css({
+        visibility: "visible"
+      });
     }
   }
 
@@ -1214,39 +1223,6 @@ ready = $(document).ready(function() {
   });
 
   $("body").on("click", ".link-highlighted", function() {
-    // setTimeout(function() {
-    //   $("#next-toggle").animate(
-    //     {
-    //       right: "-293px"
-    //     },
-    //     700
-    //   );
-    // }, 500);
-
-    // setTimeout(function() {
-    //   $("#navbar-toggle").animate(
-    //     {
-    //       top: "-115px"
-    //     },
-    //     700
-    //   );
-    //   $("#previous-toggle").animate(
-    //     {
-    //       left: "-293px"
-    //     },
-    //     700
-    //   );
-    // }, 500);
-    // setTimeout(controlPrevAppear, 1800);
-    // setTimeout(navbarAppear, 1800);
-    // setTimeout(controlNextAppear, 1800);
-    // current_page = "about";
-    // let href = $(this)
-    //   .find("a")
-    //   .attr("href");
-    // let target_page = href.replace("#", "");
-    // mainRight(current_page, target_page);
-    // setTimeout(nextDecide, 1000);
     option = 2;
     setTimeout(function() {
       option = 1;
@@ -1269,14 +1245,35 @@ ready = $(document).ready(function() {
     } else {
       current_page = "about";
     }
-    if (option == 2) {
-      href = "#portfolio";
-    } else {
-      href = $(this).attr("href");
-    }
-    console.log("option ++++++++" + option);
-    let target_page = href.replace("#", "");
 
+    switch (current_page) {
+      case "about":
+        if (option == 2) {
+          href = "#portfolio";
+        } else if (option == 1) {
+          href = "#skills";
+        }
+        break;
+      case "skills":
+        href = "#portfolio";
+        break;
+
+      case "portfolio":
+        href = "#contact";
+        break;
+      case "contact":
+        href = "#contact";
+        break;
+    }
+    // if (option == 2) {
+    //   href = "#portfolio";
+    // } else {
+    //   href = $(this).attr("href");
+    // }
+    console.log("option ++++++++----------" + option);
+
+    let target_page = href.replace("#", "");
+    console.log("target-page ++++++++---------" + target_page);
     setTimeout(function() {
       $("#next-toggle").animate(
         {
@@ -1317,7 +1314,7 @@ ready = $(document).ready(function() {
         break;
 
       case "skills":
-        mainRight(current_page, "portfolio");
+        mainRight(current_page, target_page);
         next.mouseleave();
         nextDisableTemporary();
         setTimeout(nextDecide, 1000);
@@ -1328,7 +1325,7 @@ ready = $(document).ready(function() {
         break;
 
       case "portfolio":
-        mainRight(current_page, "contact");
+        mainRight(current_page, target_page);
         next.mouseleave();
         nextDisableTemporary();
         setTimeout(nextDecide, 1000);
@@ -1340,9 +1337,12 @@ ready = $(document).ready(function() {
         break;
 
       case "contact":
-        mainRight(current_page, "contact");
+        mainRight(current_page, target_page);
         break;
     }
+    $(".page-slider").css({
+      visibility: "visible"
+    });
   });
   $("#previous-toggle").on("click", function() {
     decideDelay();
@@ -1355,6 +1355,21 @@ ready = $(document).ready(function() {
       current_page = $string;
     } else {
       current_page = "about";
+    }
+
+    switch (current_page) {
+      case "about":
+        $(this).attr("href", "#about");
+        break;
+      case "skills":
+        $(this).attr("href", "#about");
+        break;
+      case "portfolio":
+        $(this).attr("href", "#skills");
+        break;
+      case "contact":
+        $(this).attr("href", "#portfolio");
+        break;
     }
 
     let href = $(this).attr("href");
@@ -1387,6 +1402,9 @@ ready = $(document).ready(function() {
     setTimeout(navbarAppear, 1800);
     setTimeout(controlNextAppear, 1800);
     setTimeout(controlPrevAppear, 1800);
+    $(".page-slider").css({
+      visibility: "visible"
+    });
     switch (current_page) {
       case "about":
         mainLeft(current_page, "about");
