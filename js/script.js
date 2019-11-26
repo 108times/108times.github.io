@@ -616,6 +616,7 @@ ready = $(document).ready(function() {
           //     "<h2>Skills</h2></section>"
           // );
           "<section id='about-page' class='page d-flex justify-content-center align-items-center text-center'>" +
+            '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
@@ -630,11 +631,15 @@ ready = $(document).ready(function() {
           "<section class='page' id='" +
             string +
             "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+            '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
+            " <section class='skills-description' style='margin-top:248px !important'>" +
             "<h1>Skills</h1>" +
+            "<p>For now the main area of my expertise is front end development.</p>" +
+            "<p>Currently I'm learning back-end development with PHP.</p> </section>" +
             '<div class="skills-content">' +
             ' <section id="front-end" class="skills-container">' +
             "<h2>Front end  </h2>" +
@@ -704,6 +709,7 @@ ready = $(document).ready(function() {
           "<section class='page' id='" +
             string +
             "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+            '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
@@ -718,6 +724,7 @@ ready = $(document).ready(function() {
           "<section class='page' id='" +
             string +
             "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+            '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
@@ -742,6 +749,7 @@ ready = $(document).ready(function() {
           //     "<h2>Skills</h2></section>"
           // );
           "<section id='about-page' class='page d-flex justify-content-center align-items-center text-center'>" +
+            '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
@@ -756,11 +764,15 @@ ready = $(document).ready(function() {
           "<section class='page' id='" +
             string +
             "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+            '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
+            " <section class='skills-description'>" +
             "<h1>Skills</h1>" +
+            "<p>For now the main area of my expertise is front end development.</p>" +
+            "<p>Currently I'm learning back-end development with PHP.</p> </section>" +
             '<div class="skills-content">' +
             ' <section id="front-end" class="skills-container">' +
             "<h2>Front end  </h2>" +
@@ -829,6 +841,7 @@ ready = $(document).ready(function() {
           "<section class='page' id='" +
             string +
             "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+            '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
@@ -843,6 +856,7 @@ ready = $(document).ready(function() {
           "<section class='page' id='" +
             string +
             "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+            '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
