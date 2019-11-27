@@ -7,28 +7,41 @@
   --custom-color: rgb(141, 139, 139);
   --light-blue: rgb(226, 226, 226);
   --color-6: #2f2f2f;
-  --dark-gray: rgb(32, 32, 32);
-  --text-color: rgb(163, 163, 163);
+
+  --light-gray: #292d3e;
+  --midle-gray: #292d3e;
+  --dark-gray: #1b1e2b;
+
+  --text-color: #7bc3e4;
+  --text-important: #9773b7;
   /* --page-background: #3d3d3d; */
-  --page-background: linear-gradient(180deg, #313131, rgb(32, 32, 32)),
-    rgb(32, 32, 32);
+  --page-background: linear-gradient(
+      180deg,
+      var(--midle-gray),
+      var(--dark-gray)
+    ),
+    var(--dark-gray);
   --page-background-triple: linear-gradient(
       180deg,
-      #313131,
-      rgb(32, 32, 32),
-      rgb(32, 32, 32)
+      var(--light-gray),
+      var(--dark-gray),
+      var(--dark-gray)
     ),
-    rgb(32, 32, 32);
-  --page-background-static: rgb(44, 44, 44);
-  --page-background-reverse: linear-gradient(0deg, #313131, rgb(32, 32, 32)),
-    rgb(32, 32, 32);
+    var(--dark-gray);
+  --page-background-static: var(--dark-gray);
+  --page-background-reverse: linear-gradient(
+      0deg,
+      var(--midle-gray),
+      var(--dark-gray)
+    ),
+    var(--dark-gray);
 
   --page-background-transparent: rgba(25, 23, 46, 0.9);
   --document-color: var(--color-6);
-  --midle-gray: #313131;
+
   /* --document-color: var(--custom-color); */
   --header-color: var(--page-background-static);
-  --header-text: gray;
+  --header-text: var(--text-color);
   --nav-color: var(--midle-gray);
   --transparent: rgba(255, 255, 255, 0);
 
@@ -202,15 +215,15 @@ canvas {
   transition: var(--elements-transition-slow);
   z-index: 15;
   text-decoration: none !important;
-  color: white;
+  color: var(--text-important);
   position: relative;
   font-weight: 440;
 }
 .link-highlighted:visited {
-  color: white !important;
+  color: var(--text-important) !important;
 }
 .link-highlighted:hover {
-  color: white !important;
+  color: var(--text-important) !important;
 }
 .link-highlighted::before,
 .link-highlighted::after {
@@ -247,7 +260,7 @@ canvas {
   opacity: 1;
 }
 .link-highlighted:hover {
-  color: white;
+  color: var(--text-important);
 }
 .listItem a {
   display: block;
@@ -499,7 +512,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  --document-color-darker: var(--page-background);
+  --document-color-darker: var(--page-background-static);
   cursor: auto;
   font-size: inherit !important;
   /* --document-color-darker: rgba(51, 51, 51, 0); */
@@ -621,7 +634,7 @@ main {
   /* h: 50vw; */
   position: absolute;
   left: 0;
-  background: var(--page-background);
+  top: 0;
   width: 100vw;
   height: 100vh;
   z-index: 0;
@@ -630,6 +643,30 @@ main {
   align-items: center;
   /* overflow: hidden; */
   --dark-blue: rgb(18, 39, 71);
+  background: var(--page-background);
+}
+.bg-img img {
+  position: absolute;
+  left: 2%;
+  top: 10%;
+  width: 15vw;
+  height: 15vh;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  opacity: 0.7;
+  animation-name: rotation;
+  animation-duration: 45s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes rotation {
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .page-bg-container {
   position: absolute;
@@ -647,60 +684,17 @@ main {
   left: 0;
   background-color: var(--page-background);
 }
-/* .page-bg-bg {
-  width: 50%;
-  position: relative;
-  left: 0%;
-  top: 0%;
-  height: 50%;
-  background: var(--dark-blue);
-  z-index: 25;
-  border-top-left-radius: 150px;
-  background-image: url("https://cdn4.vectorstock.com/i/1000x1000/90/58/red-triangle-tile-mosaic-pattern-background-vector-16319058.jpg");
-  background-size: contain;
-  opacity: 0.5;
-}
-@keyframes rotation {
-  100% {
-    transform: rotateZ(360deg);
-  }
-}
-.page-bg-bg-2 {
-  width: 50%;
-  position: relative;
-  left: 50%;
-  top: 0%;
-  height: 50%;
-  background: var(--dark-blue);
-  z-index: 25;
-  border-bottom-right-radius: 150px;
-  background-image: url("https://cdn1.vectorstock.com/i/1000x1000/91/25/geometric-triangle-tile-mosaic-pattern-background-vector-16319125.jpg");
-  background-size: contain;
-  opacity: 0.5;
-} */
 
 #box-front {
   transition-delay: 0s;
   transition-duration: 0s;
 }
 #about-page .page-bg {
-  /* clip-path: polygon(53% 0, 100% 0, 100% 70%, 0 100%, 0 100%, 0% 60%, 0 0); */
 }
 
 #portfolio-page .page-bg {
-  /* clip-path: polygon(53% 0, 100% 0, 100% 60%, 0 100%, 100% 100%, 0% 60%, 0 0); */
 }
 #contact-page .page-bg {
-  /* clip-path: polygon(
-    0 0,
-    39% 0,
-    92% 5%,
-    100% 39%,
-    100% 100%,
-    30% 100%,
-    41% 50%,
-    0 60%
-  ); */
 }
 #skills-page .page-bg-bg {
   top: 50vh;
@@ -804,15 +798,15 @@ main {
   color: white;
   visibility: hidden;
 }
-#about-page .page-inner {
-  /* background-color: var(--dark-gray) !important; */
+#about-page .page-row {
+  background-color: var(--page-background) !important;
 }
 #about-page h1 {
   /* background-color: var(--dark-gray); */
   margin-bottom: 20px !important;
   width: 100%;
   text-align: center;
-  color: white !important;
+  color: var(--text-color) !important;
   position: relative;
   top: 0;
   left: 0;
@@ -830,24 +824,37 @@ main {
   overflow-x: hidden;
   position: absolute;
 }
-#skills-page .page-content {
-  /* height: 150vh; */
+
+#skills-page h1,
+h2 {
+  padding: 35px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #skills-page h1 {
-  /* font-size: 2.15em; */
-  color: white !important;
+  font-size: 2.55em;
+  color: var(--text-important) !important;
   /* background: var(--page-background-static); */
-
-  margin: 25% auto 25px;
+  margin: 4% auto;
   margin-bottom: 35px;
-  width: 40% !important;
+  /* width: 40% !important; */
+  padding: 0 !important;
+  width: 100%;
+  text-align: left;
+  /* margin-left: 25px; */
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
 }
 #skills-page .page-row {
   top: 0;
-  height: 175vh !important;
-  background: var(--page-background-triple);
+  height: 195vh !important;
+  background: var(--page-background-static);
   color: rgb(151, 151, 151) !important;
+  --midle-gray: #454545;
   --header-text: var(--midle-gray);
 }
 #skills-page .page-inner {
@@ -858,38 +865,43 @@ main {
 
 #skills-page h2 {
   font-weight: 500;
-  padding-top: 5px;
-  padding-bottom: 5px;
+
   /* background: var(--page-background-static); */
-  color: white;
-  width: 70% !important;
+  color: var(--text-important);
+  width: 100% !important;
+  /* text-align: left; */
   margin: 0 auto;
   font-size: 1.65rem;
+  border-bottom: 1px solid var(--text-color);
+}
+#skills-page h1 .icon-skills {
+  width: 75px;
+  margin-left: 15px;
+}
+#skills-page h2 .icon-skills {
+  margin-left: 15px;
+}
 
-  /* border-bottom-right-radius: 25px; */
-  /* border-bottom-left-radius: 25px; */
-}
-#skills-page h1,
-h2 {
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-}
 #skills-page p {
-  margin-left: 16px;
-  margin-right: 16px;
   font-size: 1.7rem !important;
   font-weight: 300;
   text-align: justify;
+  border-top: 1px solid var(--text-color);
+  padding: 20px;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  margin-bottom: 0;
+  line-height: 3rem;
 }
 .skills-description {
-  margin-top: 50px !important;
-  /* background: var(--header-text); */
+  margin-top: 250px !important;
   border-bottom: none;
+  background: var(--light-gray);
 }
 
 .skills-content {
   height: 53%;
-  margin-top: 10%;
+  margin-top: 5%;
   display: grid;
   grid-template-columns: 33% 25% 33%;
   grid-template-rows: 100%;
@@ -906,18 +918,23 @@ h2 {
 }
 .skills-container {
   display: block;
-  /* background-color: var(--header-text); */
-  color: rgb(151, 151, 151) !important;
+  background: var(--light-gray);
+  color: var(--text-color) !important;
   font-weight: 560;
   overflow: hidden;
-  border: 1px solid gray;
+  /* border: 1px solid rgb(49, 49, 49); */
+}
+.icon-skills {
+  height: 100%;
+  width: 50px;
+  margin-top: -10px;
 }
 .tools {
   margin-top: 15px;
   display: grid;
   height: 100%;
   grid-template-columns: 50% 50%;
-  grid-template-rows: repeat(3, minmax(160px, 32%));
+  grid-template-rows: 30% 25% 33%;
 }
 .tools img {
   width: 55px;
@@ -925,14 +942,20 @@ h2 {
   opacity: 0.74;
 }
 .github-icon {
-  background: white !important;
-  border-radius: 50%;
 }
 .tools figure {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: var(--text-color);
+  transition-duration: 0.35s;
+  transition-timing-function: ease-in-out;
+}
+
+.tools figure:hover {
+  transform: scale(1.2);
+  color: var(--text-important);
 }
 .tools img {
   justify-self: flex-start;
@@ -956,7 +979,6 @@ h2 {
   left: 45%;
 }
 #back-end img {
-  width: 90px;
 }
 /* ========================= */
 /* ========= # Skills end ======= */
@@ -972,9 +994,11 @@ h2 {
 }
 #portfolio-page .page-inner {
   width: 100%;
-  height: 100%;
+  height: 200vh;
 }
 .portfolio-description {
+  margin-top: 50px;
+  text-align: left !important;
 }
 /* ========================= */
 /* ======== # Portfolio end ========= */
@@ -988,12 +1012,16 @@ h2 {
 /* Small devices (landscape phones, less than 768px) */
 @media (max-width: 1199.98px) {
 }
+@media (max-height: 1199.98px) {
+}
 /* Medium devices (tablets, less than 992px) */
 @media (max-width: 1025.98px) {
   .skills-description {
     margin-top: 150px !important;
   }
   #back-end {
+  }
+  #other {
   }
   #front-end {
   }
@@ -1014,7 +1042,7 @@ h2 {
     height: 60%;
     grid-template-columns: 100%;
     grid-template-rows: 33% 22% 33%;
-    grid-gap: 0px;
+    grid-gap: 20px;
   }
   #other .tools {
     margin-top: 54px;
@@ -1081,7 +1109,11 @@ h2 {
     padding-right: 1em !important;
   }
 }
-
+@media screen and (max-width: 768.98px), screen and (max-height: 620px) {
+  #skills-page .page-row {
+    height: 320vh !important;
+  }
+}
 @media (max-width: 575.98px) {
   #nav {
     min-height: 100vh;
@@ -1091,7 +1123,6 @@ h2 {
   }
   #other h2 {
     display: inline-block;
-    width: 70% !important;
   }
   #about-page p {
     font-size: 1.2rem !important;
@@ -1124,7 +1155,6 @@ h2 {
 
   #skills-page h1 {
     font-size: 1.86em;
-    color: white !important;
   }
   #skills-page h2 {
     font-size: 1.36em;
@@ -1139,19 +1169,24 @@ h2 {
 
 @media (max-width: 376.98px) {
   #skills-page .page-row {
-    height: 200vh !important;
+    height: 250vh !important;
   }
   .skills-content {
     height: 72% !important;
+  }
+  #back-end img {
   }
 }
 
 @media (max-width: 321.98px) {
   #skills-page .page-row {
-    height: 240vh !important;
+    height: 290vh !important;
   }
   .skills-content {
     height: 64% !important;
+  }
+  .tools {
+    font-size: 0.85em;
   }
 }
 /*!*  about   *!*/

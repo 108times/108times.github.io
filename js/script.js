@@ -48,6 +48,7 @@ ready = $(document).ready(function() {
   pagePreLoad();
   $(".box #top").append(
     "<header id='header-box' class='d-flex justify-content-center align-items-center'>" +
+      // '<img alt="solar-system" classs="bg-img" src="icons/solar-system.png" />' +
       "<nav id='nav' class='container-fluid'>" +
       " <ul id='nav-list'class='d-flex flex-column justify-content-center align-items-center'>" +
       "<li class='listItem'><a id='about-link' href='#about'>about</a></li>" +
@@ -72,6 +73,19 @@ ready = $(document).ready(function() {
     .find("#about-link")
     .click();
 
+  function scroll(current, target) {
+    target.prop("scrollTop", current.scrollTop);
+    console.log("1 tee current" + current.scrollTop);
+    console.log("1 tee target" + target.scrollTop);
+    // .prop("scrollLeft", this.scrollLeft);
+  }
+
+  $(window).on("scroll", function() {
+    console.log("gav");
+    let current = $(".box__face--front #skills-page .page-content");
+    let target = $(".page-slider #skills-page .page-content");
+    scroll(current, target);
+  });
   decideDelay();
   function burger_become_x() {
     borger_icon_1.css({
@@ -202,7 +216,7 @@ ready = $(document).ready(function() {
     let item = $("a[href|='" + href1 + "']");
     console.log("item+" + item.attr("href"));
     item.css({
-      color: "white"
+      color: "var(--text-important)"
     });
   }
 
@@ -627,7 +641,7 @@ ready = $(document).ready(function() {
           // );
           "<section id='about-page' class='page d-flex justify-content-center align-items-center text-center'>" +
             '<div class="copyright">@2019 Amir Kadenov</div>' +
-            "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
+            "<div class='page-bg'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             "<div   class='page-inner text-justify card card-body container-fluid col-md-6 col-sm-12'>" +
@@ -647,12 +661,12 @@ ready = $(document).ready(function() {
             '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
             " <section class='skills-description'>" +
-            "<h1>Skills</h1>" +
+            '<h1>Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
             "<p>For now the main area of my expertise is front-end development." +
             " Currently I'm learning back-end development with PHP.</p> </section>" +
             '<div class="skills-content">' +
             ' <section id="front-end" class="skills-container">' +
-            "<h2>Front end  </h2>" +
+            '<h2>Front end <img class="icon-skills" src="icons/front-end.png" alt="" /> </h2>' +
             '<div class="tools">' +
             "<figure>" +
             "<figcaption>HTML5</figcaption>" +
@@ -677,7 +691,7 @@ ready = $(document).ready(function() {
             " </div>" +
             " </section>" +
             ' <section id="back-end" class="skills-container">' +
-            " <h2>Back end </h2>" +
+            ' <h2>Back end <img class="icon-skills" src="icons/back-end.png" alt="" /></h2>' +
             ' <div class="tools">' +
             "<figure>" +
             "<figcaption>PHP7</figcaption>" +
@@ -686,7 +700,7 @@ ready = $(document).ready(function() {
             " </div>" +
             "   </section>" +
             ' <section id="other" class="skills-container">' +
-            " <h2>Other  </h2>" +
+            ' <h2>Other <img class="icon-skills" src="icons/other.png" alt="" /></h2>' +
             ' <div class="tools">' +
             "<figure>" +
             "<figcaption>Git</figcaption>" +
@@ -758,7 +772,7 @@ ready = $(document).ready(function() {
           // );
           "<section id='about-page' class='page d-flex justify-content-center align-items-center text-center'>" +
             '<div class="copyright">@2019 Amir Kadenov</div>' +
-            "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
+            "<div class='page-bg'></div></div>" +
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             "<div   class='page-inner text-justify card card-body container-fluid col-md-6 col-sm-12'>" +
@@ -778,12 +792,12 @@ ready = $(document).ready(function() {
             '<div class="copyright">@2019 Amir Kadenov</div>' +
             "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
             " <section class='skills-description'>" +
-            "<h1>Skills</h1>" +
+            '<h1>Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
             "<p>For now the main area of my expertise is front-end development." +
             " Currently I'm learning back-end development with PHP.</p> </section>" +
             '<div class="skills-content">' +
             ' <section id="front-end" class="skills-container">' +
-            "<h2>Front end  </h2>" +
+            '<h2>Front end <img class="icon-skills" src="icons/front-end.png" alt="" /> </h2>' +
             '<div class="tools">' +
             "<figure>" +
             "<figcaption>HTML5</figcaption>" +
@@ -808,7 +822,7 @@ ready = $(document).ready(function() {
             " </div>" +
             " </section>" +
             ' <section id="back-end" class="skills-container">' +
-            " <h2>Back end </h2>" +
+            ' <h2>Back end <img class="icon-skills" src="icons/back-end.png" alt="" /></h2>' +
             ' <div class="tools">' +
             "<figure>" +
             "<figcaption>PHP7</figcaption>" +
@@ -817,7 +831,7 @@ ready = $(document).ready(function() {
             " </div>" +
             "   </section>" +
             ' <section id="other" class="skills-container">' +
-            " <h2>Other  </h2>" +
+            ' <h2>Other <img class="icon-skills" src="icons/other.png" alt="" /></h2>' +
             ' <div class="tools">' +
             "<figure>" +
             "<figcaption>Git</figcaption>" +
@@ -1028,7 +1042,7 @@ ready = $(document).ready(function() {
 
       setTimeout(function() {
         removeOffset();
-      }, 1650);
+      }, 1750);
       $(".page-slider").css({
         visibility: "visible"
       });
@@ -1300,6 +1314,7 @@ ready = $(document).ready(function() {
     setTimeout(navbarAppear, 1800);
     setTimeout(controlNextAppear, 1800);
     setTimeout(controlPrevAppear, 1800);
+
     // }
     switch (current_page) {
       case "about":
@@ -1402,9 +1417,12 @@ ready = $(document).ready(function() {
     setTimeout(navbarAppear, 1800);
     setTimeout(controlNextAppear, 1800);
     setTimeout(controlPrevAppear, 1800);
-    $(".page-slider").css({
-      visibility: "visible"
-    });
+    $(".page-slider").animate(
+      {
+        visibility: "visible"
+      },
+      1
+    );
     switch (current_page) {
       case "about":
         mainLeft(current_page, "about");
