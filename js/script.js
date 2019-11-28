@@ -74,18 +74,38 @@ ready = $(document).ready(function() {
     .click();
 
   function scroll(current, target) {
-    target.prop("scrollTop", current.scrollTop);
+    // target.prop("scrollTop", current.scrollTop);
+
+    target.scrollTop = current.scrollTop;
     console.log("1 tee current" + current.scrollTop);
-    console.log("1 tee target" + target.scrollTop);
+    // console.log("1 tee target" + target.scrollTop);
     // .prop("scrollLeft", this.scrollLeft);
   }
+  function sliderOnScroll() {
+    $(".page-slider #skills-page .page-content").on("scroll", function() {
+      let target = $(".box__face--front #skills-page .page-content")[0];
+      let current = $(".page-slider #skills-page .page-content")[0];
+      scroll(current, target);
+    });
+  }
 
-  $(window).on("scroll", function() {
-    console.log("gav");
-    let current = $(".box__face--front #skills-page .page-content");
-    let target = $(".page-slider #skills-page .page-content");
-    scroll(current, target);
+  function boxOnScroll() {
+    $(".box__face--front #skills-page .page-content").on("scroll", function() {
+      let current = $(".box__face--front #skills-page .page-content")[0];
+      let target = $(".page-slider #skills-page .page-content")[0];
+      scroll(current, target);
+    });
+  }
+  sliderOnScroll();
+  // boxOnScroll();
+
+  $("body").on("DOMNodeInserted", "#skills-page", function() {
+    // boxOnScroll();
+    sliderOnScroll();
   });
+  // $("body").on("DOMNodeInserted", "#skills-page", function() {
+
+  // });
   decideDelay();
   function burger_become_x() {
     borger_icon_1.css({
@@ -646,7 +666,7 @@ ready = $(document).ready(function() {
             "<div class='row page-row'>" +
             "<div   class='page-inner text-justify card card-body container-fluid col-md-6 col-sm-12'>" +
             "<h1 class='m-auto p-3'>Hello, I'm Amir.</h1>" +
-            "<p>I'm a web developer, living and studying in Almaty, Kazakhstan. My passion is creating and I find happiness in being a better me today than the me yesterday. Feel free to take a look at my latest projects on the <span class = 'link-highlighted' href='#portfolio' title = 'portfolio'>web portfolio page.</span></p></div> </div> </div></section>"
+            "<p>I'm a web developer, living and studying in Almaty, Kazakhstan. My passion is creating and I find happiness in being a better me today than the me yesterday. Feel free to take a look at my latest projects on the <span class = 'link-highlighted' href='#portfolio' title = 'portfolio'>portfolio page.</span></p></div> </div> </div></section>"
         );
         break;
 
@@ -659,11 +679,28 @@ ready = $(document).ready(function() {
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             '<div class="copyright">@2019 Amir Kadenov</div>' +
-            "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
+            "<div   class='page-inner text-center card card-body container-fluid col-md-9 col-sm-12'>" +
             " <section class='skills-description'>" +
             '<h1>Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
-            "<p>For now the main area of my expertise is front-end development." +
-            " Currently I'm learning back-end development with PHP.</p> </section>" +
+            " <div class='features'>" +
+            " <div class='feature-fast'>" +
+            "<h2>Fast<img alt='feature fast icon' src='icons/fast.png'></h2>" +
+            "<p>Fast load times and lag free interaction, my highest priority.</p>" +
+            " </div>" +
+            " <div class='feature-responsive'>" +
+            "<h2>Responsive <img alt='feature responsive icon' src='icons/responsive.png'></h2>" +
+            "<p>My layouts will work on any device, big or small.</p>" +
+            " </div>" +
+            " <div class='feature-intuitive'>" +
+            "<h2>Intuitive<img alt='feature intuitive icon' src='icons/intuitive.png'></h2>" +
+            "<p>Strong preference for easy to use, intuitive UX/UI.</p>" +
+            " </div>" +
+            " <div class='feature-dynamic'>" +
+            "<h2>Dynamic<img alt='feature dynamic icon' src='icons/dynamic.png'></h2>" +
+            "<p>Websites don't have to be static, I love making pages come to life.</p>" +
+            " </div>" +
+            "</div><div class='skills-status'><h2>Area <img class='icon-skills' alt='area' src='icons/area.png'></h2><p>The main area of my expertise is front-end development." +
+            " Currently I'm learning back-end development with PHP.</p></div></section>" +
             '<div class="skills-content">' +
             ' <section id="front-end" class="skills-container">' +
             '<h2>Front end <img class="icon-skills" src="icons/front-end.png" alt="" /> </h2>' +
@@ -777,7 +814,7 @@ ready = $(document).ready(function() {
             "<div class='row page-row'>" +
             "<div   class='page-inner text-justify card card-body container-fluid col-md-6 col-sm-12'>" +
             "<h1 class='m-auto p-3'>Hello, I'm Amir.</h1>" +
-            "<p>I'm a web developer, living and studying in Almaty, Kazakhstan. My passion is creating and I find happiness in being a better me today than the me yesterday. Feel free to take a look at my latest projects on the <span class = 'link-highlighted' href='#portfolio' title = 'portfolio'>web portfolio page.</span></p></div> </div> </div></section>"
+            "<p>I'm a web developer, living and studying in Almaty, Kazakhstan. My passion is creating and I find happiness in being a better me today than the me yesterday. Feel free to take a look at my latest projects on the <span class = 'link-highlighted' href='#portfolio' title = 'portfolio'>portfolio page.</span></p></div> </div> </div></section>"
         );
         break;
 
@@ -790,11 +827,28 @@ ready = $(document).ready(function() {
             "<div class='page-content'>" +
             "<div class='row page-row'>" +
             '<div class="copyright">@2019 Amir Kadenov</div>' +
-            "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
+            "<div   class='page-inner text-center card card-body container-fluid col-md-9 col-sm-12'>" +
             " <section class='skills-description'>" +
             '<h1>Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
-            "<p>For now the main area of my expertise is front-end development." +
-            " Currently I'm learning back-end development with PHP.</p> </section>" +
+            " <div class='features'>" +
+            " <div class='feature-fast'>" +
+            "<h2>Fast<img alt='feature fast icon' src='icons/fast.png'></h2>" +
+            "<p>Fast load times and lag free interaction, my highest priority.</p>" +
+            " </div>" +
+            " <div class='feature-responsive'>" +
+            "<h2>Responsive <img alt='feature responsive icon' src='icons/responsive.png'></h2>" +
+            "<p>My layouts will work on any device, big or small.</p>" +
+            " </div>" +
+            " <div class='feature-intuitive'>" +
+            "<h2>Intuitive<img alt='feature intuitive icon' src='icons/intuitive.png'></h2>" +
+            "<p>Strong preference for easy to use, intuitive UX/UI.</p>" +
+            " </div>" +
+            " <div class='feature-dynamic'>" +
+            "<h2>Dynamic<img alt='feature dynamic icon' src='icons/dynamic.png'></h2>" +
+            "<p>Websites don't have to be static, I love making pages come to life.</p>" +
+            " </div>" +
+            "</div><div class='skills-status'><h2>Area <img class='icon-skills' alt='area' src='icons/area.png'></h2><p>The main area of my expertise is front-end development." +
+            " Currently I'm learning back-end development with PHP.</p></div></section>" +
             '<div class="skills-content">' +
             ' <section id="front-end" class="skills-container">' +
             '<h2>Front end <img class="icon-skills" src="icons/front-end.png" alt="" /> </h2>' +
@@ -1042,7 +1096,7 @@ ready = $(document).ready(function() {
 
       setTimeout(function() {
         removeOffset();
-      }, 1750);
+      }, 1800);
       $(".page-slider").css({
         visibility: "visible"
       });
@@ -1082,7 +1136,7 @@ ready = $(document).ready(function() {
 
       setTimeout(function() {
         removeOffset();
-      }, 1650);
+      }, 1800);
     }
   }
 
@@ -1178,9 +1232,9 @@ ready = $(document).ready(function() {
           700
         );
       }, 500);
-      setTimeout(navbarAppear, 1800);
-      setTimeout(controlNextAppear, 1800);
-      setTimeout(controlPrevAppear, 1800);
+      setTimeout(navbarAppear, 1950);
+      setTimeout(controlNextAppear, 1950);
+      setTimeout(controlPrevAppear, 1950);
     }
 
     switch (href) {
@@ -1248,6 +1302,12 @@ ready = $(document).ready(function() {
   });
 
   $("#next-toggle").on("click", function() {
+    $(".page-slider").animate(
+      {
+        visibility: "visible"
+      },
+      5
+    );
     decideDelay();
     current_url = window.location.href;
     let current_page = "about";
@@ -1311,9 +1371,9 @@ ready = $(document).ready(function() {
         700
       );
     }, 500);
-    setTimeout(navbarAppear, 1800);
-    setTimeout(controlNextAppear, 1800);
-    setTimeout(controlPrevAppear, 1800);
+    setTimeout(navbarAppear, 1950);
+    setTimeout(controlNextAppear, 1950);
+    setTimeout(controlPrevAppear, 1950);
 
     // }
     switch (current_page) {
@@ -1340,7 +1400,7 @@ ready = $(document).ready(function() {
         break;
 
       case "portfolio":
-        mainRight(current_page, target_page);
+        mainRight(current_page, "contact");
         next.mouseleave();
         nextDisableTemporary();
         setTimeout(nextDecide, 1000);
@@ -1360,6 +1420,12 @@ ready = $(document).ready(function() {
     });
   });
   $("#previous-toggle").on("click", function() {
+    $(".page-slider").animate(
+      {
+        visibility: "visible"
+      },
+      5
+    );
     decideDelay();
     current_url = window.location.href;
     let current_page = "about";
@@ -1414,9 +1480,9 @@ ready = $(document).ready(function() {
         700
       );
     }, 500);
-    setTimeout(navbarAppear, 1800);
-    setTimeout(controlNextAppear, 1800);
-    setTimeout(controlPrevAppear, 1800);
+    setTimeout(navbarAppear, 1950);
+    setTimeout(controlNextAppear, 1950);
+    setTimeout(controlPrevAppear, 1950);
     $(".page-slider").animate(
       {
         visibility: "visible"
