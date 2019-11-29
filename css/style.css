@@ -8,10 +8,12 @@
   --light-blue: rgb(226, 226, 226);
   --color-6: #2f2f2f;
 
+  --primary-gray: #324a5e;
   --light-gray: #292d3e;
   --midle-gray: #292d3e;
   --dark-gray: #1b1e2b;
   --sup-gray: #242736;
+
   --text-color: #7bc3e4;
   --text-important: #9773b7; /* #d47c65; /* #b3455e; /* #b5d787; * */
   /* --page-background: #3d3d3d; */
@@ -80,6 +82,7 @@
   --about-color: #371cb6;
   --portfolio-color: orange;
   --contact-color: green;
+  font-size: 14px;
 }
 * {
   padding: 0;
@@ -100,7 +103,7 @@ body {
   width: 100vw !important;
   height: 100vh !important;
   overflow: hidden;
-  font-size: 18px;
+
   line-height: 1.7em;
   font-weight: 300;
   position: fixed;
@@ -419,6 +422,10 @@ canvas {
   margin-top: 17px;
   transform: rotate(-45deg);
   transform-origin: bottom;
+}
+.next-toggle-before,
+.previous-toggle-before {
+  font-size: 2rem !important;
 }
 #previous-toggle .i1 {
   margin-top: 10px;
@@ -804,6 +811,9 @@ main {
   color: white;
   visibility: hidden;
 }
+#about-page {
+  font-size: 18px;
+}
 #about-page .page-row {
   background-color: var(--page-background) !important;
 }
@@ -816,10 +826,12 @@ main {
   position: relative;
   top: 0;
   left: 0;
+  font-size: 2.1em;
 }
 #about-page p {
   margin: 10px 20px;
   font-size: 1.7rem !important;
+  line-height: 2.5rem;
 }
 
 /* ========================= */
@@ -851,13 +863,15 @@ h2 {
   text-align: left;
   /* margin-left: 25px; */
   padding: 25px !important;
-  padding-bottom: 65px !important;
+  /* padding-bottom: 65px !important; */
   text-transform: capitalize;
   margin: 0 !important;
+  display: flex;
+  justify-content: center;
 }
 #skills-page .page-row {
   top: 0;
-  height: 235vh !important;
+  height: 205vh !important;
   background: var(--page-background-static);
   color: rgb(151, 151, 151) !important;
   --midle-gray: #454545;
@@ -885,8 +899,8 @@ h2 {
   /* align-self: flex-start; */
 }
 #skills-page h1 .icon-skills {
-  width: 65px;
-  margin-left: 15px;
+  width: 75px;
+  padding-left: 20px;
 }
 #skills-page h2 .icon-skills {
   margin-left: 15px;
@@ -904,6 +918,7 @@ h2 {
   line-height: 3rem;
   background: var(--light-gray);
 }
+
 .skills-description {
   margin-top: 100px !important;
   border-bottom: none;
@@ -948,8 +963,8 @@ h2 {
   background: var(--sup-gray);
 }
 .tools img {
-  width: 55px;
-  height: 55px;
+  width: 45px;
+  height: 45px;
   opacity: 0.74;
 }
 .github-icon {
@@ -994,29 +1009,35 @@ h2 {
 .features {
   border-top: 3px solid var(--dark-gray);
   width: 100%;
+
   display: grid;
-  grid-template-rows: 50% 50%;
-  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+  grid-template-columns: 25% 25% 25% 25%;
   grid-column-gap: 3px;
   background: var(--dark-gray);
   overflow: hidden;
 }
+.features h2 {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-evenly;
+}
 .features .feature-intuitive,
 .feature-dynamic {
-  border-top: 3px solid var(--dark-gray);
+  /* border-top: 3px solid var(--dark-gray); */
 }
 .features h2 {
   border: none !important;
   padding-bottom: 5px !important;
 }
 .skills-status {
-  margin-top: 10px;
+  margin-top: 50px;
 }
 .skills-status h2 {
   background: var(--light-gray);
   border-bottom: none !important;
   padding-bottom: 0px !important;
-  padding-top: 65px !important;
+  padding-top: 35px !important;
 }
 .features div {
   background: var(--light-gray);
@@ -1024,6 +1045,7 @@ h2 {
 .features img {
   width: 40px;
   margin-left: 10px;
+  padding-bottom: 25px;
 }
 /* ========================= */
 /* ========= # Skills end ======= */
@@ -1032,6 +1054,9 @@ h2 {
 /* ========================= */
 /* ======== # Portfolio ========= */
 /* ========================= */
+#portfolio-page {
+  font-size: 16px;
+}
 #portfolio-page .page-content {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -1045,12 +1070,15 @@ h2 {
   margin-top: 100px;
   text-align: left !important;
   background: var(--light-gray);
+  border-bottom: 3px solid var(--dark-gray);
+  z-index: 3;
 }
 #portfolio-page h1 {
   width: 100%;
   padding: 25px;
   color: var(--text-danger) !important;
   text-align: center;
+  border-bottom: 3px solid var(--dark-gray);
 }
 #portfolio-page .icon-skills {
   width: 65px;
@@ -1065,11 +1093,16 @@ h2 {
   height: 230vh !important;
 }
 .portfolio-folders {
-  width: 100%;
-  height: 90%;
+  width: 95%;
+  height: 200px;
   display: grid;
-  grid-template-columns: 35% 35% auto;
+  grid-template-columns: 25% 25% auto;
   grid-template-rows: 100%;
+  overflow: visible;
+  margin: 10px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 .folder {
   display: flex;
@@ -1077,22 +1110,22 @@ h2 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-bottom: 30px;
+
   padding: 15px;
   position: relative;
   padding-bottom: none;
 }
 .folder-first {
-  border-left: none !important;
 }
 .folder h4 {
   cursor: pointer;
   height: 60px;
+  font-size: 1em !important;
 }
 .folder img {
-  max-width: 150px;
-  width: 110px;
-  min-width: 80px;
+  max-width: 120px;
+  width: 90px;
+  min-width: 60px;
   cursor: pointer;
 }
 .folder a {
@@ -1100,30 +1133,106 @@ h2 {
   text-decoration: underline;
 }
 .selected {
-  border: 3px solid var(--dark-gray);
+  border: 1px solid var(--text-danger);
   background: var(--sup-gray);
+  z-index: 5;
+}
+.selected .folder-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #b3455f0a;
+  cursor: pointer;
 }
 .portfolio-content {
   height: 63%;
-  margin-top: 3px;
-  padding: 40px;
+  /* margin-top: 3px; */
+
+  padding: 30px;
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 33% 33% 33%;
-  grid-gap: 10px;
-  z-index: 100000;
-  background-color: var(--sup-gray);
+  grid-template-columns: 48% auto;
+  grid-template-rows: 31% 31% auto;
+  grid-gap: 30px;
+  background: var(--light-gray);
   overflow: hidden;
 }
 .portfolio-project {
-  background: var(--light-gray);
+  background-color: var(--sup-gray);
   display: flex;
   flex-direction: column-reverse;
+  border: 1px solid var(--text-danger);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 .portfolio-project img {
+  border-top: 1px solid var(--text-danger);
   width: 100%;
   height: 75%;
-  opacity: 0.7;
+  opacity: 0.5;
+
+  /* padding: 10px !important; */
+}
+.portfolio-project h4 {
+  margin:auto;
+  font-size: 1.4rem;
+  width: 100% !important;
+  display: block;
+}
+.object-icons{
+  border:none !important;
+  position: absolute;
+  width:100%;
+  display: flex;
+  height:30%;
+  opacity: 1 !important;
+}
+.object-icon{
+  margin:20px;
+  border: none !important;
+  width:45px !important;
+  height: 45px !important;
+  opacity: 1 !important;
+}
+.portfolio-project h4 span {
+
+}
+/* .portfolio-project h4::before {
+  content: "";
+  display: inline-block;
+  background: url(/icons/new-window.png);
+  background-size: cover;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 90%;
+  top: 15px;
+  opacity: 0;
+} */
+.portfolio-project:hover::before {
+  opacity: 1;
+}
+.selected-file {
+}
+.object-description{
+  display: block;
+  position: relative;
+  bottom:65%;
+  left:75%;
+  width: 100%;
+  height: 100%;
+  background:  url(/icons/new-window.png);
+  background-size:cover;
+}
+.object-description div{
+  display: block;
+  position: absolute;
+  bottom:65%;
+  left:75%;
+  width: 100px;
+  height: 100px;
+  background:  url(/icons/new-window.png);
+  background-size:cover;
 }
 /* ========================= */
 /* ======== # Portfolio end ========= */
@@ -1156,22 +1265,19 @@ h2 {
     grid-template-rows: 40% 40%;
   }
   #skills-page .page-row {
-    height: 190vh !important;
+    height: 150vh !important;
   }
   #skills-page p {
     font-size: 1.4rem;
   }
   .skills-content {
-    height: 75% !important;
-  }
-  .skills-content {
-    height: 60%;
+    height: 60% !important;
     grid-template-columns: 100%;
     grid-template-rows: 33% 22% 33%;
     /* grid-gap: 40px; */
   }
   #other .tools {
-    margin-top: 54px;
+    /* margin-top: 54px; */
   }
   #other h2 {
     display: flex;
@@ -1187,6 +1293,15 @@ h2 {
 /* Large devices (desktops, less than 1200px) */
 
 @media (max-width: 768.98px) {
+  .features {
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+    /* grid-gap: 40px; */
+  }
+  .feature-dynamic,
+  .feature-intuitive {
+    border-top: 3px var(--dark-gray) solid;
+  }
   #skills-page .copyright {
   }
   h1 {
@@ -1209,7 +1324,7 @@ h2 {
 
   .tools {
     grid-template-columns: 33% 33% 33% !important;
-    grid-template-rows: 33% 33% 33% !important;
+    grid-template-rows: 45% 30% !important;
   }
 
   #other .tools {
@@ -1241,12 +1356,12 @@ h2 {
 }
 @media (max-width: 575.98px) {
   .features {
-    grid-template-rows: 25% 25% 25% 25%;
-    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
     /* grid-gap: 40px; */
   }
   .feature-responsive {
-    border-top: 3px solid var(--dark-gray) !important;
+    /* border-top: 3px solid var(--dark-gray) !important; */
   }
   #nav {
     min-height: 100vh;

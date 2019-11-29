@@ -21,9 +21,9 @@ function decideDelay() {
 
 let header_var = "hidden";
 var option = 1;
-$(window).on("resize", function() {});
+$(window).on("resize", function () { });
 
-ready = $(document).ready(function() {
+ready = $(document).ready(function () {
   let transform_rotate = 0;
   let this_url = window.location.href;
 
@@ -48,22 +48,22 @@ ready = $(document).ready(function() {
   pagePreLoad();
   $(".box #top").append(
     "<header id='header-box' class='d-flex justify-content-center align-items-center'>" +
-      // '<img alt="solar-system" classs="bg-img" src="icons/solar-system.png" />' +
-      "<nav id='nav' class='container-fluid'>" +
-      " <ul id='nav-list'class='d-flex flex-column justify-content-center align-items-center'>" +
-      "<li class='listItem'><a id='about-link' href='#about'>about</a></li>" +
-      " <li class='listItem'>" +
-      " <a id='skills-link' href='#skills'>skills</a>" +
-      "</li>" +
-      " <li class='listItem'>" +
-      "<a id='portfolio-link' href='#portfolio'>portfolio</a>" +
-      " </li>" +
-      "<li class='listItem'>" +
-      "<a id='contact-link' href='#contact'>contact</a>" +
-      "</li>" +
-      " </ul>" +
-      " </nav>" +
-      "</header>"
+    // '<img alt="solar-system" classs="bg-img" src="icons/solar-system.png" />' +
+    "<nav id='nav' class='container-fluid'>" +
+    " <ul id='nav-list'class='d-flex flex-column justify-content-center align-items-center'>" +
+    "<li class='listItem'><a id='about-link' href='#about'>about</a></li>" +
+    " <li class='listItem'>" +
+    " <a id='skills-link' href='#skills'>skills</a>" +
+    "</li>" +
+    " <li class='listItem'>" +
+    "<a id='portfolio-link' href='#portfolio'>portfolio</a>" +
+    " </li>" +
+    "<li class='listItem'>" +
+    "<a id='contact-link' href='#contact'>contact</a>" +
+    "</li>" +
+    " </ul>" +
+    " </nav>" +
+    "</header>"
   );
   $("#header")
     .find("nav")
@@ -82,7 +82,7 @@ ready = $(document).ready(function() {
     // .prop("scrollLeft", this.scrollLeft);
   }
   function sliderOnScroll() {
-    $(".page-slider #skills-page .page-content").on("scroll", function() {
+    $(".page-slider #skills-page .page-content").on("scroll", function () {
       let target = $(".box__face--front #skills-page .page-content")[0];
       let current = $(".page-slider #skills-page .page-content")[0];
       scroll(current, target);
@@ -90,7 +90,7 @@ ready = $(document).ready(function() {
   }
 
   function boxOnScroll() {
-    $(".box__face--front #skills-page .page-content").on("scroll", function() {
+    $(".box__face--front #skills-page .page-content").on("scroll", function () {
       let current = $(".box__face--front #skills-page .page-content")[0];
       let target = $(".page-slider #skills-page .page-content")[0];
       scroll(current, target);
@@ -99,7 +99,7 @@ ready = $(document).ready(function() {
   sliderOnScroll();
   // boxOnScroll();
 
-  $("body").on("DOMNodeInserted", "#skills-page", function() {
+  $("body").on("DOMNodeInserted", "#skills-page", function () {
     // boxOnScroll();
     sliderOnScroll();
   });
@@ -250,13 +250,13 @@ ready = $(document).ready(function() {
   }
 
   menu_toggle
-    .on("mouseover", function() {
+    .on("mouseover", function () {
       if (header_var == "hidden") {
         burger_hover();
       } else if (header_var == "shown") {
       }
     })
-    .on("mouseleave", function() {
+    .on("mouseleave", function () {
       if (header_var == "hidden") {
         burger_become_menu();
       } else if (header_var == "shown") {
@@ -264,7 +264,7 @@ ready = $(document).ready(function() {
     });
 
   // ! MENU TOGGLE ON CLICK
-  $(menu_toggle).on("click", function() {
+  $(menu_toggle).on("click", function () {
     decideDelay();
     transform_rotate += 90;
     let str = "rotate(";
@@ -303,14 +303,14 @@ ready = $(document).ready(function() {
         "transition-duration": "0s",
         opacity: "0"
       });
-      setTimeout(function() {
+      setTimeout(function () {
         header.css({
           opacity: "1",
           "transition-duration": "var(--default-duration)"
         });
       }, 500);
       header_var = "hidden";
-      setTimeout(function() {
+      setTimeout(function () {
         highlightDefault(current_page);
       }, 500);
       boxPageDestroy();
@@ -335,7 +335,7 @@ ready = $(document).ready(function() {
   // });
   let menu_list = $("#nav-list");
 
-  menu_list.on("click", function() {
+  menu_list.on("click", function () {
     menu_toggle.click();
     $(".page-slider").css({
       visibility: "visible"
@@ -348,7 +348,7 @@ ready = $(document).ready(function() {
   let navColor = nav.css("background");
 
   menu_item
-    .mouseenter(function() {
+    .mouseenter(function () {
       let txt = this.text;
       let swidth = $(this).css("width");
       let string = "var(--" + txt + "-color)";
@@ -361,7 +361,7 @@ ready = $(document).ready(function() {
         .css({});
       // nav.css({"color":string});
     })
-    .mouseleave(function() {
+    .mouseleave(function () {
       // nav.css({"background":navColor});
       $(this).css({
         // "background-color": "inherit"
@@ -375,24 +375,24 @@ ready = $(document).ready(function() {
 
   function nextDisableTemporary() {
     let nextt = $(".next-toggle-before");
-    setTimeout(function() {
+    setTimeout(function () {
       nextt.addClass("transparent");
     }, 140);
-    setTimeout(function() {
+    setTimeout(function () {
       nextt.removeClass("transparent");
     }, 900);
   }
   function previousDisableTemporary() {
     let previouss = $(".previous-toggle-before");
-    setTimeout(function() {
+    setTimeout(function () {
       previouss.addClass("transparent");
     }, 140);
-    setTimeout(function() {
+    setTimeout(function () {
       previouss.removeClass("transparent");
     }, 900);
   }
   next
-    .on("mouseenter", function() {
+    .on("mouseenter", function () {
       current_url = window.location.href;
       if (current_url.includes("#")) {
         let $position = current_url.indexOf("#");
@@ -444,7 +444,7 @@ ready = $(document).ready(function() {
         130
       );
     })
-    .on("mouseleave", function() {
+    .on("mouseleave", function () {
       let text = $(this).attr("href");
       text = text.replace("#", "");
       let item = $(".next-toggle-before");
@@ -474,7 +474,7 @@ ready = $(document).ready(function() {
     });
   let previous = $("#previous-toggle");
   previous
-    .on("mouseover", function() {
+    .on("mouseover", function () {
       current_url = window.location.href;
       if (current_url.includes("#")) {
         let $position = current_url.indexOf("#");
@@ -525,7 +525,7 @@ ready = $(document).ready(function() {
         130
       );
     })
-    .on("mouseleave", function() {
+    .on("mouseleave", function () {
       let text = $(this).attr("href");
       text = text.replace("#", "");
       let item = $(".previous-toggle-before");
@@ -660,136 +660,136 @@ ready = $(document).ready(function() {
           //     "<h2>Skills</h2></section>"
           // );
           "<section id='about-page' class='page d-flex justify-content-center align-items-center text-center'>" +
-            '<div class="copyright">@2019 Amir Kadenov</div>' +
-            "<div class='page-bg'></div></div>" +
-            "<div class='page-content'>" +
-            "<div class='row page-row'>" +
-            "<div   class='page-inner text-justify card card-body container-fluid col-md-6 col-sm-12'>" +
-            "<h1 class='m-auto p-3'>Hello, I'm Amir.</h1>" +
-            "<p>I'm a web developer, living and studying in Almaty, Kazakhstan. My passion is creating and I find happiness in being a better me today than the me yesterday. Feel free to take a look at my latest projects on the <span class = 'link-highlighted' href='#portfolio' title = 'portfolio'>portfolio page.</span></p></div> </div> </div></section>"
+          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          "<div class='page-bg'></div></div>" +
+          "<div class='page-content'>" +
+          "<div class='row page-row'>" +
+          "<div   class='page-inner text-justify card card-body container-fluid col-md-6 col-sm-12'>" +
+          "<h1 class='m-auto p-3'>Hello, I'm Amir.</h1>" +
+          "<p>I'm a web developer, living and studying in Almaty, Kazakhstan. My passion is creating and I find happiness in being a better me today than the me yesterday. Feel free to take a look at my latest projects on the <span class = 'link-highlighted' href='#portfolio' title = 'portfolio'>portfolio page.</span></p></div> </div> </div></section>"
         );
         break;
 
       case "skills":
         box_side.append(
           "<section class='page' id='" +
-            string +
-            "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
-            "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
-            "<div class='page-content'>" +
-            "<div class='row page-row'>" +
-            '<div class="copyright">@2019 Amir Kadenov</div>' +
-            "<div   class='page-inner text-center card card-body container-fluid col-md-9 col-sm-12'>" +
-            " <section class='skills-description'>" +
-            '<h1>Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
-            " <div class='features'>" +
-            " <div class='feature-fast'>" +
-            "<h2>Fast<img alt='feature fast icon' src='icons/fast.png'></h2>" +
-            "<p>Fast load times and lag free interaction, my highest priority.</p>" +
-            " </div>" +
-            " <div class='feature-responsive'>" +
-            "<h2>Responsive <img alt='feature responsive icon' src='icons/responsive.png'></h2>" +
-            "<p>My layouts will work on any device, big or small.</p>" +
-            " </div>" +
-            " <div class='feature-intuitive'>" +
-            "<h2>Intuitive<img alt='feature intuitive icon' src='icons/intuitive.png'></h2>" +
-            "<p>Strong preference for easy to use, intuitive UX/UI.</p>" +
-            " </div>" +
-            " <div class='feature-dynamic'>" +
-            "<h2>Dynamic<img alt='feature dynamic icon' src='icons/dynamic.png'></h2>" +
-            "<p>Websites don't have to be static, I love making pages come to life.</p>" +
-            " </div>" +
-            "</div><div class='skills-status'><h2>Area <img class='icon-skills' alt='area' src='icons/area.png'></h2><p>The main area of my expertise is front-end development." +
-            " Currently I'm learning back-end development with PHP.</p></div></section>" +
-            '<div class="skills-content">' +
-            ' <section id="front-end" class="skills-container">' +
-            '<h2>Front end <img class="icon-skills" src="icons/front-end.png" alt="" /> </h2>' +
-            '<div class="tools">' +
-            "<figure>" +
-            "<figcaption>HTML5</figcaption>" +
-            '<img src="icons/html5.png" alt="HTML5" width="auto" height="auto">' +
-            " </figure>" +
-            " <figure>" +
-            "<figcaption>CSS3</figcaption>" +
-            '<img src="icons/css3.png" alt="CSS3" width="auto" height="auto">' +
-            "</figure>" +
-            "<figure>" +
-            "<figcaption>JS</figcaption>" +
-            '<img src="icons/javascript.png" alt="JS" width="auto" height="auto">' +
-            "</figure>" +
-            " <figure>" +
-            " <figcaption>Bootstrap</figcaption>" +
-            ' <img src="icons/bootstrap.png" alt="Bootstrap" width="auto" height="auto">' +
-            "</figure>" +
-            " <figure>" +
-            "<figcaption>JQuery</figcaption>" +
-            '<img src="icons/jquery.png" alt="Jquery" width="auto" height="auto">' +
-            "</figure>" +
-            " </div>" +
-            " </section>" +
-            ' <section id="back-end" class="skills-container">' +
-            ' <h2>Back end <img class="icon-skills" src="icons/back-end.png" alt="" /></h2>' +
-            ' <div class="tools">' +
-            "<figure>" +
-            "<figcaption>PHP7</figcaption>" +
-            '<img src="icons/new-php-logo.png" alt="PHP" width="auto" height="auto">' +
-            "</figure>" +
-            " </div>" +
-            "   </section>" +
-            ' <section id="other" class="skills-container">' +
-            ' <h2>Other <img class="icon-skills" src="icons/other.png" alt="" /></h2>' +
-            ' <div class="tools">' +
-            "<figure>" +
-            "<figcaption>Git</figcaption>" +
-            ' <img src="icons/git.png" alt="Git" width="auto" height="auto">' +
-            "</figure>" +
-            "<figure>" +
-            "<figcaption>Github</figcaption>" +
-            '<img src="icons/github.png" class="github-icon" alt="Github" width="auto" height="auto">' +
-            " </figure>" +
-            "<figure>" +
-            "<figcaption>Photoshop</figcaption>" +
-            '<img src="icons/photoshop.png" alt="Photoshop" width="auto" height="auto">' +
-            " </figure>" +
-            "  <figure>" +
-            " <figcaption>MySQL</figcaption>" +
-            ' <img src="icons/mysql.png" alt="MySQL" width="120px" height="auto">' +
-            "  </figure>" +
-            " <figure>" +
-            " <figcaption>C#</figcaption>" +
-            ' <img src="icons/C_Sharp_logo.png" alt="C#" width="auto" height="auto">' +
-            "</figure>" +
-            " </div>" +
-            " </section>" +
-            " </div></div></div></section>"
+          string +
+          "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+          "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
+          "<div class='page-content'>" +
+          "<div class='row page-row'>" +
+          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          "<div   class='page-inner text-center card card-body container-fluid col-md-9 col-sm-12'>" +
+          " <section class='skills-description'>" +
+          '<h1>Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
+          " <div class='features'>" +
+          " <div class='feature-fast'>" +
+          "<h2>Fast<img alt='feature fast icon' src='icons/fast.png'></h2>" +
+          "<p>Fast load times and lag free interaction, my highest priority.</p>" +
+          " </div>" +
+          " <div class='feature-responsive'>" +
+          "<h2>Responsive <img alt='feature responsive icon' src='icons/responsive.png'></h2>" +
+          "<p>My layouts will work on any device, big or small.</p>" +
+          " </div>" +
+          " <div class='feature-intuitive'>" +
+          "<h2>Intuitive<img alt='feature intuitive icon' src='icons/intuitive.png'></h2>" +
+          "<p>Strong preference for easy to use, intuitive UX/UI.</p>" +
+          " </div>" +
+          " <div class='feature-dynamic'>" +
+          "<h2>Dynamic<img alt='feature dynamic icon' src='icons/dynamic.png'></h2>" +
+          "<p>Websites don't have to be static, I love making pages come to life.</p>" +
+          " </div>" +
+          "</div><div class='skills-status'><h2>Area <img class='icon-skills' alt='area' src='icons/area.png'></h2><p>The main area of my expertise is front-end development." +
+          " Currently I'm learning back-end development with PHP.</p></div></section>" +
+          '<div class="skills-content">' +
+          ' <section id="front-end" class="skills-container">' +
+          '<h2>Front end <img class="icon-skills" src="icons/front-end.png" alt="" /> </h2>' +
+          '<div class="tools">' +
+          "<figure>" +
+          "<figcaption>HTML5</figcaption>" +
+          '<img src="icons/html5.png" alt="HTML5" width="auto" height="auto">' +
+          " </figure>" +
+          " <figure>" +
+          "<figcaption>CSS3</figcaption>" +
+          '<img src="icons/css3.png" alt="CSS3" width="auto" height="auto">' +
+          "</figure>" +
+          "<figure>" +
+          "<figcaption>JS</figcaption>" +
+          '<img src="icons/javascript.png" alt="JS" width="auto" height="auto">' +
+          "</figure>" +
+          " <figure>" +
+          " <figcaption>Bootstrap</figcaption>" +
+          ' <img src="icons/bootstrap.png" alt="Bootstrap" width="auto" height="auto">' +
+          "</figure>" +
+          " <figure>" +
+          "<figcaption>JQuery</figcaption>" +
+          '<img src="icons/jquery.png" alt="Jquery" width="auto" height="auto">' +
+          "</figure>" +
+          " </div>" +
+          " </section>" +
+          ' <section id="back-end" class="skills-container">' +
+          ' <h2>Back end <img class="icon-skills" src="icons/back-end.png" alt="" /></h2>' +
+          ' <div class="tools">' +
+          "<figure>" +
+          "<figcaption>PHP7</figcaption>" +
+          '<img src="icons/new-php-logo.png" alt="PHP" width="auto" height="auto">' +
+          "</figure>" +
+          " </div>" +
+          "   </section>" +
+          ' <section id="other" class="skills-container">' +
+          ' <h2>Other <img class="icon-skills" src="icons/other.png" alt="" /></h2>' +
+          ' <div class="tools">' +
+          "<figure>" +
+          "<figcaption>Git</figcaption>" +
+          ' <img src="icons/git.png" alt="Git" width="auto" height="auto">' +
+          "</figure>" +
+          "<figure>" +
+          "<figcaption>Github</figcaption>" +
+          '<img src="icons/github.png" class="github-icon" alt="Github" width="auto" height="auto">' +
+          " </figure>" +
+          "<figure>" +
+          "<figcaption>Photoshop</figcaption>" +
+          '<img src="icons/photoshop.png" alt="Photoshop" width="auto" height="auto">' +
+          " </figure>" +
+          "  <figure>" +
+          " <figcaption>MySQL</figcaption>" +
+          ' <img src="icons/mysql.png" alt="MySQL" width="120px" height="auto">' +
+          "  </figure>" +
+          " <figure>" +
+          " <figcaption>C#</figcaption>" +
+          ' <img src="icons/C_Sharp_logo.png" alt="C#" width="auto" height="auto">' +
+          "</figure>" +
+          " </div>" +
+          " </section>" +
+          " </div></div></div></section>"
         );
         break;
 
       case "portfolio":
         box_side.append(
           "<section class='page' id='" +
-            string +
-            "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
-            "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
-            "<div class='page-content'>" +
-            "<div class='row page-row'>" +
-            "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
-            "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
-            "<p>There is some information about me</p></div> </div> </div></section>"
+          string +
+          "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+          "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
+          "<div class='page-content'>" +
+          "<div class='row page-row'>" +
+          "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
+          "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
+          "<p>There is some information about me</p></div> </div> </div></section>"
         );
         break;
 
       case "contact":
         box_side.append(
           "<section class='page' id='" +
-            string +
-            "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
-            "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
-            "<div class='page-content'>" +
-            "<div class='row page-row'>" +
-            "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
-            "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
-            "<p>There is some information about me</p></div> </div> </div></section>"
+          string +
+          "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+          "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
+          "<div class='page-content'>" +
+          "<div class='row page-row'>" +
+          "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
+          "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
+          "<p>There is some information about me</p></div> </div> </div></section>"
         );
         break;
     }
@@ -808,135 +808,135 @@ ready = $(document).ready(function() {
           //     "<h2>Skills</h2></section>"
           // );
           "<section id='about-page' class='page d-flex justify-content-center align-items-center text-center'>" +
-            '<div class="copyright">@2019 Amir Kadenov</div>' +
-            "<div class='page-bg'></div></div>" +
-            "<div class='page-content'>" +
-            "<div class='row page-row'>" +
-            "<div   class='page-inner text-justify card card-body container-fluid col-md-6 col-sm-12'>" +
-            "<h1 class='m-auto p-3'>Hello, I'm Amir.</h1>" +
-            "<p>I'm a web developer, living and studying in Almaty, Kazakhstan. My passion is creating and I find happiness in being a better me today than the me yesterday. Feel free to take a look at my latest projects on the <span class = 'link-highlighted' href='#portfolio' title = 'portfolio'>portfolio page.</span></p></div> </div> </div></section>"
+          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          "<div class='page-bg'></div></div>" +
+          "<div class='page-content'>" +
+          "<div class='row page-row'>" +
+          "<div   class='page-inner text-justify card card-body container-fluid col-md-6 col-sm-12'>" +
+          "<h1 class='m-auto p-3'>Hello, I'm Amir.</h1>" +
+          "<p>I'm a web developer, living and studying in Almaty, Kazakhstan. My passion is creating and I find happiness in being a better me today than the me yesterday. Feel free to take a look at my latest projects on the <span class = 'link-highlighted' href='#portfolio' title = 'portfolio'>portfolio page.</span></p></div> </div> </div></section>"
         );
         break;
 
       case "skills":
         slider.append(
           "<section class='page' id='" +
-            string +
-            "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
-            "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
-            "<div class='page-content'>" +
-            "<div class='row page-row'>" +
-            '<div class="copyright">@2019 Amir Kadenov</div>' +
-            "<div   class='page-inner text-center card card-body container-fluid col-md-9 col-sm-12'>" +
-            " <section class='skills-description'>" +
-            '<h1>Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
-            " <div class='features'>" +
-            " <div class='feature-fast'>" +
-            "<h2>Fast<img alt='feature fast icon' src='icons/fast.png'></h2>" +
-            "<p>Fast load times and lag free interaction, my highest priority.</p>" +
-            " </div>" +
-            " <div class='feature-responsive'>" +
-            "<h2>Responsive <img alt='feature responsive icon' src='icons/responsive.png'></h2>" +
-            "<p>My layouts will work on any device, big or small.</p>" +
-            " </div>" +
-            " <div class='feature-intuitive'>" +
-            "<h2>Intuitive<img alt='feature intuitive icon' src='icons/intuitive.png'></h2>" +
-            "<p>Strong preference for easy to use, intuitive UX/UI.</p>" +
-            " </div>" +
-            " <div class='feature-dynamic'>" +
-            "<h2>Dynamic<img alt='feature dynamic icon' src='icons/dynamic.png'></h2>" +
-            "<p>Websites don't have to be static, I love making pages come to life.</p>" +
-            " </div>" +
-            "</div><div class='skills-status'><h2>Area <img class='icon-skills' alt='area' src='icons/area.png'></h2><p>The main area of my expertise is front-end development." +
-            " Currently I'm learning back-end development with PHP.</p></div></section>" +
-            '<div class="skills-content">' +
-            ' <section id="front-end" class="skills-container">' +
-            '<h2>Front end <img class="icon-skills" src="icons/front-end.png" alt="" /> </h2>' +
-            '<div class="tools">' +
-            "<figure>" +
-            "<figcaption>HTML5</figcaption>" +
-            '<img src="icons/html5.png" alt="HTML5" width="auto" height="auto">' +
-            " </figure>" +
-            " <figure>" +
-            "<figcaption>CSS3</figcaption>" +
-            '<img src="icons/css3.png" alt="CSS3" width="auto" height="auto">' +
-            "</figure>" +
-            "<figure>" +
-            "<figcaption>JS</figcaption>" +
-            '<img src="icons/javascript.png" alt="JS" width="auto" height="auto">' +
-            "</figure>" +
-            " <figure>" +
-            " <figcaption>Bootstrap</figcaption>" +
-            ' <img src="icons/bootstrap.png" alt="Bootstrap" width="auto" height="auto">' +
-            "</figure>" +
-            " <figure>" +
-            "<figcaption>JQuery</figcaption>" +
-            '<img src="icons/jquery.png" alt="Jquery" width="auto" height="auto">' +
-            "</figure>" +
-            " </div>" +
-            " </section>" +
-            ' <section id="back-end" class="skills-container">' +
-            ' <h2>Back end <img class="icon-skills" src="icons/back-end.png" alt="" /></h2>' +
-            ' <div class="tools">' +
-            "<figure>" +
-            "<figcaption>PHP7</figcaption>" +
-            '<img src="icons/new-php-logo.png" alt="PHP" width="auto" height="auto">' +
-            "</figure>" +
-            " </div>" +
-            "   </section>" +
-            ' <section id="other" class="skills-container">' +
-            ' <h2>Other <img class="icon-skills" src="icons/other.png" alt="" /></h2>' +
-            ' <div class="tools">' +
-            "<figure>" +
-            "<figcaption>Git</figcaption>" +
-            ' <img src="icons/git.png" alt="Git" width="auto" height="auto">' +
-            "</figure>" +
-            "<figure>" +
-            "<figcaption>Github</figcaption>" +
-            '<img src="icons/github.png" class="github-icon" alt="Github" width="auto" height="auto">' +
-            " </figure>" +
-            "<figure>" +
-            "<figcaption>Photoshop</figcaption>" +
-            '<img src="icons/photoshop.png" alt="Photoshop" width="auto" height="auto">' +
-            " </figure>" +
-            "  <figure>" +
-            " <figcaption>MySQL</figcaption>" +
-            ' <img src="icons/mysql.png" alt="MySQL" width="120px" height="auto">' +
-            "  </figure>" +
-            " <figure>" +
-            " <figcaption>C#</figcaption>" +
-            ' <img src="icons/C_Sharp_logo.png" alt="C#" width="auto" height="auto">' +
-            "</figure>" +
-            " </div>" +
-            " </section>" +
-            " </div></div></div></section>"
+          string +
+          "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+          "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
+          "<div class='page-content'>" +
+          "<div class='row page-row'>" +
+          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          "<div   class='page-inner text-center card card-body container-fluid col-md-9 col-sm-12'>" +
+          " <section class='skills-description'>" +
+          '<h1>Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
+          " <div class='features'>" +
+          " <div class='feature-fast'>" +
+          "<h2>Fast<img alt='feature fast icon' src='icons/fast.png'></h2>" +
+          "<p>Fast load times and lag free interaction, my highest priority.</p>" +
+          " </div>" +
+          " <div class='feature-responsive'>" +
+          "<h2>Responsive <img alt='feature responsive icon' src='icons/responsive.png'></h2>" +
+          "<p>My layouts will work on any device, big or small.</p>" +
+          " </div>" +
+          " <div class='feature-intuitive'>" +
+          "<h2>Intuitive<img alt='feature intuitive icon' src='icons/intuitive.png'></h2>" +
+          "<p>Strong preference for easy to use, intuitive UX/UI.</p>" +
+          " </div>" +
+          " <div class='feature-dynamic'>" +
+          "<h2>Dynamic<img alt='feature dynamic icon' src='icons/dynamic.png'></h2>" +
+          "<p>Websites don't have to be static, I love making pages come to life.</p>" +
+          " </div>" +
+          "</div><div class='skills-status'><h2>Area <img class='icon-skills' alt='area' src='icons/area.png'></h2><p>The main area of my expertise is front-end development." +
+          " Currently I'm learning back-end development with PHP.</p></div></section>" +
+          '<div class="skills-content">' +
+          ' <section id="front-end" class="skills-container">' +
+          '<h2>Front end <img class="icon-skills" src="icons/front-end.png" alt="" /> </h2>' +
+          '<div class="tools">' +
+          "<figure>" +
+          "<figcaption>HTML5</figcaption>" +
+          '<img src="icons/html5.png" alt="HTML5" width="auto" height="auto">' +
+          " </figure>" +
+          " <figure>" +
+          "<figcaption>CSS3</figcaption>" +
+          '<img src="icons/css3.png" alt="CSS3" width="auto" height="auto">' +
+          "</figure>" +
+          "<figure>" +
+          "<figcaption>JS</figcaption>" +
+          '<img src="icons/javascript.png" alt="JS" width="auto" height="auto">' +
+          "</figure>" +
+          " <figure>" +
+          " <figcaption>Bootstrap</figcaption>" +
+          ' <img src="icons/bootstrap.png" alt="Bootstrap" width="auto" height="auto">' +
+          "</figure>" +
+          " <figure>" +
+          "<figcaption>JQuery</figcaption>" +
+          '<img src="icons/jquery.png" alt="Jquery" width="auto" height="auto">' +
+          "</figure>" +
+          " </div>" +
+          " </section>" +
+          ' <section id="back-end" class="skills-container">' +
+          ' <h2>Back end <img class="icon-skills" src="icons/back-end.png" alt="" /></h2>' +
+          ' <div class="tools">' +
+          "<figure>" +
+          "<figcaption>PHP7</figcaption>" +
+          '<img src="icons/new-php-logo.png" alt="PHP" width="auto" height="auto">' +
+          "</figure>" +
+          " </div>" +
+          "   </section>" +
+          ' <section id="other" class="skills-container">' +
+          ' <h2>Other <img class="icon-skills" src="icons/other.png" alt="" /></h2>' +
+          ' <div class="tools">' +
+          "<figure>" +
+          "<figcaption>Git</figcaption>" +
+          ' <img src="icons/git.png" alt="Git" width="auto" height="auto">' +
+          "</figure>" +
+          "<figure>" +
+          "<figcaption>Github</figcaption>" +
+          '<img src="icons/github.png" class="github-icon" alt="Github" width="auto" height="auto">' +
+          " </figure>" +
+          "<figure>" +
+          "<figcaption>Photoshop</figcaption>" +
+          '<img src="icons/photoshop.png" alt="Photoshop" width="auto" height="auto">' +
+          " </figure>" +
+          "  <figure>" +
+          " <figcaption>MySQL</figcaption>" +
+          ' <img src="icons/mysql.png" alt="MySQL" width="120px" height="auto">' +
+          "  </figure>" +
+          " <figure>" +
+          " <figcaption>C#</figcaption>" +
+          ' <img src="icons/C_Sharp_logo.png" alt="C#" width="auto" height="auto">' +
+          "</figure>" +
+          " </div>" +
+          " </section>" +
+          " </div></div></div></section>"
         );
         break;
       case "portfolio":
         slider.append(
           "<section class='page' id='" +
-            string +
-            "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
-            "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
-            "<div class='page-content'>" +
-            "<div class='row page-row'>" +
-            "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
-            "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
-            "<p>There is some information about me</p></div> </div> </div></section>"
+          string +
+          "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+          "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
+          "<div class='page-content'>" +
+          "<div class='row page-row'>" +
+          "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
+          "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
+          "<p>There is some information about me</p></div> </div> </div></section>"
         );
         break;
 
       case "contact":
         slider.append(
           "<section class='page' id='" +
-            string +
-            "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
-            "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
-            "<div class='page-content'>" +
-            "<div class='row page-row'>" +
-            "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
-            "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
-            "<p>There is some information about me</p></div> </div> </div></section>"
+          string +
+          "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
+          "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
+          "<div class='page-content'>" +
+          "<div class='row page-row'>" +
+          "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
+          "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
+          "<p>There is some information about me</p></div> </div> </div></section>"
         );
         break;
     }
@@ -1050,7 +1050,7 @@ ready = $(document).ready(function() {
     sliderPageHide(current_page);
     boxPageAppend(current_page);
     sliderPagesDestroy();
-    setTimeout(function() {
+    setTimeout(function () {
       boxPageDestroy(current_page);
     }, 2000);
   }
@@ -1094,7 +1094,7 @@ ready = $(document).ready(function() {
 
       setTimeout(addClassShowLeft, 1000);
 
-      setTimeout(function() {
+      setTimeout(function () {
         removeOffset();
       }, 1800);
       $(".page-slider").css({
@@ -1134,7 +1134,7 @@ ready = $(document).ready(function() {
 
       setTimeout(addClassShowRight, 1000);
 
-      setTimeout(function() {
+      setTimeout(function () {
         removeOffset();
       }, 1800);
     }
@@ -1190,7 +1190,7 @@ ready = $(document).ready(function() {
     }
   }
 
-  navItem.on("click", function() {
+  navItem.on("click", function () {
     current_url = window.location.href;
     if (current_url.includes("#")) {
       let $position = current_url.indexOf("#");
@@ -1209,7 +1209,7 @@ ready = $(document).ready(function() {
       setTimeout(controlNextAppear, 700);
       setTimeout(controlPrevAppear, 700);
     } else {
-      setTimeout(function() {
+      setTimeout(function () {
         $("#next-toggle").animate(
           {
             right: "-293px"
@@ -1218,7 +1218,7 @@ ready = $(document).ready(function() {
         );
       }, 500);
 
-      setTimeout(function() {
+      setTimeout(function () {
         $("#navbar-toggle").animate(
           {
             top: "-115px"
@@ -1290,9 +1290,9 @@ ready = $(document).ready(function() {
     }
   });
 
-  $("body").on("click", ".link-highlighted", function() {
+  $("body").on("click", ".link-highlighted", function () {
     option = 2;
-    setTimeout(function() {
+    setTimeout(function () {
       option = 1;
     }, 600);
     console.log("option " + option);
@@ -1301,7 +1301,7 @@ ready = $(document).ready(function() {
     document.getElementById("next-toggle").click();
   });
 
-  $("#next-toggle").on("click", function() {
+  $("#next-toggle").on("click", function () {
     $(".page-slider").animate(
       {
         visibility: "visible"
@@ -1348,7 +1348,7 @@ ready = $(document).ready(function() {
 
     let target_page = href.replace("#", "");
     console.log("target-page ++++++++---------" + target_page);
-    setTimeout(function() {
+    setTimeout(function () {
       $("#next-toggle").animate(
         {
           right: "-293px"
@@ -1357,7 +1357,7 @@ ready = $(document).ready(function() {
       );
     }, 500);
 
-    setTimeout(function() {
+    setTimeout(function () {
       $("#navbar-toggle").animate(
         {
           top: "-115px"
@@ -1419,7 +1419,7 @@ ready = $(document).ready(function() {
       visibility: "visible"
     });
   });
-  $("#previous-toggle").on("click", function() {
+  $("#previous-toggle").on("click", function () {
     $(".page-slider").animate(
       {
         visibility: "visible"
@@ -1457,7 +1457,7 @@ ready = $(document).ready(function() {
 
     let target_page = href.replace("#", "");
 
-    setTimeout(function() {
+    setTimeout(function () {
       $("#next-toggle").animate(
         {
           right: "-163px"
@@ -1466,7 +1466,7 @@ ready = $(document).ready(function() {
       );
     }, 500);
 
-    setTimeout(function() {
+    setTimeout(function () {
       $("#navbar-toggle").animate(
         {
           top: "-115px"
@@ -1522,5 +1522,10 @@ ready = $(document).ready(function() {
         setTimeout(nextDecide, 1000);
         break;
     }
+  });
+  $(".portfolio-project").on("hover", function () {
+    $().css({
+
+    })
   });
 });
