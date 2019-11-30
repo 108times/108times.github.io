@@ -11,9 +11,9 @@ function decideDelay() {
   let value;
   if (width < 1201) {
     // value = initial - 100 + "ms";
-    value = "1340ms";
+    value = "1320ms";
   } else {
-    value = "1340ms";
+    value = "1320ms";
   }
   console.log(value);
   document.documentElement.style.setProperty("--slider-delay", value);
@@ -76,7 +76,7 @@ ready = $(document).ready(function () {
   function scroll(current, target) {
     // target.prop("scrollTop", current.scrollTop);
 
-    target.scrollTop = current.scrollTop;
+    // ! target.scrollTop = current.scrollTop;
     console.log("1 tee current" + current.scrollTop);
     // console.log("1 tee target" + target.scrollTop);
     // .prop("scrollLeft", this.scrollLeft);
@@ -236,7 +236,7 @@ ready = $(document).ready(function () {
     let item = $("a[href|='" + href1 + "']");
     console.log("item+" + item.attr("href"));
     item.css({
-      color: "var(--text-important)"
+      color: "var(--text-danger)"
     });
   }
 
@@ -264,7 +264,7 @@ ready = $(document).ready(function () {
     });
 
   // ! MENU TOGGLE ON CLICK
-  $(menu_toggle).on("click", function () {
+  $(document).on("click", "#navbar-toggle", function () {
     decideDelay();
     transform_rotate += 90;
     let str = "rotate(";
@@ -772,10 +772,101 @@ ready = $(document).ready(function () {
           "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
           "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
           "<div class='page-content'>" +
-          "<div class='row page-row'>" +
-          "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
-          "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
-          "<p>There is some information about me</p></div> </div> </div></section>"
+          '<div class="row page-row">' +
+          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          '<div class="page-inner text-center card card-body container-fluid col-md-9 col-sm-12">' +
+          '<section class="portfolio-description">' +
+          '<h1>Portfolio<img class="icon-skills" src="icons/portfolio.png" alt="portfolio-icon" /></h1>' +
+          '<div class="portfolio-folders">' +
+          ' <div class="folder folder-first folder-1 selected">' +
+          '<div class="folder-overlay"></div>' +
+          '<img src="icons/folder.png" alt="" />' +
+          '<h4>freeCodeCamp learning projects </h4>' +
+          ' </div>' +
+          '<div class="folder folder-2">' +
+          '<div class="folder-overlay"></div>' +
+          '<img src="icons/folder.png" alt="" />' +
+          ' <h4>PHP projects </h4>' +
+          '</div>' +
+          '</div>' +
+          '</section>' +
+          ' <section id="page-1" class="portfolio-content">' +
+          ' <div class="portfolio-project">' +
+          '<img src="img/skyforge.png" alt="" />' +
+          ' <h4>Product Landing Page </h4>' +
+          '<div class="object-description">' +
+          '<h5><a class="link-highlighted" href="https://www.freecodecamp.org"' +
+          'target="_blank">freeCodeCamp</a> Responisve Web Design Course Project</h5>' +
+          ' <a class="link-highlighted" href="https://codepen.io/M4DA0/pen/bGbLbQe"' +
+          ' target="_blank">https://codepen.io/M4DA0/pen/bGbLbQe</a>' +
+          '<div class="object-icons">' +
+          '<img class="object-icon" src="icons/html-file.png" />' +
+          '<img class="object-icon" src="icons/css-file.png" />' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          ' <div class="portfolio-project">' +
+          '<img src="img/technical_documentation_page.png" alt="" />' +
+          '<h4>Technical Documentation Page</h4>' +
+          ' <div class="object-description">' +
+          '<h5><a class="link-highlighted" href="https://www.freecodecamp.org"' +
+          'target="_blank">freeCodeCamp</a> Responisve Web Design Course Project</h5>' +
+          ' <a class="link-highlighted" href="https://codepen.io/M4DA0/pen/mdybVvw"' +
+          'target="_blank">https://codepen.io/M4DA0/pen/mdybVvw</a>' +
+          '<div class="object-icons">' +
+          '<img class="object-icon" src="icons/html-file.png" />' +
+          '<img class="object-icon" src="icons/css-file.png" />' +
+          '</div>' +
+          ' </div>' +
+          ' </div>' +
+          '<div class="portfolio-project">' +
+          '  <img src="img/survey_form.png" alt="" />' +
+          ' <h4>Survey Form</h4>' +
+          ' <div class="object-description">' +
+          ' <h5><a class="link-highlighted" href="https://www.freecodecamp.org"' +
+          'target="_blank">freeCodeCamp</a> Responisve Web Design Course Project</h5>' +
+          ' <a class="link-highlighted" href="https://codepen.io/M4DA0/pen/BayBKpq"' +
+          ' target="_blank">https://codepen.io/M4DA0/pen/BayBKpq</a>' +
+          '<div class="object-icons">' +
+          '<img class="object-icon" src="icons/html-file.png" />' +
+          '<img class="object-icon" src="icons/css-file.png" />' +
+          '</div>' +
+          ' </div>' +
+          ' </div>' +
+          '<div class="portfolio-project">' +
+          '<img src="img/tribute_page.png" alt="" />' +
+          ' <h4>Tribute Page</h4>' +
+          '<div class="object-description">' +
+          '<h5><a class="link-highlighted" href="https://www.freecodecamp.org"' +
+          '+target="_blank">freeCodeCamp</a> Responisve Web Design Course Project</h5>' +
+          '  <a class="link-highlighted" href="https://codepen.io/M4DA0/pen/ExaYKZy"' +
+          'target="_blank">https://codepen.io/M4DA0/pen/ExaYKZy</a>' +
+          '<div class="object-icons">' +
+          ' <img class="object-icon" src="icons/html-file.png" />' +
+          '<img class="object-icon" src="icons/css-file.png" />' +
+          '</div>' +
+          ' </div>' +
+          '</div>' +
+          '</section>' +
+          '<section id="page-2" class="portfolio-content hidden-content">' +
+          '<div class="portfolio-project">' +
+          '<img src="img/watchshop.jpg" alt="" />' +
+          ' <h4>Watch shop</h4>' +
+          '<div class="object-description">' +
+          '<h5>My first PHP learning project</h5>' +
+          ' <a class="link-highlighted" href="https://github.com/M4DA0/WatchShop2018"' +
+          'target="_blank">https://github.com/M4DA0/WatchShop2018</a>' +
+          ' <div class="object-icons">' +
+          '<img class="object-icon" src="icons/html-file.png" />' +
+          '<img class="object-icon" src="icons/css-file.png" />' +
+          '<img class="object-icon" src="icons/js-file.png" />' +
+          '<img class="object-icon" src="icons/php-file.png" />' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '</section>' +
+          ' </div>' +
+          '</div></div></section>'
         );
         break;
 
@@ -919,10 +1010,101 @@ ready = $(document).ready(function () {
           "-page' class='page-container d-flex justify-content-center align-items-center text-center'>" +
           "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
           "<div class='page-content'>" +
-          "<div class='row page-row'>" +
-          "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
-          "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
-          "<p>There is some information about me</p></div> </div> </div></section>"
+          '<div class="row page-row">' +
+          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          '<div class="page-inner text-center card card-body container-fluid col-md-9 col-sm-12">' +
+          '<section class="portfolio-description">' +
+          '<h1>Portfolio<img class="icon-skills" src="icons/portfolio.png" alt="portfolio-icon" /></h1>' +
+          '<div class="portfolio-folders">' +
+          ' <div class="folder folder-first folder-1 selected">' +
+          '<div class="folder-overlay"></div>' +
+          '<img src="icons/folder.png" alt="" />' +
+          '<h4>freeCodeCamp learning projects </h4>' +
+          ' </div>' +
+          '<div class="folder folder-2">' +
+          '<div class="folder-overlay"></div>' +
+          '<img src="icons/folder.png" alt="" />' +
+          ' <h4>PHP projects </h4>' +
+          '</div>' +
+          '</div>' +
+          '</section>' +
+          ' <section id="page-1" class="portfolio-content">' +
+          ' <div class="portfolio-project">' +
+          '<img src="img/skyforge.png" alt="" />' +
+          ' <h4>Product Landing Page </h4>' +
+          '<div class="object-description">' +
+          '<h5><a class="link-highlighted" href="https://www.freecodecamp.org"' +
+          'target="_blank">freeCodeCamp</a> Responisve Web Design Course Project</h5>' +
+          ' <a class="link-highlighted" href="https://codepen.io/M4DA0/pen/bGbLbQe"' +
+          ' target="_blank">https://codepen.io/M4DA0/pen/bGbLbQe</a>' +
+          '<div class="object-icons">' +
+          '<img class="object-icon" src="icons/html-file.png" />' +
+          '<img class="object-icon" src="icons/css-file.png" />' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          ' <div class="portfolio-project">' +
+          '<img src="img/technical_documentation_page.png" alt="" />' +
+          '<h4>Technical Documentation Page</h4>' +
+          ' <div class="object-description">' +
+          '<h5><a class="link-highlighted" href="https://www.freecodecamp.org"' +
+          'target="_blank">freeCodeCamp</a> Responisve Web Design Course Project</h5>' +
+          ' <a class="link-highlighted" href="https://codepen.io/M4DA0/pen/mdybVvw"' +
+          'target="_blank">https://codepen.io/M4DA0/pen/mdybVvw</a>' +
+          '<div class="object-icons">' +
+          '<img class="object-icon" src="icons/html-file.png" />' +
+          '<img class="object-icon" src="icons/css-file.png" />' +
+          '</div>' +
+          ' </div>' +
+          ' </div>' +
+          '<div class="portfolio-project">' +
+          '  <img src="img/survey_form.png" alt="" />' +
+          ' <h4>Survey Form</h4>' +
+          ' <div class="object-description">' +
+          ' <h5><a class="link-highlighted" href="https://www.freecodecamp.org"' +
+          'target="_blank">freeCodeCamp</a> Responisve Web Design Course Project</h5>' +
+          ' <a class="link-highlighted" href="https://codepen.io/M4DA0/pen/BayBKpq"' +
+          ' target="_blank">https://codepen.io/M4DA0/pen/BayBKpq</a>' +
+          '<div class="object-icons">' +
+          '<img class="object-icon" src="icons/html-file.png" />' +
+          '<img class="object-icon" src="icons/css-file.png" />' +
+          '</div>' +
+          ' </div>' +
+          ' </div>' +
+          '<div class="portfolio-project">' +
+          '<img src="img/tribute_page.png" alt="" />' +
+          ' <h4>Tribute Page</h4>' +
+          '<div class="object-description">' +
+          '<h5><a class="link-highlighted" href="https://www.freecodecamp.org"' +
+          '+target="_blank">freeCodeCamp</a> Responisve Web Design Course Project</h5>' +
+          '  <a class="link-highlighted" href="https://codepen.io/M4DA0/pen/ExaYKZy"' +
+          'target="_blank">https://codepen.io/M4DA0/pen/ExaYKZy</a>' +
+          '<div class="object-icons">' +
+          ' <img class="object-icon" src="icons/html-file.png" />' +
+          '<img class="object-icon" src="icons/css-file.png" />' +
+          '</div>' +
+          ' </div>' +
+          '</div>' +
+          '</section>' +
+          '<section id="page-2" class="portfolio-content hidden-content">' +
+          '<div class="portfolio-project">' +
+          '<img src="img/watchshop.jpg" alt="" />' +
+          ' <h4>Watch shop</h4>' +
+          '<div class="object-description">' +
+          '<h5>My first PHP learning project</h5>' +
+          ' <a class="link-highlighted" href="https://github.com/M4DA0/WatchShop2018"' +
+          'target="_blank">https://github.com/M4DA0/WatchShop2018</a>' +
+          ' <div class="object-icons">' +
+          '<img class="object-icon" src="icons/html-file.png" />' +
+          '<img class="object-icon" src="icons/css-file.png" />' +
+          '<img class="object-icon" src="icons/js-file.png" />' +
+          '<img class="object-icon" src="icons/php-file.png" />' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '</section>' +
+          ' </div>' +
+          '</div></div></section>'
         );
         break;
 
@@ -1516,16 +1698,49 @@ ready = $(document).ready(function () {
         break;
 
       case "contact":
-        mainLeft(current_page, "portfolio");
+        mainLeft("contact", "portfolio");
         previous.mouseleave();
         previousDisableTemporary();
         setTimeout(nextDecide, 1000);
         break;
     }
   });
-  $(".portfolio-project").on("hover", function () {
-    $().css({
 
+  let folder = $('.folder');
+  $(document).on('click', '.folder', function () {
+    if ($(this).hasClass('selected')) {
+
+      return false;
+    }
+    else {
+      console.log('NicE')
+      $('.portfolio-folders').children('.folder').removeClass('selected');
+      $(this).addClass('selected');
+
+      if ($(this).hasClass('folder-1')) {
+        $('section #page-2').addClass('hidden-content');
+        $('section #page-1').removeClass('hidden-content');
+      } else if ($(this).hasClass('folder-2')) {
+        $('section #page-1').addClass('hidden-content');
+        $('section #page-2').removeClass('hidden-content');
+      }
+    }
+  })
+
+  $(document).on('mouseover', ".portfolio-project", function () {
+    console.log('AAAAAAAAAAAAAAAAAAA')
+    $(this).find('.object-description').css({
+      top: "25%",
+      cursor: "initial"
     })
   });
+  $(document).on('mouseleave', ".portfolio-project", function () {
+    console.log('AAAAAAAAAAAAAAAAAAA')
+    $(this).find('.object-description').css({
+      top: "100%",
+      cursor: 'pointer'
+    })
+  });
+
+
 });

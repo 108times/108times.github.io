@@ -30,82 +30,15 @@
   <div class="scene">
     <div class="box">
       <div class="box__face box__face--front" id="front">
-        <section class="page" id="portfolio-page"
+        <section class="page" id="contact-page"
           class="page-container d-flex justify-content-center align-items-center text-center"
           style="position:absolute; top:0; left:0;">
           <!-- <div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div> -->
           <div class="page-content">
             <div class="row page-row">
-              <div class="copyright">@2019 Amir Kadenov</div>
-              <div class="page-inner text-center card card-body container-fluid col-md-9 col-sm-12">
-                <section class="portfolio-description">
-                  <h1>
-                    Portfolio
-                    <img class="icon-skills" src="icons/portfolio.png" alt="portfolio-icon" />
-                  </h1>
-                  <div class="portfolio-folders">
-                    <div class="folder folder-first selected">
-                      <div class="folder-overlay"></div>
-                      <img src="icons/folder.png" alt="" />
-                      <h4>
-                        <a class="link-highlighted" href="https://www.freecodecamp.org" target="_blank">freecodecamp</a>
-                        learning projects
-                      </h4>
-                    </div>
-                    <div class="folder">
-                      <div class="folder-overlay"></div>
-                      <img src="icons/folder.png" alt="" />
-                      <h4>
-                        PHP projects
-                      </h4>
-                    </div>
-                  </div>
-                </section>
-                <section class="portfolio-content">
-                  <div class="portfolio-project">
-                    <img src="img/skyforge.png" alt="" />
-                    <h4>
-                      Product Landing Page
-                    </h4>
-                    <div class="object-description"></div>
-                    <div class="object-icons">
-                      <img class="object-icon" src="icons/html-file.png" />
-                      <img class="object-icon" src="icons/css-file.png" />
-                    </div>
-                  </div>
-                  <div class="portfolio-project">
-                    <img src="img/technical_documentation_page.png" alt="" />
-                    <h4>Technical Documentation Page</h4>
-                    <div class="object-description"></div>
-                    <div class="object-icons">
-                      <img class="object-icon" src="icons/html-file.png" />
-                      <img class="object-icon" src="icons/css-file.png" />
-                    </div>
-                  </div>
-                  <div class="portfolio-project">
-                    <img src="img/survey_form.png" alt="" />
-                    <h4>Survey Form</h4>
-                    <div class="object-description"></div>
-                    <div class="object-icons">
-                      <img class="object-icon" src="icons/html-file.png" />
-                      <img class="object-icon" src="icons/css-file.png" />
-                    </div>
-                  </div>
-                  <div class="portfolio-project">
-                    <img src="img/tribute_page.png" alt="" />
-                    <h4>
-                      Tribute Page
-                    </h4>
-                    <div class="object-description">
-                      <div></div>
-                    </div>
-                    <div class="object-icons">
-                      <img class="object-icon" src="icons/html-file.png" />
-                      <img class="object-icon" src="icons/css-file.png" />
-                    </div>
-                  </div>
-                </section>
-              </div>
+              <section class="contact-content">
+                <h1>Contact me</h1>
+              </section>
             </div>
           </div>
         </section>
@@ -126,8 +59,44 @@
           alert("TRUE");
         }
       });
+
+      let folder = $('.folder');
+      folder.on('click', function () {
+        if ($(this).hasClass('selected')) {
+          return false;
+        }
+        else {
+          folder.removeClass('selected');
+          $(this).addClass('selected');
+
+          if ($(this).hasClass('folder-1')) {
+            $('#page-2').addClass('hidden-content');
+            $('#page-1').removeClass('hidden-content');
+          } else if ($(this).hasClass('folder-2')) {
+            $('#page-1').addClass('hidden-content');
+            $('#page-2').removeClass('hidden-content');
+          }
+        }
+      })
+
+
+      $(".portfolio-project").on('mouseover', function () {
+        console.log('AAAAAAAAAAAAAAAAAAA')
+        $(this).find('.object-description').css({
+          top: "25%",
+          cursor: "initial"
+        })
+      });
+      $(".portfolio-project").on('mouseleave', function () {
+        console.log('AAAAAAAAAAAAAAAAAAA')
+        $(this).find('.object-description').css({
+          top: "100%",
+          cursor: 'pointer'
+        })
+      });
     </script>
   </div>
+
 </body>
 
 </html>
