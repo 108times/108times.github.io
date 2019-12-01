@@ -218,12 +218,12 @@ canvas {
   transition: var(--elements-transition-slow);
   z-index: 25;
   text-decoration: none !important;
-  color: var(--text-danger);
+  color: var(--text-danger) !important;
   position: relative;
   font-weight: 440;
 }
 .link-highlighted:visited {
-  color: var(--text-important) !important;
+  color: var(--text-danger) !important;
 }
 .link-highlighted:hover {
   color: var(--text-important) !important;
