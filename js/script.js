@@ -1510,15 +1510,24 @@ ready = $(document).ready(function () {
     }
   });
 
-  $("body").on("click", ".link-highlighted", function () {
+  let option_link = "";
+  $(document).on("click", "section#about-page a", function () {
     option = 2;
     setTimeout(function () {
       option = 1;
     }, 600);
-    console.log("option " + option);
-    document.getElementById("next-toggle").setAttribute("href", "#portfolio");
+    // setTimeout(function () {
+    let hr = $(this).attr('href');
+    option_link = hr;
+    let flagg = $("#next-toggle").attr("href");
+    console.log(flagg + " flag33333");
     console.log("qwqweqweqweqwe" + next.attr("href"));
-    document.getElementById("next-toggle").click();
+    $("#next-toggle").click();
+
+    // document.getElementById("next-toggle").setAttribute("href", "#skills");
+    // console.log("qwqweqweqweqwe" + next.attr("href"));
+    // document.getElementById("next-toggle").click();
+
   });
 
   $("#next-toggle").on("click", function () {
@@ -1543,7 +1552,7 @@ ready = $(document).ready(function () {
     switch (current_page) {
       case "about":
         if (option == 2) {
-          href = "#portfolio";
+          href = option_link;
         } else if (option == 1) {
           href = "#skills";
         }

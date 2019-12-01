@@ -1348,6 +1348,7 @@ margin-left:20px;
 }
 .links .contact-link:hover{
   background: var(--text-color);
+  transition-duration: .5s;
 }
 
 /*.contact-link[title]:hover:after {
