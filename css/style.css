@@ -1164,7 +1164,7 @@ margin-left:20px;
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #7bc3e43a;
+  background: #7bc3e426;
   cursor: pointer;
 }
 .portfolio-content {
@@ -1246,7 +1246,7 @@ margin-left:20px;
   background: var(--dark-gray);
   transition-duration: .25s;
   transition-timing-function: ease-in;
-  border-top: 2px solid var(--text-color-2);
+  border-top: 2px solid var(--text-color);
 }
 .object-description h5{
   padding:25px;
@@ -1264,9 +1264,100 @@ margin-left:20px;
 } */
 
 /* ========================= */
-/* ======== # Portfolio end ========= */
+/* ========================= */
 /* ========================= */
 
+
+/* ========================= */
+/* ======== # Contact-page =======*/
+/* ========================= */
+#contact-page .page-row{
+  height:100vh;
+  background: var(--page-background-static);
+}
+#contact-page .page-inner {
+  height: 100%;
+  overflow: hidden ;
+  /* background: var(--color-6); */
+}
+#contact-page h1{
+  padding:25px;
+  color:var(--text-danger) !important;
+  border-bottom:3px solid var(--dark-gray);
+}
+.contact-content{
+  margin-top:100px;
+  width:100%;
+  height:70%;
+  background: var(--light-gray);
+}
+.contact-links{
+  display:grid;
+  grid-template-columns: 49% 50%;
+  grid-template-rows: 100%;
+  grid-gap:10px;
+  height:80%;
+  width:98%;
+  overflow: hidden;
+  margin-left:10px;
+  margin-right:10px;
+}
+.contact-link{
+  position: relative;
+}
+.contact-link img{
+  width:60px !important;
+  height:60px !important; 
+}
+.email{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none !important;
+  background: var(--sup-gray);
+}
+.email p{
+  color:var(--text-danger) !important;
+}
+.email:hover{
+  font-weight: 500;
+  color:var(--text-danger);
+  background-color: var(--text-color);
+  transition-duration: .5s;
+}
+.email img{
+  width:150px !important;
+  height: 120px !important;
+}
+.links{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  grid-gap:10px;
+}
+.links .contact-link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--sup-gray);
+}
+.links .contact-link:hover{
+  background: var(--text-color);
+}
+
+/*.contact-link[title]:hover:after {
+   content: attr(title);
+  position: absolute;
+  color:var(--text-danger);
+  font-size: 2rem;
+  background: var(--dark-gray);
+  padding:10px;
+  border-radius:5px;
+  bottom:100%;
+  width:70%;
+  left:0;
+} */
 /* ========================= */
 /* ======== @Media ========= */
 /* ========================= */

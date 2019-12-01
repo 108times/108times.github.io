@@ -11,9 +11,9 @@ function decideDelay() {
   let value;
   if (width < 1201) {
     // value = initial - 100 + "ms";
-    value = "1320ms";
+    value = "1330ms";
   } else {
-    value = "1320ms";
+    value = "1330ms";
   }
   console.log(value);
   document.documentElement.style.setProperty("--slider-delay", value);
@@ -878,9 +878,27 @@ ready = $(document).ready(function () {
           "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
           "<div class='page-content'>" +
           "<div class='row page-row'>" +
-          "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
-          "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
-          "<p>There is some information about me</p></div> </div> </div></section>"
+          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          '<div class="page-inner text-center card card-body container-fluid col-md-9 col-sm-12">' +
+          ' <section class="contact-content">' +
+          '<h1>Contact me</h1>' +
+          '<div class="contact-links">' +
+          '<a href="mailto:amirkadenov@gmail.com" class="contact-link email">' +
+          '<img src="icons/links/mail.png" alt="">' +
+          '<p>amirkadenov@gmail.com</p>' +
+          ' </a>' +
+          '<div class="links">' +
+          '<a href="https://vk.com/m4da0" target="_blank" class="contact-link"><img src="icons/links/vk.png"' +
+          'alt=""></a>' +
+          '<a href="https://www.facebook.com/profile.php?id=100004073934656" target="_blank"' +
+          'class="contact-link"><img src="icons/links/facebook.png" alt=""></a>' +
+          '<a href="https://github.com/M4DA0" target="_blank" class="contact-link"><img ' +
+          'src="icons/links/github.png" alt=""></a>' +
+          '<a href="https://twitter.com/Amir41509281" target="_blank" class="contact-link"><img ' +
+          'src="icons/links/twitter.png" alt=""></a>' +
+          ' </div>' +
+          '</div>' +
+          ' </section></div> </div></div></section>'
         );
         break;
     }
@@ -1116,9 +1134,27 @@ ready = $(document).ready(function () {
           "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
           "<div class='page-content'>" +
           "<div class='row page-row'>" +
-          "<div   class='page-inner text-center card card-body container-fluid col-md-8 col-sm-12'>" +
-          "<h1 class='m-auto pb-5'>Hello, I'm Amir!</h1>" +
-          "<p>There is some information about me</p></div> </div> </div></section>"
+          '<div class="page-inner text-center card card-body container-fluid col-md-9 col-sm-12">' +
+          ' <section class="contact-content">' +
+          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          '<h1>Contact me</h1>' +
+          '<div class="contact-links">' +
+          '<a href="mailto:amirkadenov@gmail.com" class="contact-link email">' +
+          '<img src="icons/links/mail.png" alt="">' +
+          '<p>amirkadenov@gmail.com</p>' +
+          ' </a>' +
+          '<div class="links">' +
+          '<a href="https://vk.com/m4da0" target="_blank" class="contact-link"><img src="icons/links/vk.png"' +
+          'alt=""></a>' +
+          '<a href="https://www.facebook.com/profile.php?id=100004073934656" target="_blank"' +
+          'class="contact-link"><img src="icons/links/facebook.png" alt=""></a>' +
+          '<a href="https://github.com/M4DA0" target="_blank" class="contact-link"><img ' +
+          'src="icons/links/github.png" alt=""></a>' +
+          '<a href="https://twitter.com/Amir41509281" target="_blank" class="contact-link"><img ' +
+          'src="icons/links/twitter.png" alt=""></a>' +
+          ' </div>' +
+          '</div>' +
+          ' </section></div></div> </div></section>'
         );
         break;
     }
@@ -1278,7 +1314,7 @@ ready = $(document).ready(function () {
 
       setTimeout(function () {
         removeOffset();
-      }, 1800);
+      }, 1900);
       $(".page-slider").css({
         visibility: "visible"
       });
@@ -1318,7 +1354,7 @@ ready = $(document).ready(function () {
 
       setTimeout(function () {
         removeOffset();
-      }, 1800);
+      }, 1900);
     }
   }
 
@@ -1414,9 +1450,9 @@ ready = $(document).ready(function () {
           700
         );
       }, 500);
-      setTimeout(navbarAppear, 1950);
-      setTimeout(controlNextAppear, 1950);
-      setTimeout(controlPrevAppear, 1950);
+      setTimeout(navbarAppear, 2050);
+      setTimeout(controlNextAppear, 2050);
+      setTimeout(controlPrevAppear, 2050);
     }
 
     switch (href) {
@@ -1553,9 +1589,9 @@ ready = $(document).ready(function () {
         700
       );
     }, 500);
-    setTimeout(navbarAppear, 1950);
-    setTimeout(controlNextAppear, 1950);
-    setTimeout(controlPrevAppear, 1950);
+    setTimeout(navbarAppear, 2050);
+    setTimeout(controlNextAppear, 2050);
+    setTimeout(controlPrevAppear, 2050);
 
     // }
     switch (current_page) {
