@@ -1066,8 +1066,11 @@ h2 {
 }
 #portfolio-page .link-highlighted{
   /* --text-important:var(--text; */
+  padding-left:20px;
+  padding-right:20px;
   text-decoration: underline !important;
   font-size: 1.1em;
+
 }
 
 #portfolio-page .link-highlighted::before,.link-highlighted::after{
@@ -1166,6 +1169,7 @@ margin-left:20px;
   height: 100%;
   background: #7bc3e426;
   cursor: pointer;
+  border: 2px solid var(--text-color);
 }
 .portfolio-content {
   height: 63%;
@@ -1189,7 +1193,7 @@ margin-left:20px;
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
-  border: 2px solid var(--dark-gray);
+  border: 2px solid var(--text-color);
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -1206,7 +1210,9 @@ margin-left:20px;
   margin:auto;
   font-size: 1.4rem;
   width: 100% !important;
-  margin-bottom:5%;
+  padding-bottom:5% !important;
+  margin-bottom: 0 !important;
+  border-bottom: 2px solid var(--text-color);
 }
 .object-icons{
   justify-self: flex-end;
@@ -1216,13 +1222,13 @@ margin-left:20px;
   display: flex;
   height:30%;
   opacity: 1 !important;
-  top:45%;
+  top:53%;
 }
 .object-icon{
-  margin:20px;
+  margin:15px;
   border: none !important;
-  width:45px !important;
-  height: 45px !important;
+  width:40px !important;
+  height: 40px !important;
   opacity: .85 !important;
 }
 .portfolio-project h4 span {
@@ -1238,7 +1244,7 @@ margin-left:20px;
   display: flex;
   flex-direction: column;
   position: absolute;
-  top:100%;
+  top:70%;
   left:0%;
   width: 100%;
   height: 100%;
@@ -1249,7 +1255,8 @@ margin-left:20px;
   border-top: 2px solid var(--text-color);
 }
 .object-description h5{
-  padding:25px;
+  padding-top:5px;
+  height:25%;
 }
 
 /* .object-description div{

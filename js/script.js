@@ -188,9 +188,11 @@ ready = $(document).ready(function () {
     borger_icon_1.css({
       top: "30%",
       transform: "rotate(0deg)"
+
     });
 
     borger_icon_2.css({
+
       top: "50%",
       transform: "rotate(0deg)"
     });
@@ -1784,7 +1786,7 @@ ready = $(document).ready(function () {
   $(document).on('mouseleave', ".portfolio-project", function () {
     console.log('AAAAAAAAAAAAAAAAAAA')
     $(this).find('.object-description').css({
-      top: "100%",
+      top: "70%",
       cursor: 'pointer'
     })
   });
