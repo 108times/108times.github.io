@@ -306,7 +306,7 @@ canvas {
   z-index: 1;
   right: 100%;
   bottom: 30%;
-  background-color: #32384d;
+  background-color: #3f4561;
 }
 
 .listItem a:hover::before {
