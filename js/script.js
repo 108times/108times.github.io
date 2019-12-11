@@ -732,7 +732,7 @@ ready = $(document).ready(function () {
           '<div class="copyright">@2019 Amir Kadenov</div>' +
           "<div   class='page-inner text-center card card-body container-fluid col-md-9 col-sm-12'>" +
           " <section class='skills-description'>" +
-          '<h1>Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
+          '<h1 id = "skills-title">Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
           " <div class='features'>" +
           " <div class='feature-fast'>" +
           "<h2>Fast<img alt='feature fast icon' src='icons/fast.png'></h2>" +
@@ -990,7 +990,7 @@ ready = $(document).ready(function () {
           '<div class="copyright">@2019 Amir Kadenov</div>' +
           "<div   class='page-inner text-center card card-body container-fluid col-md-9 col-sm-12'>" +
           " <section class='skills-description'>" +
-          '<h1>Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
+          '<h1 id = "skills-title">Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
           " <div class='features'>" +
           " <div class='feature-fast'>" +
           "<h2>Fast<img alt='feature fast icon' src='icons/fast.png'></h2>" +
