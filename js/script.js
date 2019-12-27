@@ -715,7 +715,7 @@ ready = $(document).ready(function () {
           "<div class='page-content'>" +
           "<div class='row page-row'>" +
           "<div   class='page-inner text-justify card card-body container-fluid col-md-6 col-sm-12'>" +
-          "<h1 class='m-auto p-3'>Hello, I'm Amir.</h1>" +
+          "<h1 class='m-auto p-3'>Hello, I'm Amir</h1>" +
           "<p>I'm a web developer, living and studying in Almaty, Kazakhstan. My passion is creating and I find happiness in being a better me today than the me yesterday. Feel free to take a look at my skillset on the <a class = 'link-highlighted' href='#skills' title = 'skills'>skills page, </a>" +
           "check my latest projects on the <a class = 'link-highlighted' href='#portfolio' title = 'portfolio'>portfolio page</a> and contact me on the <a class = 'link-highlighted' href='#contact' title = 'contact'>contact page.</a></p></div> </div> </div></section>"
         );
@@ -956,10 +956,10 @@ ready = $(document).ready(function () {
           "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
           "<div class='page-content'>" +
           "<div class='row page-row'>" +
-          '<div class="copyright">@2019 Amir Kadenov</div>' +
           '<div class="page-inner text-center card card-body container-fluid col-md-9 col-sm-12">' +
           ' <section class="contact-content">' +
-          '<h1>Contact me</h1>' +
+          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          '<h1 class="contact-icon">Contact me<img class="icon-skills" src="icons/links/contac.png" alt="portfolio-icon" /></h1>' +
           '<div class="contact-links">' +
           '<a href="mailto:amirkadenov@gmail.com" class="contact-link email">' +
           '<img src="icons/links/mail.png" alt="">' +
@@ -976,7 +976,7 @@ ready = $(document).ready(function () {
           'src="icons/links/twitter.png" alt=""></a>' +
           ' </div>' +
           '</div>' +
-          ' </section></div> </div></div></section>'
+          ' </section></div></div> </div></section>'
         );
         break;
     }
@@ -1000,7 +1000,7 @@ ready = $(document).ready(function () {
           "<div class='page-content'>" +
           "<div class='row page-row'>" +
           "<div   class='page-inner text-justify card card-body container-fluid col-md-6 col-sm-12'>" +
-          "<h1 class='m-auto p-3'>Hello, I'm Amir.</h1>" +
+          "<h1 class='m-auto p-3'>Hello, I'm Amir</h1>" +
           "<p>I'm a web developer, living and studying in Almaty, Kazakhstan. My passion is creating and I find happiness in being a better me today than the me yesterday. Feel free to take a look at my skillset on the <a class = 'link-highlighted' href='#skills' title = 'skills'>skills page, </a>" +
           "check my latest projects on the <a class = 'link-highlighted' href='#portfolio' title = 'portfolio'>portfolio page</a> and contact me on the <a class = 'link-highlighted' href='#contact' title = 'contact'>contact page.</a></p></div> </div> </div></section>"
         );
@@ -1243,7 +1243,7 @@ ready = $(document).ready(function () {
           '<div class="page-inner text-center card card-body container-fluid col-md-9 col-sm-12">' +
           ' <section class="contact-content">' +
           '<div class="copyright">@2019 Amir Kadenov</div>' +
-          '<h1>Contact me<img class="icon-skills" src="icons/portfolio.png" alt="portfolio-icon" /></h1>' +
+          '<h1 class="contact-icon">Contact me<img class="icon-skills" src="icons/links/contac.png" alt="portfolio-icon" /></h1>' +
           '<div class="contact-links">' +
           '<a href="mailto:amirkadenov@gmail.com" class="contact-link email">' +
           '<img src="icons/links/mail.png" alt="">' +

@@ -1256,6 +1256,12 @@ canvas {
   background: var(--text-danger);
 }
 
+.contact-icon img {
+  width: 65px;
+  margin-left: 20px;
+  display: none;
+}
+
 .icon-skills {
   height: 100%;
   width: 50px;
