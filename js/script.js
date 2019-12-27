@@ -959,7 +959,7 @@ ready = $(document).ready(function () {
           '<div class="page-inner text-center card card-body container-fluid col-md-9 col-sm-12">' +
           ' <section class="contact-content">' +
           '<div class="copyright">@2019 Amir Kadenov</div>' +
-          '<h1 class="contact-icon">Contact me<img class="icon-skills" src="icons/links/contac.png" alt="portfolio-icon" /></h1>' +
+          '<h1 class="contact-icon">Contact me<img class="icon-skills" src="icons/links/contact.png" alt="portfolio-icon" /></h1>' +
           '<div class="contact-links">' +
           '<a href="mailto:amirkadenov@gmail.com" class="contact-link email">' +
           '<img src="icons/links/mail.png" alt="">' +
@@ -1243,7 +1243,7 @@ ready = $(document).ready(function () {
           '<div class="page-inner text-center card card-body container-fluid col-md-9 col-sm-12">' +
           ' <section class="contact-content">' +
           '<div class="copyright">@2019 Amir Kadenov</div>' +
-          '<h1 class="contact-icon">Contact me<img class="icon-skills" src="icons/links/contac.png" alt="portfolio-icon" /></h1>' +
+          '<h1 class="contact-icon">Contact me<img class="icon-skills" src="icons/links/contact.png" alt="portfolio-icon" /></h1>' +
           '<div class="contact-links">' +
           '<a href="mailto:amirkadenov@gmail.com" class="contact-link email">' +
           '<img src="icons/links/mail.png" alt="">' +

@@ -1252,8 +1252,24 @@ canvas {
   top: 100%;
   z-index: 10000;
   height: 12px;
-  border-radius: 25px;
-  background: var(--text-danger);
+  border-radius: 0;
+  background: var(--text-color);
+}
+
+.contact-icon {
+  position: relative;
+}
+
+.contact-icon::after {
+  content: "";
+  position: absolute;
+  width: 14%;
+  left: 43%;
+  top: 87%;
+  z-index: 10000;
+  height: 15px;
+  background: var(--text-color);
+  display: none;
 }
 
 .contact-icon img {
@@ -1900,6 +1916,7 @@ canvas {
 
 .email p {
   color: var(--text-danger) !important;
+  display: none;
 }
 
 .email:hover {
