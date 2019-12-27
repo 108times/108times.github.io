@@ -732,7 +732,7 @@ ready = $(document).ready(function () {
           '<div class="copyright">@2019 Amir Kadenov</div>' +
           "<div   class='page-inner text-center card card-body container-fluid col-md-9 col-sm-12'>" +
           " <section class='skills-description'>" +
-          '<h1 id = "skills-title">Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
+          '<h1 id = "skills-title" style="margin-left:25% !important">Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
           " <div class='features'>" +
           " <div class='feature-fast'>" +
           "<h2>Fast<img alt='feature fast icon' src='icons/fast.png'></h2>" +
@@ -763,6 +763,10 @@ ready = $(document).ready(function () {
           " <figure>" +
           "<figcaption>CSS3</figcaption>" +
           '<img src="icons/css3.png" alt="CSS3" width="auto" height="auto">' +
+          "</figure>" +
+          " <figure>" +
+          "<figcaption>Sass</figcaption>" +
+          '<img src="icons/sass.png" alt="Sass" width="auto" height="auto">' +
           "</figure>" +
           "<figure>" +
           "<figcaption>JS</figcaption>" +
@@ -841,7 +845,7 @@ ready = $(document).ready(function () {
           '</div>' +
           '</div>' +
           '</section>' +
-          ' <section id="page-1" class="portfolio-content">' +
+          ' <section id="page-1" class="portfolio-content hidden-content">' +
           ' <div class="portfolio-project">' +
           '<img src="img/skyforge.png" alt="" />' +
           ' <h4>Product Landing Page </h4>' +
@@ -916,8 +920,31 @@ ready = $(document).ready(function () {
           '</div>' +
           '</div>' +
           '</section>' +
-          ' </div>' +
-          '</div></div></section>'
+          '<section id="page-initial" class="portfolio-content">' +
+          '<div class="portfolio-project-initial">' +
+          '<img src="img/todolist_home.jpg" alt="" />' +
+          ' <h4>To Do List</h4>' +
+          '<a id="portfolio_todolist" class="object-description-initial" href="https://github.com/M4DA0/TO-DO-LIST">' +
+          ' <img id ="project-todolist" src="/img/todolist_auth.jpg" alt="project image#2">' +
+          '<div class="key-words"><span>webapp</span><span>html5</span><span>ui/ux design</span><span>animations</span><span>php</span><span>JS</span></div>' +
+          '<div class="more">' +
+          '<h5>more...</h5>' +
+          '</div>' +
+          ' </a>' +
+          '</div>' +
+          '<div class="portfolio-project-initial">' +
+          '<img src="img/portfolio.jpg" alt="" />' +
+          ' <h4>Personal Portfolio</h4>' +
+          '<a id="portfolio_portfolio" class="object-description-initial" href="https://m4da0.github.io">' +
+          ' <img id ="project-todolist" src="/img/portfolio_projects.jpg" alt="project image#2">' +
+          '<div class="key-words"><span>webapp</span><span>sass</span><span>ui/ux design</span><span>animations</span><span>html5</span><span>Responsive</span></div>' +
+          '<div class="more">' +
+          '<h5>more...</h5>' +
+          '</div>' +
+          ' </a>' +
+          '</div>' +
+          '</section>' +
+          '</div></section>'
         );
         break;
 
@@ -990,7 +1017,7 @@ ready = $(document).ready(function () {
           '<div class="copyright">@2019 Amir Kadenov</div>' +
           "<div   class='page-inner text-center card card-body container-fluid col-md-9 col-sm-12'>" +
           " <section class='skills-description'>" +
-          '<h1 id = "skills-title">Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
+          '<h1 id = "skills-title" style="margin-left:25% !important">Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
           " <div class='features'>" +
           " <div class='feature-fast'>" +
           "<h2>Fast<img alt='feature fast icon' src='icons/fast.png'></h2>" +
@@ -1021,6 +1048,10 @@ ready = $(document).ready(function () {
           " <figure>" +
           "<figcaption>CSS3</figcaption>" +
           '<img src="icons/css3.png" alt="CSS3" width="auto" height="auto">' +
+          "</figure>" +
+          " <figure>" +
+          "<figcaption>Sass</figcaption>" +
+          '<img src="icons/sass.png" alt="Sass" width="auto" height="auto">' +
           "</figure>" +
           "<figure>" +
           "<figcaption>JS</figcaption>" +
@@ -1098,7 +1129,7 @@ ready = $(document).ready(function () {
           '</div>' +
           '</div>' +
           '</section>' +
-          ' <section id="page-1" class="portfolio-content">' +
+          ' <section id="page-1" class="portfolio-content hidden-content">' +
           ' <div class="portfolio-project">' +
           '<img src="img/skyforge.png" alt="" />' +
           ' <h4>Product Landing Page </h4>' +
@@ -1173,8 +1204,31 @@ ready = $(document).ready(function () {
           '</div>' +
           '</div>' +
           '</section>' +
-          ' </div>' +
-          '</div></div></section>'
+          '<section id="page-initial" class="portfolio-content">' +
+          '<div class="portfolio-project-initial">' +
+          '<img src="img/todolist_home.jpg" alt="" />' +
+          ' <h4>To Do List</h4>' +
+          '<a id="portfolio_todolist" class="object-description-initial" href="https://github.com/M4DA0/TO-DO-LIST">' +
+          ' <img id ="project-todolist" src="/img/todolist_auth.jpg" alt="project image#2">' +
+          '<div class="key-words"><span>webapp</span><span>html5</span><span>ui/ux design</span><span>animations</span><span>php</span><span>JS</span></div>' +
+          '<div class="more">' +
+          '<h5>more...</h5>' +
+          '</div>' +
+          ' </a>' +
+          '</div>' +
+          '<div class="portfolio-project-initial">' +
+          '<img src="img/portfolio.jpg" alt="" />' +
+          ' <h4>Personal Portfolio</h4>' +
+          '<a id="portfolio_portfolio" class="object-description-initial" href="https://m4da0.github.io">' +
+          ' <img id ="project-todolist" src="/img/portfolio_projects.jpg" alt="project image#2">' +
+          '<div class="key-words"><span>webapp</span><span>sass</span><span>ui/ux design</span><span>animations</span><span>html5</span><span>Responsive</span></div>' +
+          '<div class="more">' +
+          '<h5>more...</h5>' +
+          '</div>' +
+          ' </a>' +
+          '</div>' +
+          '</section>' +
+          '</div></section>'
         );
         break;
 
@@ -1189,7 +1243,7 @@ ready = $(document).ready(function () {
           '<div class="page-inner text-center card card-body container-fluid col-md-9 col-sm-12">' +
           ' <section class="contact-content">' +
           '<div class="copyright">@2019 Amir Kadenov</div>' +
-          '<h1>Contact me</h1>' +
+          '<h1>Contact me<img class="icon-skills" src="icons/portfolio.png" alt="portfolio-icon" /></h1>' +
           '<div class="contact-links">' +
           '<a href="mailto:amirkadenov@gmail.com" class="contact-link email">' +
           '<img src="icons/links/mail.png" alt="">' +
@@ -1838,6 +1892,43 @@ ready = $(document).ready(function () {
       cursor: 'pointer'
     })
   });
+  function portfolioHover() {
+    let portf_pr = $(".portfolio-project-initial");
+    portf_pr.on('mouseover', portf_pr, function () {
+      let obj_desc = $(this).find(".object-description-initial");
+      obj_desc.css({
+        top: "8%",
+      })
+    }).on('mouseleave', portf_pr, function () {
+      let obj_desc = $(this).find(".object-description-initial");
+      obj_desc.css({
+        top: "100%",
+      })
+    });
+  }
+  portfolioHover();
 
+  $('body').on('DOMNodeInserted', 'section', function () {
+    portfolioHover();
+  });
 
+  // let todo = $("#portfolio_todolist");
+  // $(portf_pr).on('mouseover', portf_pr, function () {
+  //   let obj_desc = $(this).find(".object-description-initial");
+  //   obj_desc.css({
+  //     top: "8%",
+  //   })
+  // }).on('mouseleave', portf_pr, function () {
+  //   let obj_desc = $(this).find(".object-description-initial");
+  //   obj_desc.css({
+  //     top: "100%",
+  //   })
+  // })
+  // let todo2 = $("#portfolio_portfolio");
+  // $(todo2).on('mouseover', function () {
+  //   let obj_desc = $(this).find(".object-description-initial");
+  //   obj_desc.css({
+  //     top: "8%",
+  //   })
+  // })
 });
