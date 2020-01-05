@@ -925,7 +925,7 @@ ready = $(document).ready(function () {
           '<img src="img/todolist_home.jpg" alt="" />' +
           ' <h4>To Do List</h4>' +
           '<a id="portfolio_todolist" class="object-description-initial" href="https://github.com/M4DA0/TO-DO-LIST">' +
-          ' <img id ="project-todolist" src="/img/todolist_auth.jpg" alt="project image#2">' +
+          ' <img id ="project-todolist" src="/img/todolist.jpg" alt="project image#2">' +
           '<div class="key-words"><span>webapp</span><span>html5</span><span>ui/ux design</span><span>animations</span><span>php</span><span>JS</span></div>' +
           '<div class="more">' +
           '<h5>more...</h5>' +
@@ -936,7 +936,7 @@ ready = $(document).ready(function () {
           '<img src="img/portfolio.jpg" alt="" />' +
           ' <h4>Personal Portfolio</h4>' +
           '<a id="portfolio_portfolio" class="object-description-initial" href="https://m4da0.github.io">' +
-          ' <img id ="project-todolist" src="/img/portfolio_projects.jpg" alt="project image#2">' +
+          ' <img id ="project-portfolio" src="/img/portfolio_projects.jpg" alt="project image#2">' +
           '<div class="key-words"><span>webapp</span><span>sass</span><span>ui/ux design</span><span>animations</span><span>html5</span><span>Responsive</span></div>' +
           '<div class="more">' +
           '<h5>more...</h5>' +
@@ -1206,10 +1206,10 @@ ready = $(document).ready(function () {
           '</section>' +
           '<section id="page-initial" class="portfolio-content">' +
           '<div class="portfolio-project-initial">' +
-          '<img src="img/todolist_home.jpg" alt="" />' +
+          '<img src="img/todolist.jpg" alt="" />' +
           ' <h4>To Do List</h4>' +
           '<a id="portfolio_todolist" class="object-description-initial" href="https://github.com/M4DA0/TO-DO-LIST">' +
-          ' <img id ="project-todolist" src="/img/todolist_auth.jpg" alt="project image#2">' +
+          ' <img id ="project-todolist" src="/img/todolist.jpg" alt="project image#2">' +
           '<div class="key-words"><span>webapp</span><span>html5</span><span>ui/ux design</span><span>animations</span><span>php</span><span>JS</span></div>' +
           '<div class="more">' +
           '<h5>more...</h5>' +
