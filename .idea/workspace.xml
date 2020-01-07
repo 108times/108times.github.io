@@ -4,11 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/js/script.js" line="132" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b29903a2-7964-40a7-bfc2-64e3b0d5b29e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/todolist.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/todolist.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
-    </list>
+    <list default="true" id="b29903a2-7964-40a7-bfc2-64e3b0d5b29e" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +15,7 @@
     <session id="862935592">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.15" value="1" />
@@ -272,16 +268,15 @@
       <workItem from="1575376813810" duration="91000" />
       <workItem from="1575376930894" duration="165000" />
       <workItem from="1575378202495" duration="1837000" />
-      <workItem from="1578196582730" duration="846000" />
+      <workItem from="1578196582730" duration="1456000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85615000" />
+    <option name="totallyTimeSpent" value="86225000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35476956" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
