@@ -1484,7 +1484,8 @@ ready = $(document).ready(function () {
   function navbarAppear() {
     $("#navbar-toggle").animate(
       {
-        bottom: "37px"
+        top: "37px",
+        bottom: "0px"
       },
       500
     );
