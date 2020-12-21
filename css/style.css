@@ -43,8 +43,7 @@
   --page-background-transparent: rgba(25, 23, 46, 0.9);
   --document-color: var(--color-6);
   --shadow:  6px 6px 6px 0 rgba(0,0,0,.3),-6px -6px 6px 0 #5050500e;
-  --shadow-md: -10px -10px 10px 0 #9b9b9b0e,
-    12px 12px 12px 0 rgba(0,0,0,.3);
+  --shadow-md: 0px 0px 1px 0px rgba(255,255,255,.05);
   --shadow-md-dark:12px 12px 12px 0 rgba(0,0,0,.3);
   /* --document-color: var(--custom-color); */
   --header-color: var(--page-background-static);
@@ -1192,7 +1191,7 @@ canvas {
   font-weight: 300;
   text-align: justify;
   /* border-bottom: 1px solid var(--text-warning); */
-  padding: 20px;
+  padding: 35px;
   padding-top: 35px;
   padding-bottom: 35px;
   margin-bottom: 0;
@@ -1413,10 +1412,10 @@ canvas {
 }
 
 .features div {
-  background: var(--dark-gray);
+  background: rgba(0, 0, 0, 0.07);
   overflow: hidden;
-  -webkit-box-shadow: var(--shadow-md);
-          box-shadow: var(--shadow-md);
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .features img {
@@ -2109,13 +2108,12 @@ canvas {
     /* min-height: 100vh; */
   }
   #navbar-toggle {
-    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
-            box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0 0 10px 12px inherit;
+            box-shadow: 0 0 10px 12px inherit;
     background: var(--dark-gray);
-    border: 1px solid var(--text-color);
-    /* top: auto;
-      bottom: 30px;
-      right: 30px; */
+    top: auto;
+    bottom: 50px;
+    right: calc(50% - 30px);
   }
   #next-toggle {
     display: none;
