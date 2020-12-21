@@ -63,6 +63,7 @@
   --slider-timing: ease-in-out;
   --default-delay: 0.3s;
   --slider-delay: 1330ms;
+  --el-border-radius:1.5rem;
   --elements-transition: linear;
   --default-timing-navbar: cubic-bezier(
       0.15,
@@ -1003,7 +1004,6 @@ canvas {
 }
 
 #skills-page {
-  --dark-gray:rgba(0,0,0,.08);
   left: 100vw;
 }
 
@@ -1352,7 +1352,7 @@ canvas {
 }
 
 .features {
-  border-top: 3px solid var(--dark-gray);
+  border-top: none;
   width: 100%;
   display: -ms-grid;
   display: grid;
@@ -1417,6 +1417,7 @@ canvas {
   overflow: hidden;
   -webkit-box-shadow: none;
           box-shadow: none;
+  border-radius: var(--el-border-radius);
 }
 
 .features img {
