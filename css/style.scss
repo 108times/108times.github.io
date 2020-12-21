@@ -1046,7 +1046,7 @@
     height: 100%;
     grid-template-columns: 50% 50%;
     grid-template-rows: 30% 25% 33%;
-    background: var(--dark-gray);
+
   }
   .tools img {
     width: 45px;
@@ -1128,10 +1128,10 @@
       background: rgba(0,0,0,0.07) !important;
       width:100%;
       margin:0 auto;
-      padding-top:10px !important;
-      padding-bottom:10px !important;
+
       margin-top:20px;
       box-shadow: var(--shadow-md);
+      padding:1.5rem 2rem !important;
   }
   .skills-status h2 {
     // background: var(--light-gray);

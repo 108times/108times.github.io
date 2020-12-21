@@ -1294,7 +1294,6 @@ canvas {
       grid-template-columns: 50% 50%;
   -ms-grid-rows: 30% 25% 33%;
       grid-template-rows: 30% 25% 33%;
-  background: var(--dark-gray);
 }
 
 .tools img {
@@ -1401,11 +1400,10 @@ canvas {
   background: rgba(0, 0, 0, 0.07) !important;
   width: 100%;
   margin: 0 auto;
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
   margin-top: 20px;
   -webkit-box-shadow: var(--shadow-md);
           box-shadow: var(--shadow-md);
+  padding: 1.5rem 2rem !important;
 }
 
 .skills-status h2 {
