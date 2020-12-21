@@ -52,7 +52,7 @@
     --shadow:  6px 6px 6px 0 rgba(0,0,0,.3),-6px -6px 6px 0 #5050500e;
     //--shadow-md: -10px -10px 10px 0 #9b9b9b0e,
     //12px 12px 12px 0 rgba(0,0,0,.3);
-  --shadow-md: 0px 0px 2px 0px rgba(255,255,255,.15);
+  --shadow-md: 0px 0px 0px 0px rgba(255,255,255,.15);
     --shadow-md-dark:12px 12px 12px 0 rgba(0,0,0,.3);
     /* --document-color: var(--custom-color); */
     --header-color: var(--page-background-static);
@@ -967,6 +967,7 @@
     margin-bottom: 0;
     line-height: 3rem;
     background: transparent;
+    border-radius: var(--el-border-radius);
   }
 
   .skills-description {
@@ -994,12 +995,13 @@
   }
   .skills-container {
     display: block;
-    background: var(--dark-gray) !important;
+    background: rgba(0,0,0,0.07) !important;
     color: var(--text-color) !important;
     font-weight: 560;
     overflow: hidden;
     // border: 1px solid var(--text-danger);
     box-shadow: var(--shadow-md);
+    border-radius: var(--el-border-radius);
   }
   .skills-container h2{
     position: relative;
@@ -1120,10 +1122,10 @@
     margin-top: 50px;
     // border: 1px solid var(--text-danger);
     // box-shadow: var(--shadow);
-    background: var(--dark-gray) !important;
+    background: transparent !important;
   }
   .skills-status p {
-      background: inherit !important;
+      background: rgba(0,0,0,0.07) !important;
       width:100%;
       margin:0 auto;
       padding-top:10px !important;
