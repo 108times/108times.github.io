@@ -52,7 +52,7 @@
     --shadow:  6px 6px 6px 0 rgba(0,0,0,.3),-6px -6px 6px 0 #5050500e;
     //--shadow-md: -10px -10px 10px 0 #9b9b9b0e,
     //12px 12px 12px 0 rgba(0,0,0,.3);
-  --shadow-md: 0px 0px 1px 0px rgba(255,255,255,.05);
+  --shadow-md: 0px 0px 2px 0px rgba(255,255,255,.15);
     --shadow-md-dark:12px 12px 12px 0 rgba(0,0,0,.3);
     /* --document-color: var(--custom-color); */
     --header-color: var(--page-background-static);
@@ -791,6 +791,7 @@
     left: 100vw;
   }
   #skills-page {
+    --dark-gray:rgba(0,0,0,.08);
     left: 100vw;
   }
   #portfolio-page {
@@ -962,7 +963,7 @@
     padding-bottom: 35px;
     margin-bottom: 0;
     line-height: 3rem;
-    background: var(--dark-gray);
+    background: transparent;
   }
 
   .skills-description {
@@ -1120,7 +1121,7 @@
   }
   .skills-status p {
       background: inherit !important;
-      width:70%;
+      width:100%;
       margin:0 auto;
       padding-top:10px !important;
       padding-bottom:10px !important;
