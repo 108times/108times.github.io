@@ -279,9 +279,23 @@
     transition-delay: 250ms;
     /* color: var(--text-important) !important; */
   }
+  #about-page .link-highlighted {
+    font-weight: 800;
+    padding: 5px;;
+    border-radius: 3px;
+  }
   #about-page .link-highlighted:hover{
     border:1px solid var(--text-danger);
   }
+  #about-skills-link {
+
+  }
+   #about-portfolio-link {
+color: var(--text-warning) !important;
+   }
+   #about-contact-link {
+     color: var(--text-important) !important;
+   }
   // #about-page .link-highlighted {
   //   color: var(--text-color) !important;
   // }
@@ -870,7 +884,7 @@
   #about-page p {
     margin: 10px 20px;
     font-size: 1.7rem !important;
-    line-height: 2.5rem;
+    line-height: 2.8rem;
   }
 
   /* ========================= */
@@ -1200,7 +1214,7 @@
   #portfolio-page h1 {
     width: 100%;
     padding: 25px;
-    color: var(--text-danger) !important;
+    color: var(--text-warning) !important;
     text-align: center;
     font-size:3rem !important;
     border-bottom: 3px solid var(--dark-gray);
@@ -1323,7 +1337,7 @@
   }
 
   .portfolio-project-initial {
-    background-color: var(--dark-gray);
+    background-color: var(--sup-gray);
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
@@ -1331,11 +1345,11 @@
     overflow: hidden;
     box-shadow: var(--shadow-md);
     z-index: 100000;
-
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
   .portfolio-project-initial h4{
       position: absolute;
-      background: var(--dark-gray);
+      background: var(--sup-gray);
       padding:5px 10px;
         left:0;
       top:0;
@@ -1504,7 +1518,7 @@
   }
   #contact-page h1{
     padding:25px;
-    color:var(--text-danger) !important;
+    color:var(--text-important) !important;
     border-bottom:3px solid var(--dark-gray);
     background-color: var(--dark-gray);
     font-size:3rem;
@@ -1529,19 +1543,38 @@
   }
   .contact-link{
     position: relative;
+        display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .contact-link img{
-    width:60px !important;
-    height:60px !important;
+    width:40px !important;
+    height:40px !important;
+    z-index: 2;
+    background-size: cover;
+    position: relative;
   }
+    .links .contact-link::after {
+      content: '';
+      position: absolute;
+      top: calc(50%-20px);
+      left: calc(50%-20px);
+      width: 35px;
+      height: 35px;
+    background:var(--text-important);
+    border-radius: 50%;
+    z-index: 1;
+    }
   .email{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-decoration: none !important;
+
     background: var(--sup-gray);
     box-shadow: var(--shadow);
+    border-radius: 3px;
   }
   .email p{
     color:var(--text-danger) !important;
@@ -1550,18 +1583,19 @@
   .email:hover{
     font-weight: 500;
     color:var(--text-danger);
-    background-color: var(--text-color);
+    background-color: var(--text-important);
     transition-duration: .5s;
   }
   .email img{
     width:150px !important;
     height: 120px !important;
+      background:transparent;
   }
   .links{
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 49% 49%;
-    grid-gap:10px;
+    grid-gap:13px;
     overflow: visible !important;
   }
   .links .contact-link{
@@ -1571,9 +1605,10 @@
     background: var(--sup-gray);
     border: 1px solid rgba(0,0,0,.125);
     box-shadow: var(--shadow);
+    border-radius: 3px;
   }
   .links .contact-link:hover{
-    background: var(--text-color);
+    background: var(--text-important);
     transition-duration: .5s;
   }
 
@@ -1655,8 +1690,11 @@
     .contact-links{
       grid-template-rows: 49% 49%;
       grid-template-columns: 96%;
+      margin-left: 0px;
     }
-
+    .email {
+      grid-column: 1/3;
+    }
     #portfolio-page .page-row {
       height:230vh !important;
     }
@@ -1715,7 +1753,7 @@
       /* min-height: 100vh; */
     }
     #navbar-toggle {
-      box-shadow: 0 0 10px 12px inherit;
+      box-shadow: 0 0 12px 2px rgba(0,0,0,.2);
       background: var(--dark-gray);
       // border:1px solid var(--text-color);
 
@@ -1771,6 +1809,7 @@
     #about-page p {
       font-size: 1.1rem !important;
       margin: 5px 0 !important;
+
     }
     #next-toggle {
       display: none;
@@ -1883,5 +1922,7 @@
       font-size: 0.85em;
     }
   }
+
+
   /*!*  about   *!*/
   /*!*  end   *!*/
