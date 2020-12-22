@@ -17,7 +17,7 @@
 
     --text-color: #7bc3e4;
     --text-color-2:#A8C780;
-    --text-important: #9773b7; /* #d47c65; /* #b3455e; /* #b5d787; * */
+    --text-important: rgb(151, 115, 183); /* #d47c65; /* #b3455e; /* #b5d787; * */
     /* --page-background: #3d3d3d; */
     --text-warning: #d6ad62;
     --text-warning-2:#C37460;
@@ -1021,14 +1021,14 @@ color: var(--text-warning) !important;
     position: relative;
   }
   .skills-container h2::after{
-    content: "";
+       content: "";
     position: absolute;
-    width:40%;
-    left:30%;
-    top:100%;
+    width: 40%;
+    left: 30%;
+    top: 100%;
     z-index: 10000;
-    height: 12px;
-    border-radius: 0;
+    height: 5px;
+    border-radius: 5px;
     background: var(--text-color);
   }
   .contact-icon{
