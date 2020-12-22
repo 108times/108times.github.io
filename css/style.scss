@@ -99,14 +99,18 @@
     margin: 0;
     box-sizing: border-box;
   }
+@font-face {
+  font-family: "Monaco";
+  src: url("/fonts/Monaco.ttf") format("ttf");
 
+}
   html {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
   }
   body {
-    font-family: "Railway", "Montserrat", "Lucida Sans Unicode", "Lucida Grande",
+    font-family:"Monaco", "Railway", "Montserrat", "Lucida Sans Unicode", "Lucida Grande",
       "Lucida Sans", Arial, sans-serif !important;
     background: var(--light-blue);
     color: var(--text-color);
@@ -948,7 +952,7 @@ color: var(--text-warning) !important;
   }
 
   #skills-page h2 {
-    font-weight: 500;
+    font-weight: bold;
     text-transform: capitalize;
     /* background: var(--page-background-static); */
     color: var(--text-warning) !important;
