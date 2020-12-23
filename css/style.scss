@@ -99,18 +99,14 @@
     margin: 0;
     box-sizing: border-box;
   }
-@font-face {
-  font-family: "Monaco";
-  src: url("/fonts/monaco.ttf") format("ttf");
 
-}
   html {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
   }
   body {
-    font-family:"Monaco", "Railway", "Montserrat", "Lucida Sans Unicode", "Lucida Grande",
+    font-family:"Space Mono", "Montserrat", "Lucida Sans Unicode", "Lucida Grande",
       "Lucida Sans", Arial, sans-serif !important;
     background: var(--light-blue);
     color: var(--text-color);
@@ -250,33 +246,35 @@
     position: absolute;
     z-index: -1;
     height: 70%;
-    width: 100%;
-    transition-delay: 50ms;
-    transition-duration: 0.1s;
+    width: 0%;
+
+    transition-duration: 0.2s;
     transition-timing-function: ease-in-out;
     opacity: 0;
   }
   .link-highlighted::before {
     /* height: 65%; */
     z-index: -1;
-    left: 100%;
+    left: 0;
     top: 30%;
     transition-delay: 100ms;
     background-color: #32384d; /* var(--text-warning)  #fab341 */
   }
   .link-highlighted::after {
     z-index: -1;
-    right: 100%;
+    right: 0;
     bottom: 30%;
     background-color: #3c425c; /* #eaf36e */
   }
   .link-highlighted:hover::before {
     opacity: 1;
     left: 0;
+    width: 100%;
   }
   .link-highlighted:hover::after {
     right: 0;
     opacity: 1;
+    width: 100%;
   }
   .link-highlighted:hover {
     /* color: white !important; */
@@ -285,20 +283,33 @@
   }
   #about-page .link-highlighted {
     font-weight: 800;
-    padding: 5px;;
+    padding: 5px 10px;;
     border-radius: 3px;
+    transition: 250ms 100ms ease-in-out;
+    overflow: hidden;
+    top: 0;
+    position: relative;
+    box-shadow: 0px 0px 0px 0px transparent;
   }
   #about-page .link-highlighted:hover{
-    border:1px solid var(--text-danger);
-  }
-  #about-skills-link {
 
+    top: -2px;
+    box-shadow: var(--shadow);
+  }
+  #about-skills-link:hover {
+    color: var(--text-danger) !important;
   }
    #about-portfolio-link {
 color: var(--text-warning) !important;
    }
+   #about-portfolio-link:hover {
+     border-color: var(--text-warning) !important;
+   }
    #about-contact-link {
      color: var(--text-important) !important;
+   }
+   #about-contact-link:hover {
+     border-color: var(--text-important) !important;
    }
   // #about-page .link-highlighted {
   //   color: var(--text-color) !important;
@@ -1488,7 +1499,28 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding-top:25px;
     height:27%;
   }
+  .about-name-container {
+    position: relative;
+    // text-align: left !important;
+  }
 
+.about-name-container span {
+  font-size: 3.5rem ;
+  position: relative;
+}
+  .about-name-container span::after {
+    content: "";
+    position: absolute;
+    top: 110%;
+    height: 6px;
+    width: 100px;
+    background: var(--text-color-2);
+    right: 5px;
+    border-radius: 1rem;
+  }
+  .name-span {
+    color: var(--text-color-2);
+  }
   /* .object-description div{
     display: block;
     position: relative;

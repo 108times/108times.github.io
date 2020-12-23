@@ -717,9 +717,9 @@ ready = $(document).ready(function () {
           "<div class='page-content'>" +
           "<div class='row page-row'>" +
           "<div   class='page-inner text-justify card card-body container-fluid col-md-6 col-sm-12'>" +
-          "<h1 class='m-auto p-3'>Hello, I'm Amir</h1>" +
-          "<p>I'm a web developer, living and studying in Almaty, Kazakhstan. My passion is creating and I find happiness in being a better me today than the me yesterday. Feel free to take a look at my skillset on the <a class = 'link-highlighted' href='#skills' id='about-skills-link' title = 'skills'>skills page</a>, " +
-          "check my latest projects on the <a id='about-portfolio-link' class = 'link-highlighted' href='#portfolio' title = 'portfolio'>portfolio page</a> and contact me on the <a id='about-contact-link' class = 'link-highlighted' href='#contact' title = 'contact'>contact page.</a></p></div> </div> </div></section>"
+        "<h1 class='m-auto p-3 about-name-container'><span>Hello, I'm <span class='name-span'>Amir</span></span></h1>" +
+          "<p>I'm a web developer, living and studying in Almaty, Kazakhstan. My passion is creating and I find happiness in being a better me today than the me yesterday.</p><p> Feel free to take a look at my skillset on the <a id='about-skills-link' class = 'link-highlighted' href='#skills' >skills page</a>  check my latest projects on the <a id='about-portfolio-link' class = 'link-highlighted' href='#portfolio' >portfolio page</a> and contact me on the  </br> <a id='about-contact-link' class = 'link-highlighted' href='#contact' >contact page.</a></p></div> </div> </div></section>"
+
         );
         break;
 
@@ -1002,9 +1002,8 @@ ready = $(document).ready(function () {
           "<div class='page-content'>" +
           "<div class='row page-row'>" +
           "<div   class='page-inner text-justify card card-body container-fluid col-md-6 col-sm-12'>" +
-          "<h1 class='m-auto p-3'>Hello, I'm Amir</h1>" +
-          "<p>I'm a web developer, living and studying in Almaty, Kazakhstan. My passion is creating and I find happiness in being a better me today than the me yesterday. Feel free to take a look at my skillset on the <a id='about-skills-link' class = 'link-highlighted' href='#skills' title = 'skills'>skills page</a>, " +
-          "check my latest projects on the <a id='about-portfolio-link' class = 'link-highlighted' href='#portfolio' title = 'portfolio'>portfolio page</a> and contact me on the <a id='about-contact-link' class = 'link-highlighted' href='#contact' title = 'contact'>contact page.</a></p></div> </div> </div></section>"
+          "<h1 class='m-auto p-3 about-name-container'><span>Hello, I'm <span class='name-span'>Amir</span></span></h1>" +
+          "<p>I'm a web developer, living and studying in Almaty, Kazakhstan. My passion is creating and I find happiness in being a better me today than the me yesterday.</p><p> Feel free to take a look at my skillset on the <a id='about-skills-link' class = 'link-highlighted' href='#skills' >skills page</a>  check my latest projects on the <a id='about-portfolio-link' class = 'link-highlighted' href='#portfolio' >portfolio page</a> and contact me on the  </br> <a id='about-contact-link' class = 'link-highlighted' href='#contact' >contact page.</a></p></div> </div> </div></section>"
         );
         break;
 
