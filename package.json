@@ -1,0 +1,31 @@
+{
+  "name": "personal-porftolio-website",
+  "version": "1.0.0",
+  "description": "My personal portfolio website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/108times/108times.github.io.git"
+  },
+  "keywords": [
+    "js",
+    "react",
+    "scss",
+    "css",
+    "portfolio"
+  ],
+  "author": "Amir <amirkadenov@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/108times/108times.github.io/issues"
+  },
+  "homepage": "https://github.com/108times/108times.github.io#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.35.1"
+  }
+}

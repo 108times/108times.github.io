@@ -1871,6 +1871,17 @@ canvas {
   position: relative;
 }
 
+.about-name-container span::after {
+  content: "";
+  position: absolute;
+  top: 110%;
+  height: 6px;
+  width: 100px;
+  background: var(--text-color-2);
+  right: 5px;
+  border-radius: 1rem;
+}
+
 .name-span {
   color: var(--text-color-2);
 }
@@ -1891,6 +1902,7 @@ canvas {
 /* ========================= */
 /* ======== # Contact-page =======*/
 /* ========================= */
+\
 #contact-page .page-content {
   overflow-x: scroll;
 }
@@ -2370,4 +2382,6 @@ canvas {
 
 /*!*  about   *!*/
 /*!*  end   *!*/
-/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=/style.78032849.css.map */

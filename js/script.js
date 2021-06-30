@@ -1,6 +1,8 @@
 let ready;
 let current_page = "about";
 
+  const getCurrentYear = () => new Date().getFullYear()
+
 function decideDelay() {
   let width = parseInt($(window).width());
   let initial = parseInt(
@@ -213,6 +215,8 @@ ready = $(document).ready(function () {
       // width: "50%"
     });
   }
+
+
 
   let menu_toggle = $("#navbar-toggle");
 
@@ -712,7 +716,7 @@ ready = $(document).ready(function () {
           //     "<h2>Skills</h2></section>"
           // );
           "<section id='about-page' class='page d-flex justify-content-center align-items-center text-center'>" +
-          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          '<div class="copyright">@' + getCurrentYear()+ ' Amir Kadenov</div>' +
           "<div class='page-bg'></div></div>" +
           "<div class='page-content'>" +
           "<div class='row page-row'>" +
@@ -731,7 +735,7 @@ ready = $(document).ready(function () {
           "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
           "<div class='page-content'>" +
           "<div class='row page-row'>" +
-          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          '<div class="copyright">@' + getCurrentYear()+ ' Amir Kadenov</div>' +
           "<div   class='page-inner text-center card card-body container-fluid col-md-9 col-sm-12'>" +
           " <section class='skills-description'>" +
           '<h1 id = "skills-title" style="margin-left:25% !important">Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
@@ -830,7 +834,7 @@ ready = $(document).ready(function () {
           "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
           "<div class='page-content'>" +
           '<div class="row page-row">' +
-          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          '<div class="copyright">@' + getCurrentYear()+ ' Amir Kadenov</div>' +
           '<div class="page-inner text-center card card-body container-fluid col-md-9 col-sm-12">' +
           '<section class="portfolio-description">' +
           '<h1>Portfolio<img class="icon-skills" src="icons/portfolio.png" alt="portfolio-icon" /></h1>' +
@@ -960,7 +964,7 @@ ready = $(document).ready(function () {
           "<div class='row page-row'>" +
           '<div class="page-inner text-center card card-body container-fluid col-md-9 col-sm-12">' +
           ' <section class="contact-content">' +
-          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          '<div class="copyright">@' + getCurrentYear()+ ' Amir Kadenov</div>' +
           '<h1 class="contact-icon">Contact me<img class="icon-skills" src="icons/links/contact.png" alt="portfolio-icon" /></h1>' +
           '<div class="contact-links">' +
           '<a href="mailto:amirkadenov@gmail.com" class="contact-link email">' +
@@ -997,7 +1001,7 @@ ready = $(document).ready(function () {
           //     "<h2>Skills</h2></section>"
           // );
           "<section id='about-page' class='page d-flex justify-content-center align-items-center text-center'>" +
-          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          '<div class="copyright">@' + getCurrentYear()+ ' Amir Kadenov</div>' +
           "<div class='page-bg'></div></div>" +
           "<div class='page-content'>" +
           "<div class='row page-row'>" +
@@ -1015,7 +1019,7 @@ ready = $(document).ready(function () {
           "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
           "<div class='page-content'>" +
           "<div class='row page-row'>" +
-          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          '<div class="copyright">@' + getCurrentYear()+ ' Amir Kadenov</div>' +
           "<div   class='page-inner text-center card card-body container-fluid col-md-9 col-sm-12'>" +
           " <section class='skills-description'>" +
           '<h1 id = "skills-title" style="margin-left:25% !important">Skills <img class="icon-skills" src="icons/wheels.png" alt="" /></h1>' +
@@ -1113,7 +1117,7 @@ ready = $(document).ready(function () {
           "<div class='page-bg'><div class='page-bg-container'></div><div class='page-bg-bg-container'></div></div>" +
           "<div class='page-content'>" +
           '<div class="row page-row">' +
-          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          '<div class="copyright">@' + getCurrentYear()+ ' Amir Kadenov</div>' +
           '<div class="page-inner text-center card card-body container-fluid col-md-9 col-sm-12">' +
           '<section class="portfolio-description">' +
           '<h1>Portfolio<img class="icon-skills" src="icons/portfolio.png" alt="portfolio-icon" /></h1>' +
@@ -1243,7 +1247,7 @@ ready = $(document).ready(function () {
           "<div class='row page-row'>" +
           '<div class="page-inner text-center card card-body container-fluid col-md-9 col-sm-12">' +
           ' <section class="contact-content">' +
-          '<div class="copyright">@2019 Amir Kadenov</div>' +
+          '<div class="copyright">@' + getCurrentYear()+ ' Amir Kadenov</div>' +
           '<h1 class="contact-icon">Contact me<img class="icon-skills" src="icons/links/contact.png" alt="portfolio-icon" /></h1>' +
           '<div class="contact-links">' +
           '<a href="mailto:amirkadenov@gmail.com" class="contact-link email">' +
@@ -1485,8 +1489,8 @@ ready = $(document).ready(function () {
   function navbarAppear() {
     $("#navbar-toggle").animate(
       {
-        top: "37px",
-        bottom: "0px"
+        top: "auto",
+        bottom: "50px"
       },
       500
     );
@@ -1547,7 +1551,7 @@ ready = $(document).ready(function () {
       setTimeout(function () {
         $("#navbar-toggle").animate(
           {
-            top: "-115px"
+            bottom: "-115px"
           },
           700
         );

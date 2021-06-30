@@ -1508,16 +1508,7 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   font-size: 3.5rem ;
   position: relative;
 }
-  .about-name-container span::after {
-    content: "";
-    position: absolute;
-    top: 110%;
-    height: 6px;
-    width: 100px;
-    background: var(--text-color-2);
-    right: 5px;
-    border-radius: 1rem;
-  }
+
   .name-span {
     color: var(--text-color-2);
   }
@@ -1539,7 +1530,7 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
   /* ========================= */
   /* ======== # Contact-page =======*/
-  /* ========================= */\
+  /* ========================= */
   #contact-page .page-content{
     overflow-x: scroll;
   }
