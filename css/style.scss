@@ -16,6 +16,7 @@
     --sup-gray: #242736;
 
     --text-color: #7bc3e4;
+      $text-color : rgb(123,195,228);
     --text-color-2:#A8C780;
     --text-important: rgb(151, 115, 183); /* #d47c65; /* #b3455e; /* #b5d787; * */
     /* --page-background: #3d3d3d; */
@@ -1781,7 +1782,7 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
     #navbar-toggle {
       box-shadow: 0 0 12px 2px rgba(0,0,0,.2);
-      background: var(--dark-gray);
+      background: rgba($text-color, 0.2);
       // border:1px solid var(--text-color);
 
        top: auto;

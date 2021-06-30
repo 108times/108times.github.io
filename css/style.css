@@ -13,6 +13,7 @@
   --dark-gray: #1b1e2b;
   --sup-gray: #242736;
   --text-color: #7bc3e4;
+  --text-color-rgb: rgb(123,195,228);
   --text-color-2:#A8C780;
   --text-important: rgb(151, 115, 183);
   /* #d47c65; /* #b3455e; /* #b5d787; * */
@@ -2195,7 +2196,7 @@ canvas {
   #navbar-toggle {
     -webkit-box-shadow: 0 0 12px 2px rgba(0, 0, 0, 0.2);
             box-shadow: 0 0 12px 2px rgba(0, 0, 0, 0.2);
-    background: var(--dark-gray);
+    background: rgba(var(--text-color-rgb), 0.1);
     top: auto;
     bottom: 50px;
     right: calc(50% - 30px);

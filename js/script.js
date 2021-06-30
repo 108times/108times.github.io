@@ -2,6 +2,7 @@ let ready;
 let current_page = "about";
 
   const getCurrentYear = () => new Date().getFullYear()
+  const isMobile = () => document.body.offsetWidth < 769 ? true : false
 
 function decideDelay() {
   let width = parseInt($(window).width());
@@ -1487,10 +1488,11 @@ ready = $(document).ready(function () {
   }
 
   function navbarAppear() {
+    const [top, bottom] = isMobile() ? ['auto', '50px'] : ['37px', '0px']
     $("#navbar-toggle").animate(
       {
-        top: "auto",
-        bottom: "50px"
+        top: top,
+        bottom: bottom
       },
       500
     );
@@ -1549,9 +1551,12 @@ ready = $(document).ready(function () {
       }, 500);
 
       setTimeout(function () {
+
         $("#navbar-toggle").animate(
           {
-            bottom: "-115px"
+
+            top: ( isMobile() ? "auto" : "-115px"),
+            bottom: ( isMobile() ? "-112px": 'auto')
           },
           700
         );
