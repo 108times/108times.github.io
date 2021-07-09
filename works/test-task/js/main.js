@@ -1,21 +1,122 @@
 // connect jquery & clip-path to create polyfill for css clip-path property
 // if run on ie11
 
-
 document.addEventListener('DOMContentLoaded', () => {
 	const isIE11 = () => {
-		// return !!window.MSInputMethodContext && !!document.documentMode;
-		return true
-	}
+		return !!window.MSInputMethodContext && !!document.documentMode;
+		// return true
+	};
+
+	// function for changing range position
+	const isMobile = () => document.body.offsetWidth < 768;
+
 
 	if (isIE11()) {
-		const script = document.createElement('script')
-		script.type = 'text/javascript'
-		script.src = 'js/libs.min.js'
-		document.getElementsByTagName('head')[0].appendChild(script)
+		const handler = () => {
+			const createFillPolyfill = options => {
+				const replacerTop = document.createElement('img');
+				replacerTop.className = options.className;
+				replacerTop.setAttribute('src', options.src);
+				replacerTop.setAttribute('width', options.width);
+				replacerTop.setAttribute('height', options.height);
+				replacerTop.setAttribute('alt', options.alt || '');
+				replacerTop.setAttribute('data-polyclip', options.polyclip);
+
+				options.container.appendChild(replacerTop);
+				return replacerTop;
+			};
+
+			const createBottomPart = options => {
+				const bottom = document.createElement('div');
+				bottom.className = options.className;
+				options.container.appendChild(bottom);
+				return bottom;
+			};
+
+			const range = document.querySelector('.range__scale');
+			range.innerHTML = '';
+			range.classList.add('polyfill');
+
+			// const rangeTop = document.querySelector('.range__scale-top');
+			const rangeTop = document.createElement('div');
+			rangeTop.className = 'polyfill__upper';
+
+			const rangeBottom = document.createElement('div');
+			rangeBottom.className = 'polyfill__bottom';
+
+			range.appendChild(rangeTop);
+			range.appendChild(rangeBottom);
+
+			const triangleGradient = createFillPolyfill({
+				src: 'images/gradient.png',
+				width: '768',
+				height: '11',
+				alt: '',
+				polyclip: '100%, 0, 100%, 100%, 0%, 100%',
+				className: 'plyfill__img',
+				container: rangeTop,
+			});
+
+			const triangleGray = createFillPolyfill({
+				src: 'images/gray.png',
+				width: '768',
+				height: '11',
+				alt: '',
+				polyclip: '100%, 0, 100%, 100%, 0%, 100%',
+				className: 'polyfill__img',
+				container: rangeBottom,
+			});
+
+			const bottomGradient = createBottomPart({
+				className: 'polyfill__upper-bottom',
+				container: rangeTop,
+			});
+
+			const bottomGray = createBottomPart({
+				className: 'polyfill__bottom-bottom',
+				container: rangeBottom,
+			});
+
+			const rangeControl = document.querySelector('.range__control')
+			setTimeout(() => rangeTop.style.maxWidth = document.querySelector('[data-range]').dataset.rangeStart + '%',1000)
+
+			window.setValues = (direction, v, step) => {
+				rangeTop.style.maxWidth = v + 'px'
+
+				if (direction === 'up') {
+					rangeControl.style.left = v + 'px';
+					v += step;
+
+				} else if (direction === 'down') {
+					rangeControl.style.left = v + 'px';
+					v -= step;
+				}
+			}
+			console.log(isMobile())
+
+			// if (isMobile()) {
+			// 	setTimeout(() => {
+			// 		const canvasList = document.querySelectorAll('.polyClip-clipped');
+			// 		console.log(canvasList);
+			// 		[...canvasList].forEach(canvas => {
+			// 			canvas.setAttribute('width', '768')
+			// 			console.log(canvas)
+			// 		})
+			// 	}, 50)
+			//
+			// }
+
+		};
+
+		const script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = 'js/libs.min.js';
+		document.getElementsByTagName('head')[ 0 ].appendChild(script);
 		script.onload = () => {
-			$('.element').ClipPath();
-		}
+
+			handler();
+
+		};
 	}
 
 	//	create floating placeholders
@@ -30,7 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			placeholder.textContent = text;
 			placeholder.classList.add('floating-placeholder');
 			// el.parentElement.prepend(placeholder);
-			el.parentElement.insertBefore(placeholder, el.parentElement.childNodes[0]);
+			el.parentElement.insertBefore(placeholder,
+				el.parentElement.childNodes[ 0 ]);
 			el.placeholderEl = placeholder;
 
 			if (el.value !== '') {
@@ -71,7 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		expandIcon.src = 'images/svg/expand-list.svg';
 		expandIcon.alt = 'expand-birthyear-list';
 		expandIcon.classList.add('birthyear-select__icon');
-		birthYearSelect.insertBefore(expandIcon, birthYearSelect.childNodes[0]);
+		birthYearSelect.insertBefore(expandIcon,
+			birthYearSelect.childNodes[ 0 ]);
 
 		// get input
 		const input = birthYearSelect.querySelector('input');
@@ -96,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			};
 			ul.appendChild(li);
 		}
-		birthYearSelect.insertBefore(ul, birthYearSelect.childNodes[0]);
+		birthYearSelect.insertBefore(ul, birthYearSelect.childNodes[ 0 ]);
 
 		const openSelection = e => {
 			e.preventDefault();
@@ -212,14 +315,42 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 			return v;
 		};
-		const isMobile = () => document.body.offsetWidth < 768;
+
+		const setRangePosition = function(
+			e, el, step = 1, ms = 50, absoluteValue = null) {
+			let v;
+			// if value is provided then just move to it
+
+			if (absoluteValue !== null) {
+				v = absoluteValue;
+			} else {
+				const coords = el.getBoundingClientRect();
+				v = e.pageX - coords.left;
+			}
+			const goal = v;
+			const initial = rangeControl.style.left.replace('px', '');
+			const direction = goal > initial ? 'up' : 'down';
+			let i = setTimeout(function handler() {
+				window.setValues ? window.setValues(direction, v, step) : setValues(direction, v, step);
+				const current = v;
+				if (current === goal) {
+					clearTimeout(i);
+					mouseDownHandler.current = current;
+					touchStartHandler.current = current;
+				} else {
+					i = setTimeout(handler, ms);
+				}
+
+			}, ms);
+
+		};
 
 		const points = new Map([
-			[0, {dashes: 7, markerHeight: 0}],
-			[24, {dashes: 6, markerHeight: 6}],
-			[50, {dashes: 5, markerHeight: 9}],
-			[75, {dashes: 4, markerHeight: 11}],
-			[100, {dashes: 3, markerHeight: 14}],
+			[0, {dashes: 7, markerHeight: 0, ie11Top: 21}],
+			[24, {dashes: 6, markerHeight: 6, ie11Top: 7}],
+			[50, {dashes: 5, markerHeight: 9, ie11Top: 5}],
+			[75, {dashes: 4, markerHeight: 11, ie11Top: 5}],
+			[100, {dashes: 3, markerHeight: 14, ie11Top: 23}],
 		]);
 
 		const range = document.querySelector('[data-range]');
@@ -233,10 +364,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		const rangeWidth = range.querySelector('.range__scale-top').offsetWidth;
 
 		const createPoints = (pointsData) => {
-			const pointsContainer = range.querySelector('.range__points')
+			const pointsContainer = range.querySelector('.range__points');
 
 			if (isIE11()) {
-				pointsContainer.style['align-items'] = 'flex-start'
+				pointsContainer.style[ 'align-items' ] = 'flex-start';
 			}
 
 			const points = range.querySelectorAll('[data-point]');
@@ -255,9 +386,10 @@ document.addEventListener('DOMContentLoaded', () => {
 						setTimeout(() => {
 
 							point.style.right = '0';
-							point.style.left = offsetLeft + 'px';
+							point.style.left = offsetLeft + 2 + 'px';
+							point.style.top = '44px'
 							point.querySelector(
-								'.range__point-text ').style.cssText = 'position: absolute; left: -152px; top:-20px;width:180px;';
+								'.range__point-text ').style.cssText = 'position: absolute; left: -152px; top:0px;width:180px;';
 						});
 					}
 
@@ -272,8 +404,13 @@ document.addEventListener('DOMContentLoaded', () => {
 				orientation.className = 'range__point-orientation ' +
 					orientationAdditionClass;
 
-				const {dashes: dashesAmount, markerHeight} = getDashesAmount(
+				const {dashes: dashesAmount, markerHeight, ie11Top} = getDashesAmount(
 					point.dataset.point, pointsData);
+
+				if (isIE11()) {
+					point.style.top = ie11Top + 'px'
+				}
+
 				const dashes = document.createElement('div');
 				dashes.className = 'range__point-dashes';
 				dashes.style.height = dashesAmount * 2 + 'px';
@@ -300,6 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		createPoints(points);
 
 		const setValues = (direction, v, step) => {
+			console.log(v);
 			[...rangeGradientsFills].forEach(fill => {
 				fill.style.width = rangeWidth - v + 'px';
 			});
@@ -312,35 +450,6 @@ document.addEventListener('DOMContentLoaded', () => {
 				rangeControl.style.left = v + 'px';
 				v -= step;
 			}
-		};
-
-		const changeValues = (
-			e, el, step = 1, ms = 50, absoluteValue = null) => {
-			let v;
-			// if value is provided then just move to it
-
-			if (absoluteValue !== null) {
-				v = absoluteValue;
-			} else {
-				const coords = el.getBoundingClientRect();
-				v = e.pageX - coords.left;
-			}
-			const goal = v;
-			const initial = rangeControl.style.left.replace('px', '');
-			const direction = goal > initial ? 'up' : 'down';
-			let i = setTimeout(function handler() {
-				setValues(direction, v, step);
-				const current = v;
-				if (current === goal) {
-					clearTimeout(i);
-					mouseDownHandler.current = current;
-					touchStartHandler.current = current;
-				} else {
-					i = setTimeout(handler, ms);
-				}
-
-			}, ms);
-
 		};
 
 		const isCloserToUpper = (curr, upperValue, lowerValue) => {
@@ -370,7 +479,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				if (min === undefined
 					|| item.absValue < min.absValue) min = item;
 			});
-			setTimeout(() => changeValues(null, null, 1, 400, min.point), 200);
+			setTimeout(() => setRangePosition(null, null, 1, 400, min.point), 200);
 		};
 
 		const assignValuesAccordingToPercentages = (arr, width) => {
@@ -388,7 +497,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const mouseDownHandler = function(e) {
 
 			const mouseMoveHandler = (e) => {
-				changeValues(e, rangeControlContainer);
+				setRangePosition(e, rangeControlContainer);
 			};
 			const mouseUpHandler = (e) => {
 				rangeControlContainer.removeEventListener('mousemove',
@@ -429,7 +538,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		const touchStartHandler = function(e) {
 			const offsetLeft = (e.changedTouches[ 0 ].pageX + range.scrollLeft);
-			changeValues(null, null, 1, 50, offsetLeft);
+			setRangePosition(null, null, 1, 50, offsetLeft);
 
 		};
 		rangeControl.addEventListener('mousedown', mouseDownHandler);
