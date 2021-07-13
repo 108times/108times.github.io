@@ -20,21 +20,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b29903a2-7964-40a7-bfc2-64e3b0d5b29e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dist/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/github.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/play.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/right-arrow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/test-task-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/test-task-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/vegefoods.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/vegefoods2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/css/style.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/fonts/Roboto-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/fonts/Roboto-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/fonts/Roboto-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/fonts/Roboto-Light.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/fonts/Roboto-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/fonts/Roboto-Medium.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/fonts/Roboto-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/fonts/Roboto-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/fonts/Roboto-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/fonts/Roboto-Thin.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/fonts/fonts/Roboto-Bold.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/fonts/fonts/Roboto-Light.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/fonts/fonts/Roboto-Medium.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/fonts/fonts/Roboto-Regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/fonts/fonts/Roboto-Thin.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/images/gradient.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/images/gray.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/images/svg/about.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/images/svg/checked.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/images/svg/expand-list.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/images/svg/experience.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/images/svg/gradient.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/images/svg/js-control.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/images/svg/js.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/images/svg/personal-info.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/js/libs.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/js/main.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/build/polyfill.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/css/style.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/fonts/Roboto-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/fonts/Roboto-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/fonts/Roboto-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/fonts/Roboto-Light.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/fonts/Roboto-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/fonts/Roboto-Medium.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/fonts/Roboto-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/fonts/Roboto-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/fonts/Roboto-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/fonts/Roboto-Thin.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/fonts/fonts/Roboto-Bold.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/fonts/fonts/Roboto-Light.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/fonts/fonts/Roboto-Medium.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/fonts/fonts/Roboto-Regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/fonts/fonts/Roboto-Thin.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/images/gradient.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/images/gray.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/images/svg/about.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/images/svg/checked.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/images/svg/expand-list.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/images/svg/experience.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/images/svg/gradient.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/images/svg/js-control.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/images/svg/js.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/images/svg/personal-info.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/js/libs.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/works/test-task/js/main.min.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +128,7 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1626066433" />
+                    <option name="lastUsedInstant" value="1626197410" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="new-version" />
@@ -136,7 +182,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="LET" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/works/test-task" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
@@ -217,7 +263,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/script.js</url>
           <line>2002</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
